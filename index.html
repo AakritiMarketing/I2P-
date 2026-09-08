@@ -27,8 +27,7 @@
     .boot-progress span { display:block; height:100%; width:0; background:var(--green); transition:width 1s linear; }
     .boot-time { margin-top:12px; font-family:"DM Mono",monospace; color:#6c846f; font-size:11px; }
     .boot-close { margin-top:18px; background:transparent; color:var(--muted); font-size:11px; }
-    .top-actions { display:flex; align-items:center; gap:26px; color:var(--muted); font-size:13px; font-weight:600; }
-    .top-actions .plan { color:var(--ink); padding:8px 13px; border:1px solid var(--line); border-radius:20px; background:#fff; }
+    .top-actions { display:none; }
     main { width:min(1280px, 89vw); margin:0 auto; padding:47px 0 70px; }
     .heading { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:33px; }
     h1 { font-size:clamp(33px,4vw,55px); line-height:.98; letter-spacing:-.07em; margin:0 0 14px; max-width:600px; }
@@ -115,7 +114,7 @@
     .template-count { color:var(--muted); font:10px "DM Mono",monospace; white-space:nowrap; }
     .template-grid { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; }
     .library-heading { margin-top:38px; }
-    .library-card { position:relative; overflow:hidden; padding:0; text-align:left; border:1px solid var(--line); border-radius:13px; background:#fff; }
+    .library-card { position:relative; overflow:hidden; padding:0; text-align:left; border:1px solid var(--line); border-radius:13px; background:#fff; color:var(--ink); }
     .library-card .template-thumb { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; }
     .library-card .template-info { display:block; padding:10px 11px 11px; }
     .library-card .template-title { display:block; font-size:11px; font-weight:800; }
@@ -164,13 +163,17 @@
     .welcome-kicker { color:#75945a; font:10px "DM Mono",monospace; letter-spacing:.15em; text-transform:uppercase; margin-bottom:14px; }
     @keyframes introIn { from { opacity:0; transform:translateY(8px) scale(.96); } to { opacity:1; transform:none; } }
     @media (max-width:520px) { .choice-row { grid-template-columns:1fr; } }
-    .boot-card, .top-actions .plan, .upload-icon, .mode-button, .diagnostics, .template-card, .library-card { background:#151020; color:var(--ink); }
+    .boot-card, .upload-icon, .mode-button, .diagnostics, .template-card, .library-card { background:#151020; color:var(--ink); }
     .template-thumb { background:#0e0917; }
     .template-card:hover, .library-card:hover { border-color:var(--pink); box-shadow:0 12px 26px rgba(168,85,247,.2); transform:translateY(-3px); }
     .template-title, .panel-title, .options h3, .section-row h3 { color:var(--ink); }
     select, input[type=text], textarea { color:var(--ink); background:#0f0a18; border-color:var(--line); }
     .generate, .template-generate, .copy { background:linear-gradient(135deg,var(--purple),var(--pink)); color:#180b25; box-shadow:0 8px 22px rgba(168,85,247,.25); }
-    .file-dot, .library-status-dot.done { background:#c084fc; box-shadow:0 0 10px rgba(192,132,252,.75); }
+    .file-dot { background:#c084fc; box-shadow:0 0 10px rgba(192,132,252,.75); }
+    .library-status-dot.done { background:#54e38e; box-shadow:0 0 10px rgba(84,227,142,.75); }
+    .library-legend { display:flex; align-items:center; gap:8px; margin:10px 0 14px; color:var(--muted); font:10px "DM Mono",monospace; }
+    .legend-dot { width:9px; height:9px; border-radius:50%; background:#54e38e; box-shadow:0 0 10px rgba(84,227,142,.75); }
+    .library-card.pending { cursor:not-allowed; opacity:.72; }
     .welcome-kicker, h1 span { color:var(--pink); }
   </style>
 </head>
@@ -198,31 +201,25 @@
         <h1>Welcome to <span>Image to Prompt Generator.</span></h1>
         <p>Choose a ready-made visual template or create your own prompt from an uploaded image. Start with the image and keep creative control over every change.</p>
         <div class="choice-row">
-          <button class="choice-card" id="chooseTemplates" type="button" onclick="openTemplateMode()"><strong>Select from image templates →</strong><span>Choose one of 20 prepared scenes, upload your picture for the character identity, edit the options, and generate a detailed prompt.</span></button>
+          <button class="choice-card" id="chooseTemplates" type="button" onclick="openTemplateMode()"><strong>Image library →</strong><span>Choose an image, edit its character and scene controls, and generate a detailed prompt.</span></button>
           <button class="choice-card" id="createOwn" type="button" onclick="openOwnMode()"><strong>Create your own →</strong><span>Upload an image and use the vision-analysis workflow to build an editable prompt from your own reference.</span></button>
         </div>
       </div>
     </section>
-    <div class="heading hidden" id="workspaceHeading">
-      <div><h1>See it. <span>Describe it.</span><br>Make it yours.</h1><p class="lede">Turn any image into a precise, editable prompt. Keep the people you love, change what you like, and create without starting over.</p></div>
-    </div>
+    <div class="heading hidden" id="workspaceHeading"></div>
     <section class="template-section hidden" id="templateSection" aria-labelledby="templateHeading">
-      <div class="template-head">
-        <div><h2 id="templateHeading">Phase 1 · Choose a built-in scene</h2><p>Pick a finished visual formula, then upload a face or reference image to make it yours. No analysis required.</p></div>
-        <span class="template-count">20 READY-TO-USE TEMPLATES</span>
-      </div>
-      <div class="template-grid" id="templateGrid"></div>
       <div class="template-head library-heading">
-        <div><h2>Image library</h2><p>New images are grouped automatically. A green dot means the Qwen prompt is ready.</p></div>
-        <span class="template-count" id="libraryCount">LOADING LIBRARY</span>
+        <div><h2>Image library</h2></div>
+        <span class="template-count" id="libraryCount" hidden></span>
       </div>
+      <div class="library-legend"><span class="legend-dot"></span><span>Green dot = prompt available</span><span>·</span><span>No dot = prompt not available yet</span></div>
       <div class="library-filters" id="libraryFilters"></div>
       <div class="template-grid" id="libraryGrid"></div>
     </section>
     <section class="workspace hidden" id="workspace">
       <div class="panel">
         <div class="template-selected" id="selectedTemplate"></div>
-        <div class="panel-head"><div><div class="eyebrow">01 / Source image</div><div class="panel-title">Upload your reference</div></div><div class="step">PNG · JPG · WEBP</div></div>
+        <div class="panel-head"><div><div class="eyebrow">01 / Edit image</div><div class="panel-title">Character and scene controls</div></div></div>
         <label class="upload-box" id="dropZone" for="fileInput">
           <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
           <div class="upload-content"><div class="upload-icon">↑</div><div class="upload-title">Drop an image here</div><div class="upload-hint">or <span class="browse">browse your files</span><br>Up to 10MB</div></div>
@@ -239,7 +236,7 @@
         </div>
       </div>
       <div class="panel output">
-        <div class="panel-head output-head"><div><div class="eyebrow">02 / Your prompt</div><div class="panel-title">Make precise adjustments</div></div><span class="status" id="status">READY TO GENERATE</span></div>
+        <div class="panel-head output-head"><div><div class="eyebrow">02 / Your prompt</div><div class="panel-title">Make precise adjustments <span id="selectedPromptName"></span></div></div><span class="status" id="status">READY TO GENERATE</span></div>
         <div class="prompt-wrap"><textarea id="prompt" spellcheck="false">Upload an image and generate a prompt to see a detailed, editable description here. Every subject will be separated so you can keep, remove, or customize them.</textarea><span class="word-count" id="wordCount">23 words</span></div>
         <div class="prompt-tools"><button class="tool-link" id="reset" type="button">↺ Reset prompt</button><button class="copy" id="copy" type="button">Copy prompt <span>↗</span></button></div>
         <div class="diagnostics" id="diagnostics"><div class="diagnostics-summary" id="diagnosticsSummary">No analysis response yet.</div><pre id="rawData"></pre></div>
@@ -285,7 +282,7 @@
       ['Night neon portrait', 'Cinematic', 'template-09.jpg', 'A night portrait lit by contrasting neon signage, colored reflections on skin and clothing, deep controlled blacks, wet or reflective environmental surfaces, shallow depth of field, a slightly low camera angle, and an intense modern music-video atmosphere.'],
       ['Product hero composition', 'Commercial', 'template-10.jpg', 'A premium commercial hero image with the central product or subject isolated as the sharpest point, carefully arranged supporting objects, tactile surfaces, soft directional studio light, controlled specular highlights, clean brand-safe negative space, and advertising-level polish.'],
       ['Mind-bending split portrait', 'Conceptual', 'template-11.jpg', 'A conceptual portrait that merges a realistic human subject with a symbolic transformation, seamless transitions between skin, architecture, and abstract forms, coherent light across every layer, fine micro-texture, restrained surrealism, and a strong centered visual metaphor.'],
-      ['Design education poster', 'Graphic', 'template-12.jpg', 'A structured educational design poster with a clear visual hierarchy, modular panels, legible placeholder typography zones, contrasting color palette, crisp alignment, visual examples arranged with deliberate spacing, and a polished contemporary editorial layout.'],
+      ['Edit the image', 'Graphic', 'template-12.jpg', 'Edit the selected image while preserving its visual structure. Adjust identity, wardrobe, mood, lighting, camera, objects, text, and composition only through the controls and written changes.'],
       ['Urban boy portrait', 'Street', 'template-13.jpg', 'A confident young streetwear subject photographed in an urban setting, relaxed stance, layered casual clothing, realistic textile folds, environmental perspective lines, overcast soft light, muted color grading, and authentic candid editorial energy.'],
       ['Model life fashion collage', 'Editorial', 'template-14.jpg', 'A tall multi-panel fashion-week collage combining runway models, photographers firing flashes, backstage drinks and credentials, a pink-lit show stage, a seated audience, venue chandeliers, and street-style press moments. Keep the irregular magazine collage layout, black-white-pink palette with selective color accents, hard flash bloom, varied panel crops, central “MODEL LIFE” title block, and energetic documentary fashion-week atmosphere.'],
       ['Vogue monochrome cover', 'Editorial', 'template-15.jpg', 'A vertical black-and-white luxury magazine cover with one woman in a dark tailored suit, white shirt and narrow tie, seated or leaning in a sculptural close portrait. Use a low slightly tilted camera angle, directional side light, charcoal gradient background, bright facial highlights, deep editorial shadows, large white serif VOGUE masthead, and carefully spaced cover lines around but never across the eyes and facial features. Preserve the cover hierarchy and premium typography zones.'],
@@ -316,6 +313,11 @@
       $('#templateSection').classList.remove('hidden');
       $('#workspaceHeading').classList.remove('hidden');
       $('#workspace').classList.add('hidden');
+      $('#workspace').classList.add('template-workspace');
+      ['#dropZone', '#modeRow', '#analyzeImage', '.file-strip'].forEach(selector => {
+        const element = $(selector);
+        if (element) element.style.display = 'none';
+      });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     function openOwnMode() {
@@ -323,6 +325,11 @@
       $('#templateSection').classList.add('hidden');
       $('#workspaceHeading').classList.remove('hidden');
       $('#workspace').classList.remove('hidden');
+      $('#workspace').classList.remove('template-workspace');
+      ['#dropZone', '#modeRow', '.file-strip'].forEach(selector => {
+        const element = $(selector);
+        if (element) element.style.display = '';
+      });
       $('#modeRow').style.display = 'flex';
       analyzeButton.classList.remove('visible');
       $('#analysisMode').click();
@@ -387,46 +394,55 @@
       updateCount();
     }
     function renderTemplates() {
-      const grid = $('#templateGrid');
-      templates.forEach((template, index) => {
-        const card = document.createElement('button');
-        card.type = 'button';
-        card.className = 'template-card';
-        card.innerHTML = `<img class="template-thumb" src="templates/${template.image}" alt="${template.title}" loading="lazy"><span class="template-info"><span class="template-title">${String(index + 1).padStart(2, '0')} · ${template.title}</span><span class="template-meta">${template.category}</span></span>`;
-        card.addEventListener('click', async () => {
-          selectedTemplate = template;
-          document.querySelectorAll('.template-card').forEach(item => item.classList.remove('selected'));
-          card.classList.add('selected');
-          const selected = $('#selectedTemplate');
-          selected.innerHTML = `<strong>${template.title} · ${template.category}</strong>Upload your picture for the character face and body identity. The selected scene, background, pose, camera, style, lighting, and composition stay locked until you change them.<div class="character-editor"><label>Face / identity<input id="characterFace" type="text" placeholder="Preserve uploaded face"></label><label>Body / proportions<input id="characterBody" type="text" placeholder="Preserve uploaded body"></label><label>Clothing change<input id="characterClothing" type="text" placeholder="Keep template clothing"></label></div><textarea id="templateOther" placeholder="Write any other change: colours, objects, text, pose, camera, lighting, or background..."></textarea><button class="template-upload" id="templateUpload" type="button">Upload your picture</button><button class="template-generate" id="templateGenerate" type="button">✦ Generate detailed prompt</button>`;
-          selected.classList.add('open');
-          $('#templateUpload').addEventListener('click', () => fileInput.click());
-          $('#fastMode').click();
-          $('#modeRow').style.display = 'none';
-          analyzeButton.classList.remove('visible');
-          applyTemplateScene(index);
-          promptBox.value = 'Loading the original Qwen3.5 prompt from ComfyUI…';
-          status.textContent = 'LOADING ORIGINAL QWEN PROMPT';
-          updateCount();
-          $('#templateGenerate').addEventListener('click', generateTemplatePrompt);
-          $('#workspace').classList.remove('hidden');
-          document.querySelector('.workspace').scrollIntoView({ behavior: 'smooth', block: 'start' });
-          try {
-            const response = await fetch(`generated-prompts/template-${String(index + 1).padStart(2, '0')}.txt`);
-            if (!response.ok) throw new Error(`Prompt file unavailable (${response.status})`);
-            selectedTemplate.rawPrompt = await response.text();
-            promptBox.value = selectedTemplate.rawPrompt;
-            status.textContent = selectedFile ? 'ORIGINAL QWEN PROMPT · SET OPTIONS' : 'ORIGINAL QWEN PROMPT LOADED';
-            updateCount();
-          } catch (error) {
-            promptBox.value = selectedTemplate.prompt;
-            status.textContent = 'BUILT-IN PROMPT FALLBACK';
-            updateCount();
-          }
-        });
-        grid.appendChild(card);
-      });
       loadImageLibrary();
+    }
+    function libraryTitle(record, category) {
+      const source = (record.sourceName || '').replace(/\.[^.]+$/, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+      if (source && source.toLowerCase() !== 'jpeg' && source.length > 2) return source.slice(0, 46);
+      return `${category.replaceAll('-', ' ')} image`;
+    }
+    function normalizeLibraryCategory(value) {
+      const source = String(value || '').toLowerCase();
+      if (source.includes('product') || source.includes('commercial') || source.includes('food')) return 'product-commercial';
+      if (source.includes('fantasy') || source.includes('surreal') || source.includes('illustration') || source.includes('conceptual')) return 'fantasy';
+      if (source.includes('fashion') || source.includes('editorial') || source.includes('portrait') || source.includes('street')) return 'fashion';
+      return 'cinematic';
+    }
+    async function openLibraryRecord(record, category) {
+      selectedTemplate = {
+        title: record.title || libraryTitle(record, category),
+        category: category.replaceAll('-', ' '),
+        prompt: `Create a faithful image-generation prompt for the selected ${category.replaceAll('-', ' ')} image. Preserve its composition, subject placement, environment, pose, camera, lighting, materials, colors, depth, and aspect ratio. Apply only the requested edits.`,
+        rawPrompt: ''
+      };
+      $('#selectedPromptName').textContent = `· ${selectedTemplate.title}`;
+      $('#templateSection').classList.remove('hidden');
+      $('#workspace').classList.remove('hidden');
+      $('#workspace').classList.add('template-workspace');
+      ['#dropZone', '#modeRow', '#analyzeImage', '.file-strip'].forEach(selector => {
+        const element = $(selector);
+        if (element) element.style.display = 'none';
+      });
+      const selected = $('#selectedTemplate');
+      selected.innerHTML = `<strong>${selectedTemplate.title}</strong><div class="character-editor"><label>Face / identity<input id="characterFace" type="text" placeholder="Preserve uploaded face"></label><label>Body / proportions<input id="characterBody" type="text" placeholder="Preserve uploaded body"></label><label>Clothing change<input id="characterClothing" type="text" placeholder="Keep template clothing"></label></div><textarea id="templateOther" placeholder="Write any other change: colours, objects, text, pose, camera, lighting, or background..."></textarea><button class="template-generate" id="templateGenerate" type="button">✦ Generate detailed prompt</button>`;
+      selected.classList.add('open');
+      $('#templateGenerate').addEventListener('click', generateTemplatePrompt);
+      applyTemplateScene(0);
+      promptBox.value = 'Loading image prompt…';
+      status.textContent = 'LOADING IMAGE PROMPT';
+      try {
+        if (!record.promptFile) throw new Error('Prompt not generated yet');
+        const response = await fetch(record.promptFile);
+        if (!response.ok) throw new Error(`Prompt unavailable (${response.status})`);
+        selectedTemplate.rawPrompt = await response.text();
+        promptBox.value = selectedTemplate.rawPrompt;
+        status.textContent = 'IMAGE PROMPT LOADED';
+      } catch (error) {
+        promptBox.value = `${selectedTemplate.prompt}\n\nThis image is categorized as ${category.replaceAll('-', ' ')}. A Qwen prompt is not available for this image yet.`;
+        status.textContent = 'PROMPT NOT READY';
+      }
+      updateCount();
+      document.querySelector('.workspace').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     async function loadImageLibrary() {
       const grid = $('#libraryGrid');
@@ -434,13 +450,30 @@
         const response = await fetch('image-library/manifest.json');
         if (!response.ok) throw new Error('Library manifest unavailable');
         const manifest = await response.json();
-        const records = manifest.images.filter(record => record.status !== 'excluded-existing-template');
+        const coreRecords = templates.map((template, index) => ({
+          id: `template-${String(index + 1).padStart(2, '0')}`,
+          title: template.title,
+          category: normalizeLibraryCategory(template.category),
+          file: template.image,
+          imagePath: `templates/${template.image}`,
+          promptFile: `generated-prompts/template-${String(index + 1).padStart(2, '0')}.txt`,
+          status: 'analyzed',
+          sourceName: template.title
+        }));
+        const records = [...coreRecords, ...manifest.images.filter(record => record.status !== 'excluded-existing-template')]
+          .map(record => ({ ...record, category: normalizeLibraryCategory(record.category) }));
         const categories = [...new Set(records.map(record => record.category || 'general-photography'))].sort();
-        $('#libraryCount').textContent = `${records.length} IMAGES · ${categories.length} CATEGORIES`;
+        $('#libraryCount').textContent = `${records.length} images`;
         const filters = $('#libraryFilters');
-        const renderLibrary = (selectedCategory = 'all') => {
-          grid.innerHTML = '';
-          const visible = selectedCategory === 'all' ? records : records.filter(record => (record.category || 'general-photography') === selectedCategory);
+        const renderLibrary = (selectedCategory = 'all', selectedAvailability = 'all') => {
+        grid.innerHTML = '';
+        const visible = records.filter(record => {
+            const categoryMatches = selectedCategory === 'all' || (record.category || 'general-photography') === selectedCategory;
+            const availabilityMatches = selectedAvailability === 'all'
+              || (selectedAvailability === 'available' && record.status === 'analyzed')
+              || (selectedAvailability === 'pending' && record.status !== 'analyzed');
+            return categoryMatches && availabilityMatches;
+          });
           const grouped = visible.reduce((groups, record) => {
             const category = record.category || 'general-photography';
             (groups[category] ||= []).push(record);
@@ -452,31 +485,50 @@
             heading.textContent = category.replaceAll('-', ' ').replace(/\b\w/g, letter => letter.toUpperCase());
             grid.appendChild(heading);
             grouped[category].forEach(record => {
-              const card = document.createElement('div');
-              card.className = 'library-card';
+              const card = document.createElement('button');
+              card.type = 'button';
               const ready = record.status === 'analyzed';
-              card.innerHTML = `<img class="template-thumb" src="image-library/images/${record.file}" alt="${record.sourceName}" loading="lazy"><span class="library-status-dot ${ready ? 'done' : ''}" title="${ready ? 'Prompt ready' : 'Categorized; prompt pending'}"></span><span class="template-info"><span class="template-title">${record.id}</span><span class="template-meta">${category.replaceAll('-', ' ')}</span></span>`;
+              card.className = `library-card${ready ? '' : ' pending'}`;
+              const imagePath = record.imagePath || `image-library/images/${record.file}`;
+              card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${record.sourceName}" loading="lazy"><span class="library-status-dot ${ready ? 'done' : ''}" title="${ready ? 'Prompt ready' : 'Categorized; prompt pending'}"></span><span class="template-info"><span class="template-title">${record.title || libraryTitle(record, category)}</span><span class="template-meta">${category.replaceAll('-', ' ')}</span></span>`;
+              if (ready) card.addEventListener('click', () => openLibraryRecord(record, category));
               grid.appendChild(card);
             });
           });
         };
-        const allFilter = document.createElement('button');
-        allFilter.className = 'library-filter active';
-        allFilter.type = 'button';
-        allFilter.textContent = 'All images';
-        filters.appendChild(allFilter);
-        [allFilter, ...categories.map(category => {
+        const availabilityFilters = [
+          ['all', 'All images'],
+          ['available', 'With prompt'],
+          ['pending', 'Without prompt']
+        ].map(([value, label], index) => {
+          const filter = document.createElement('button');
+          filter.className = `library-filter${index === 0 ? ' active' : ''}`;
+          filter.type = 'button';
+          filter.dataset.availability = value;
+          filter.textContent = label;
+          filters.appendChild(filter);
+          return filter;
+        });
+        const categoryFilters = categories.map(category => {
           const filter = document.createElement('button');
           filter.className = 'library-filter';
           filter.type = 'button';
           filter.textContent = category.replaceAll('-', ' ').replace(/\b\w/g, letter => letter.toUpperCase());
           filters.appendChild(filter);
           return filter;
-        })].forEach((filter, index) => {
+        });
+        let selectedCategory = 'all';
+        let selectedAvailability = 'all';
+        [...availabilityFilters, ...categoryFilters].forEach((filter) => {
           filter.addEventListener('click', () => {
-            filters.querySelectorAll('.library-filter').forEach(item => item.classList.remove('active'));
-            filter.classList.add('active');
-            renderLibrary(index === 0 ? 'all' : categories[index - 1]);
+            if (filter.dataset.availability) {
+              selectedAvailability = filter.dataset.availability;
+              availabilityFilters.forEach(item => item.classList.toggle('active', item === filter));
+            } else {
+              selectedCategory = filter.textContent.toLowerCase().replaceAll(' ', '-');
+              categoryFilters.forEach(item => item.classList.toggle('active', item === filter));
+            }
+            renderLibrary(selectedCategory, selectedAvailability);
           });
         });
         renderLibrary();
