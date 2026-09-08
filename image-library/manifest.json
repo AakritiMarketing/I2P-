@@ -1,0 +1,1916 @@
+{
+    "version":  1,
+    "createdAt":  "2026-09-08T04:58:55.5992993Z",
+    "sourceAttachmentCount":  143,
+    "excludedExistingTemplateCount":  40,
+    "newImageCount":  103,
+    "images":  [
+                   {
+                       "id":  "library-001",
+                       "sourceName":  "JPEG.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0256c762-a438-4472-a222-2fa1affa48c6\\JPEG.jpg",
+                       "file":  "library-001.jpg",
+                       "sha256":  "226FAD38291CFBDFA549123303F796CD5640CE7FEFECFB9159D09D238361A804",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-001.txt",
+                       "error":  null,
+                       "elapsedMs":  47186,
+                       "characters":  2068
+                   },
+                   {
+                       "id":  "library-002",
+                       "sourceName":  "Menâ€™s Outfit Inspiration 2026 â€“ Best Casualâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\025dcf34-7fd9-4664-b650-b7596b10aeaf\\Menâ€™s Outfit Inspiration 2026 â€“ Best Casualâ€¦.jpg",
+                       "file":  "library-002.jpg",
+                       "sha256":  "08FF3BCF16926BAA6279248C0DB9A6E09AE8569E9529923AD0CB2637909501C2",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "lifestyle-social"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-002.txt",
+                       "error":  null,
+                       "elapsedMs":  61854,
+                       "characters":  2714
+                   },
+                   {
+                       "id":  "library-003",
+                       "sourceName":  "Viral trend ðŸ˜± AI figurine   Isso agora estÃ¡ emâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0619b29e-8481-48e7-a1bb-2ec6253ed784\\Viral trend ðŸ˜± AI figurine   Isso agora estÃ¡ emâ€¦.jpg",
+                       "file":  "library-003.jpg",
+                       "sha256":  "7931A78452754337845E92FA9B7C32BEEC1CF67E7A52555170C72342480655D0",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-003.txt",
+                       "error":  null,
+                       "elapsedMs":  30792,
+                       "characters":  1482
+                   },
+                   {
+                       "sourceName":  "kitketlover.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0749b24e-abd2-43a0-99c2-c50f29821a90\\kitketlover.jpg",
+                       "sha256":  "4ECC8918910F5339D1EBE6F78FF295483BB780BF238D892A7F03CD7724E3D196",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-01.jpg"
+                   },
+                   {
+                       "sourceName":  "Emily Ratsjkowski.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0b16c140-1b1f-4f8a-97c8-b0de2772359c\\Emily Ratsjkowski.jpg",
+                       "sha256":  "9D75A6D9BD8A57D5874A114D397DCB5768679CC92E0BD88E2F6A9724203C26EE",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-15.jpg"
+                   },
+                   {
+                       "id":  "library-004",
+                       "sourceName":  "21 Ideas for Summer Hairstyles for Black Women with Braids 2024.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0ca14ae1-72f8-4b4f-8092-afa655126dc3\\21 Ideas for Summer Hairstyles for Black Women with Braids 2024.jpg",
+                       "file":  "library-004.jpg",
+                       "sha256":  "7381EAACC516D07243D3F75C5E68A07097991A73477B2F3374B518B56A0049BD",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-004.txt",
+                       "error":  null,
+                       "elapsedMs":  36497,
+                       "characters":  1777
+                   },
+                   {
+                       "id":  "library-005",
+                       "sourceName":  "Rashid.png",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0d859c4e-4636-4a6d-994e-aada009b38da\\Rashid.png",
+                       "file":  "library-005.png",
+                       "sha256":  "2F6745637970FD22AAE9EF3AAA97984363D075AC046A65300C8896272458C33A",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-005.txt",
+                       "error":  null,
+                       "elapsedMs":  29871,
+                       "characters":  1502
+                   },
+                   {
+                       "id":  "library-006",
+                       "sourceName":  "Ai Ñ„Ð¾Ñ‚Ð¾ ÐÐ•Ð™Ð ÐžÐ¡Ð•Ð¢Ð˜ ÐŸÐ ÐžÐœÐ¢Ð« y2k.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\0ff2e39b-2cd6-4824-82b4-1a1b77d4a05a\\Ai Ñ„Ð¾Ñ‚Ð¾ ÐÐ•Ð™Ð ÐžÐ¡Ð•Ð¢Ð˜ ÐŸÐ ÐžÐœÐ¢Ð« y2k.jpg",
+                       "file":  "library-006.jpg",
+                       "sha256":  "CFE5089BAEDA329B838CCD9B142D56DEF5D006004745062942A77066F2D29AC8",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-006.txt",
+                       "error":  null,
+                       "elapsedMs":  30824,
+                       "characters":  1351
+                   },
+                   {
+                       "id":  "library-007",
+                       "sourceName":  "6-webp_2000.webp",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\10bef5d6-b2e8-49d8-a29c-1f5841e3bd05\\6-webp_2000.webp",
+                       "file":  "library-007.webp",
+                       "sha256":  "7C663D9D509D4E505FEF888528DBF4DED42B1EF7C565CADD1EEF2D84B102A29B",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-007.txt",
+                       "error":  null,
+                       "elapsedMs":  39012,
+                       "characters":  1964
+                   },
+                   {
+                       "id":  "library-008",
+                       "sourceName":  "137008013661211502.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\1211f186-3333-4387-b948-eada9a94545a\\137008013661211502.jpg",
+                       "file":  "library-008.jpg",
+                       "sha256":  "2AF29614B745171D04ACC388EC72840478CD6B85E87D76FEB67F3ADC26800F39",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-008.txt",
+                       "error":  null,
+                       "elapsedMs":  25782,
+                       "characters":  1201
+                   },
+                   {
+                       "sourceName":  "Margot Robbie Vogue Cover, Photographed by Inez and Vinoodh.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\1583b45a-baec-4232-8d79-a376f90e5c53\\Margot Robbie Vogue Cover, Photographed by Inez and Vinoodh.jpg",
+                       "sha256":  "3E4FBA2A9FF8DE6627916BB20E5A26EA8799EC53350F0908AB5F527F166832A2",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-04.jpg"
+                   },
+                   {
+                       "id":  "library-009",
+                       "sourceName":  "Screenshot 2026-09-07 060120.png",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\16da1701-25a5-4ae2-b192-e7e77557bc15\\Screenshot 2026-09-07 060120.png",
+                       "file":  "library-009.png",
+                       "sha256":  "026C31173B15A4EEBBE8AC84A05DA14D92CF8C0D1B8DACE2A7022635034F0C59",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-009.txt",
+                       "error":  null,
+                       "elapsedMs":  49390,
+                       "characters":  2494
+                   },
+                   {
+                       "sourceName":  "Cola Jiraya.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\1875b55d-17fe-48a6-96fa-075a64350ae5\\Cola Jiraya.jpg",
+                       "sha256":  "9779C683C4FD8F311339341776D824A4CAFE43F7FD8A3F4C266E5C569134CAE0",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-07.jpg"
+                   },
+                   {
+                       "sourceName":  "605523112446733071.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\1b4b0cdf-e340-45ca-8246-2ba62983faf5\\605523112446733071.jpg",
+                       "sha256":  "C54AF8595C8E8A613A198CB5B8D7F85A73AB5A128C42788F3D99A89549E5A37F",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-06.jpg"
+                   },
+                   {
+                       "sourceName":  "Modeling Aesthetic ðŸ¤.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\1ce62a8e-c931-4edc-a306-3ed9095a55ca\\Modeling Aesthetic ðŸ¤.jpg",
+                       "sha256":  "E59A48F624C5335CD168B15C1CEA667AF2302313E237D456615C307012470A6C",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-03.jpg"
+                   },
+                   {
+                       "id":  "library-010",
+                       "sourceName":  "images (2).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\1d84c8fb-e5b4-4b04-bed4-6d15b4f39edd\\images (2).jpg",
+                       "file":  "library-010.jpg",
+                       "sha256":  "503D5CFA262ADD6C873FD1BEF1E99DE2A4A992E6A6B536CAEC75351372691ADA",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-010.txt",
+                       "error":  null,
+                       "elapsedMs":  26478,
+                       "characters":  1327
+                   },
+                   {
+                       "id":  "library-011",
+                       "sourceName":  "Surreal Crowd Portrait AI Prompt _ Thousands of Tiny People Art.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\22004c61-6847-4c51-aee1-595ba4e71770\\Surreal Crowd Portrait AI Prompt _ Thousands of Tiny People Art.jpg",
+                       "file":  "library-011.jpg",
+                       "sha256":  "957E60F3ED14A6E5BDBA8B4500FBF9E79516999D3C9D01E3CEABF3CEE5FAD24D",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-011.txt",
+                       "error":  null,
+                       "elapsedMs":  29534,
+                       "characters":  1411
+                   },
+                   {
+                       "sourceName":  "19421842140631628.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\23476bf8-2c8c-46ab-ac30-af9a401bda43\\19421842140631628.jpg",
+                       "sha256":  "8887F1404AD5A6446056D235B1E2D5DD33FC3E5984FE41ABED2E5E9C83C8C799",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-08.jpg"
+                   },
+                   {
+                       "id":  "library-012",
+                       "sourceName":  "midjourney (5).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\237fb6f7-ef54-4d19-9765-adc8c3f8b591\\midjourney (5).jpg",
+                       "file":  "library-012.jpg",
+                       "sha256":  "37D1468D3858823B2D730457D78EDFD69E450B128879B5A7F9B794D503D24D9D",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-012.txt",
+                       "error":  null,
+                       "elapsedMs":  38832,
+                       "characters":  1912
+                   },
+                   {
+                       "id":  "library-013",
+                       "sourceName":  "Mobile Beauty Photography Concept _ Behind the Scenes AI Visual.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\29905eb9-d8a1-46a0-ae65-961c74ba4932\\Mobile Beauty Photography Concept _ Behind the Scenes AI Visual.jpg",
+                       "file":  "library-013.jpg",
+                       "sha256":  "9023C5B64782740735651E7DE87F65070AF09BA0FB719776B9FA3B860ABDB742",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-013.txt",
+                       "error":  null,
+                       "elapsedMs":  30574,
+                       "characters":  1508
+                   },
+                   {
+                       "id":  "library-014",
+                       "sourceName":  "skincare ai.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2998d72f-9653-4aa2-9f27-1969ab59e43b\\skincare ai.jpg",
+                       "file":  "library-014.jpg",
+                       "sha256":  "8A241085FC1E9D88D5C06A75AA1F6EA9393BFEA6285E851223843A36FBB1AA7C",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "fashion-editorial",
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-014.txt",
+                       "error":  null,
+                       "elapsedMs":  31215,
+                       "characters":  1564
+                   },
+                   {
+                       "id":  "library-015",
+                       "sourceName":  "910430880942414261.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\299e47d9-34b2-4a51-80ff-6a6f89bb564b\\910430880942414261.jpg",
+                       "file":  "library-015.jpg",
+                       "sha256":  "8770C1ECBC3426FC6255A3F801F14ED772DEA0290F09E38FB7C74A69FBCCAB02",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-015.txt",
+                       "error":  null,
+                       "elapsedMs":  29406,
+                       "characters":  1452
+                   },
+                   {
+                       "id":  "library-016",
+                       "sourceName":  "Prompt  Create a modern contemporary typographyâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\29b23438-9e0c-48e0-b08a-25bbc61ea6f7\\Prompt  Create a modern contemporary typographyâ€¦.jpg",
+                       "file":  "library-016.jpg",
+                       "sha256":  "DCEAC9FFB61667D1608F5894784C59C37EB902B9FB96FEEB989F526E08A86EC0",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "lifestyle-social"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-016.txt",
+                       "error":  null,
+                       "elapsedMs":  42249,
+                       "characters":  2085
+                   },
+                   {
+                       "sourceName":  "#artlife #aiart #aigenerated #aicreation #aiartâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2a7dda5d-8512-4976-90d5-d965ead23b40\\#artlife #aiart #aigenerated #aicreation #aiartâ€¦.jpg",
+                       "sha256":  "F9157D87BE21DA9E5AD6CD31746A48EA5B5D4684C2D95EBCB9CE8B9D5A29E16D",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-19.jpg"
+                   },
+                   {
+                       "sourceName":  "33214116018284224.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2ae89191-0c53-4a3c-95a0-520868ab8688\\33214116018284224.jpg",
+                       "sha256":  "0A15CCA23C9FC84C8A53189F3402264978E8A00DAC17724C44BF35085AE9C045",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-09.jpg"
+                   },
+                   {
+                       "sourceName":  "1055599909614299.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2b47596c-4b12-4376-ba42-19ecab841d5a\\1055599909614299.jpg",
+                       "sha256":  "3375EA9119EC2B739BAD4FE39893A3C3D94A386ECFB56B263691C96F2C4B9AE4",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-10.jpg"
+                   },
+                   {
+                       "sourceName":  "33214116018284224.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2b96b63b-a3ce-4fa1-9475-495386c66a96\\33214116018284224.jpg",
+                       "sha256":  "0A15CCA23C9FC84C8A53189F3402264978E8A00DAC17724C44BF35085AE9C045",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-09.jpg"
+                   },
+                   {
+                       "id":  "library-017",
+                       "sourceName":  "diamonds arenâ€™t a girls best friendâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2d4b9e47-30db-479c-9d47-d43c6a315b81\\diamonds arenâ€™t a girls best friendâ€¦.jpg",
+                       "file":  "library-017.jpg",
+                       "sha256":  "4F2CDA56AB98F91823BDD7A3384747F303532B11E004B94328B757E6992AD9E5",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "lifestyle-social"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-017.txt",
+                       "error":  null,
+                       "elapsedMs":  32625,
+                       "characters":  1630
+                   },
+                   {
+                       "id":  "library-018",
+                       "sourceName":  "7459155630525498.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\2faa98bf-831a-44b7-b362-1f7cdfead27b\\7459155630525498.jpg",
+                       "file":  "library-018.jpg",
+                       "sha256":  "AB3E81D07240A40FA545F02BE555C4EF93BF56B5F62321F5C9C840D60E0330B7",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-018.txt",
+                       "error":  null,
+                       "elapsedMs":  36241,
+                       "characters":  1823
+                   },
+                   {
+                       "sourceName":  "10 Graphic Design Tips For Creating Stunning Visuals.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\31717176-b1f2-437a-81a0-66458ba15e52\\10 Graphic Design Tips For Creating Stunning Visuals.jpg",
+                       "sha256":  "F8783CAB0F0480A115B74995ACD663FEBB37B8235D2E106E67886FFF41C5F980",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-12.jpg"
+                   },
+                   {
+                       "sourceName":  "872431759093241923.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\324621eb-0998-48fe-b2c2-ffbdba28d725\\872431759093241923.jpg",
+                       "sha256":  "FB9AE8AA09E1928ED10C4A507737C545A5BCBA7FA85A56E778B4811E3C816F3B",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-14.jpg"
+                   },
+                   {
+                       "id":  "library-019",
+                       "sourceName":  "Ningning.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\32c4b07e-fa1b-4f75-b63b-fd7d13d132bb\\Ningning.jpg",
+                       "file":  "library-019.jpg",
+                       "sha256":  "B8DB8D52472A081529BB0E1953CFB1E3087EE15138995BC064EA02A483B24E2A",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-019.txt",
+                       "error":  null,
+                       "elapsedMs":  35315,
+                       "characters":  1789
+                   },
+                   {
+                       "id":  "library-020",
+                       "sourceName":  "gemini + chatgpt collection.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\37fca350-319d-4c23-8128-fb987e8b7a72\\gemini + chatgpt collection.jpg",
+                       "file":  "library-020.jpg",
+                       "sha256":  "BA8F4EBE5F7676BFEE94763B03B334F48B36D66914C4AB32E1AEFC00E9B2FDA4",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene",
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-020.txt",
+                       "error":  null,
+                       "elapsedMs":  43684,
+                       "characters":  2034
+                   },
+                   {
+                       "sourceName":  "Cola Jiraya.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\3f191f7f-ae0c-4486-97d0-96c2cdb03481\\Cola Jiraya.jpg",
+                       "sha256":  "9779C683C4FD8F311339341776D824A4CAFE43F7FD8A3F4C266E5C569134CAE0",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-07.jpg"
+                   },
+                   {
+                       "sourceName":  "midjourney.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\4453c42f-5630-46a7-9336-5ee038871588\\midjourney.jpg",
+                       "sha256":  "D110ED44826AC684B4C423793A88331FC8D806E94BCCE5B3CEA5107E170F51F9",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-05.jpg"
+                   },
+                   {
+                       "sourceName":  "MindMorph.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\461b65be-1944-4350-a836-68525c9e1f21\\MindMorph.jpg",
+                       "sha256":  "32CDECFAC7C6EA5EA8BC87EDA83DF4EF2B0AA1C32F9C26D9919CCAEB8F4BFAB0",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-11.jpg"
+                   },
+                   {
+                       "id":  "library-021",
+                       "sourceName":  "Portrait created with AI.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\475801bc-ee77-4a7c-8dff-4cad7bc05f20\\Portrait created with AI.jpg",
+                       "file":  "library-021.jpg",
+                       "sha256":  "76B9B83D76C7CF0646979E18569086B6FF4C8949049873FA0CE7D2C644B6B8F1",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-021.txt",
+                       "error":  null,
+                       "elapsedMs":  36278,
+                       "characters":  1449
+                   },
+                   {
+                       "id":  "library-022",
+                       "sourceName":  "906560600044328499.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\4a8eee2f-0925-49af-83b0-e7e847d93d10\\906560600044328499.jpg",
+                       "file":  "library-022.jpg",
+                       "sha256":  "F2ADA2684249D909536557EC44C4C3F330D65F5001B707B090990C0144CC5316",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-022.txt",
+                       "error":  null,
+                       "elapsedMs":  31104,
+                       "characters":  1451
+                   },
+                   {
+                       "id":  "library-023",
+                       "sourceName":  "El acnÃ© de tu rostro podrÃ­a revelar lo que pasa en tu cuerpo.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\4a93cdc2-6e16-4c30-9e08-90812fe75139\\El acnÃ© de tu rostro podrÃ­a revelar lo que pasa en tu cuerpo.jpg",
+                       "file":  "library-023.jpg",
+                       "sha256":  "A0F42306ABEA711A42FF35AFF2615AE14413B68FC6BDB16FB98FDFEF37943BDA",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-023.txt",
+                       "error":  null,
+                       "elapsedMs":  30973,
+                       "characters":  1535
+                   },
+                   {
+                       "id":  "library-024",
+                       "sourceName":  "gemini + chatgpt collection.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\4ede6e59-085d-46f7-a743-3dac41263a46\\gemini + chatgpt collection.jpg",
+                       "file":  "library-024.jpg",
+                       "sha256":  "BA8F4EBE5F7676BFEE94763B03B334F48B36D66914C4AB32E1AEFC00E9B2FDA4",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene",
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-024.txt",
+                       "error":  null,
+                       "elapsedMs":  41796,
+                       "characters":  2034
+                   },
+                   {
+                       "sourceName":  "10 Graphic Design Tips For Creating Stunning Visuals.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\4fc71880-12d8-4661-97ef-d690057dd77e\\10 Graphic Design Tips For Creating Stunning Visuals.jpg",
+                       "sha256":  "F8783CAB0F0480A115B74995ACD663FEBB37B8235D2E106E67886FFF41C5F980",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-12.jpg"
+                   },
+                   {
+                       "sourceName":  "Cool Streetwear Outfit for Boys ðŸ–¤.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\51521924-50f6-4c89-b184-7922e3cd0056\\Cool Streetwear Outfit for Boys ðŸ–¤.jpg",
+                       "sha256":  "359F057C14D27BE7947CAE9668E016A68FEF1ADA7B7874F3D2B28C415A8F9667",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-13.jpg"
+                   },
+                   {
+                       "sourceName":  "New Branding Design Creation Ideas Collection_.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\53843df2-809d-40a4-89fb-ff727968e243\\New Branding Design Creation Ideas Collection_.jpg",
+                       "sha256":  "9E219E4F4DB98A1CBD0BAFCBBCB65538E9C77D50316B7B483487F76E61DCE3CD",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-02.jpg"
+                   },
+                   {
+                       "id":  "library-025",
+                       "sourceName":  "karina aespa.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\557415c5-5556-4298-a0d3-f2f7bcf55a3b\\karina aespa.jpg",
+                       "file":  "library-025.jpg",
+                       "sha256":  "DB6953872683D5C58B3B072EB318B515064EEB6DDB358C84A4CA70CE14E4B177",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-025.txt",
+                       "error":  null,
+                       "elapsedMs":  39399,
+                       "characters":  1926
+                   },
+                   {
+                       "id":  "library-026",
+                       "sourceName":  "UMAIR.jpeg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\58c05294-2e71-4bcc-9082-a77b4eec797c\\UMAIR.jpeg",
+                       "file":  "library-026.jpeg",
+                       "sha256":  "4B5314A2503D958F0C9EC40EB215A1E77DCE7771D63A8AA7E0E1D8EB53CF5442",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-026.txt",
+                       "error":  null,
+                       "elapsedMs":  28662,
+                       "characters":  1377
+                   },
+                   {
+                       "id":  "library-027",
+                       "sourceName":  "26036504093542194.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\5b7e1a62-1288-4458-a968-ffaaa6813dc2\\26036504093542194.jpg",
+                       "file":  "library-027.jpg",
+                       "sha256":  "59107CE4618DCCE0A2AABC6A9875AFB76E3B3D6C6B0DA88414A69AB6F6CD66F1",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-027.txt",
+                       "error":  null,
+                       "elapsedMs":  29162,
+                       "characters":  1301
+                   },
+                   {
+                       "id":  "library-028",
+                       "sourceName":  "1022035709186978647.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\5bb2e792-30af-4cf1-b0cc-2d1377e35a54\\1022035709186978647.jpg",
+                       "file":  "library-028.jpg",
+                       "sha256":  "8C9F783EAA75ABBB90F3F6838B5A55BEE804E5347450CE00DE4BD3DFA3AA121D",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-028.txt",
+                       "error":  null,
+                       "elapsedMs":  33655,
+                       "characters":  1521
+                   },
+                   {
+                       "id":  "library-029",
+                       "sourceName":  "Mark.png",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\5d2b1a76-177c-4a90-a46b-c85da40ecda0\\Mark.png",
+                       "file":  "library-029.png",
+                       "sha256":  "EE0E7D08A373881B9FD90A63F98F8A0A734E252F87EB330EAD13157F2D112DF6",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-029.txt",
+                       "error":  null,
+                       "elapsedMs":  31307,
+                       "characters":  1439
+                   },
+                   {
+                       "id":  "library-030",
+                       "sourceName":  "Midjourney (1).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\5f39b6de-3384-489e-910f-8bcd9428abcc\\Midjourney (1).jpg",
+                       "file":  "library-030.jpg",
+                       "sha256":  "363A8C087635C017E05AA01B69E84A2D508283179EDD31FCBD2AC97841A7CF93",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-030.txt",
+                       "error":  null,
+                       "elapsedMs":  24310,
+                       "characters":  1232
+                   },
+                   {
+                       "id":  "library-031",
+                       "sourceName":  "1121677850950938932.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\62a5461d-dadb-48b4-9cb8-51ee814fd654\\1121677850950938932.jpg",
+                       "file":  "library-031.jpg",
+                       "sha256":  "07240E4EB7A0CBB8C43CACCCB6F89428818514F694A68A4AEA892A00F42157F0",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "fashion-editorial",
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-031.txt",
+                       "error":  null,
+                       "elapsedMs":  33188,
+                       "characters":  1702
+                   },
+                   {
+                       "id":  "library-032",
+                       "sourceName":  "AI Soft Classic_ Gentle Portrait _ ÐœÑÐ³ÐºÐ°Ñ ÐºÐ»Ð°ÑÑÐ¸ÐºÐ°_ Ð½ÐµÐ¶Ð½Ñ‹Ð¹ Ð¿Ð¾Ñ€Ñ‚Ñ€ÐµÑ‚, AI-Ð°Ñ€Ñ‚.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\635590b2-fb9a-4147-99b0-33813566234a\\AI Soft Classic_ Gentle Portrait _ ÐœÑÐ³ÐºÐ°Ñ ÐºÐ»Ð°ÑÑÐ¸ÐºÐ°_ Ð½ÐµÐ¶Ð½Ñ‹Ð¹ Ð¿Ð¾Ñ€Ñ‚Ñ€ÐµÑ‚, AI-Ð°Ñ€Ñ‚.jpg",
+                       "file":  "library-032.jpg",
+                       "sha256":  "58B39C1BAA8929AC07E63756312A94EF0F43456B9385204BFAECCF5F4AE42A8C",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-032.txt",
+                       "error":  null,
+                       "elapsedMs":  37784,
+                       "characters":  2198
+                   },
+                   {
+                       "sourceName":  "MindMorph.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\64872d5c-d5c9-4861-aab8-6b3a67a33e22\\MindMorph.jpg",
+                       "sha256":  "32CDECFAC7C6EA5EA8BC87EDA83DF4EF2B0AA1C32F9C26D9919CCAEB8F4BFAB0",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-11.jpg"
+                   },
+                   {
+                       "id":  "library-033",
+                       "sourceName":  "ðŸ†“ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Â«Shot AI StudioÂ» Ð·Ð°ÐºÑ€Ð¸Ð²Ð°Ñ”Ñ‚ÑŒÑÑ â¤µï¸_Ð†â€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\64bf7e87-d810-4126-ac9d-7c5391f3dfeb\\ðŸ†“ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Â«Shot AI StudioÂ» Ð·Ð°ÐºÑ€Ð¸Ð²Ð°Ñ”Ñ‚ÑŒÑÑ â¤µï¸_Ð†â€¦.jpg",
+                       "file":  "library-033.jpg",
+                       "sha256":  "8949F2E636D139B73B06B93245C7D7702679A28B8AD92D92D923E4FD6958F543",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "fantasy-surreal"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-033.txt",
+                       "error":  null,
+                       "elapsedMs":  30633,
+                       "characters":  1767
+                   },
+                   {
+                       "id":  "library-034",
+                       "sourceName":  "ðŸ¤.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\664a7596-9399-4e63-ac84-c725f8d754cf\\ðŸ¤.jpg",
+                       "file":  "library-034.jpg",
+                       "sha256":  "172AB04B3E7AB0D036FFF0253BD068C9A022687E95A7045827464DAD1F565A36",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-034.txt",
+                       "error":  null,
+                       "elapsedMs":  24777,
+                       "characters":  1434
+                   },
+                   {
+                       "id":  "library-035",
+                       "sourceName":  "Gemini_Generated_Image_tb8hw8tb8hw8tb8h.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6905edaf-a622-4731-9d11-2aeb0524724c\\Gemini_Generated_Image_tb8hw8tb8hw8tb8h.jpg",
+                       "file":  "library-035.jpg",
+                       "sha256":  "D953253702E9340DCCC463524A0F47B9325BCF688AD52940260E6C4B57B77465",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-035.txt",
+                       "error":  null,
+                       "elapsedMs":  34231,
+                       "characters":  2023
+                   },
+                   {
+                       "id":  "library-036",
+                       "sourceName":  "3448137210693254.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6ab7b509-0dbe-4936-9fa9-a714ba643a75\\3448137210693254.jpg",
+                       "file":  "library-036.jpg",
+                       "sha256":  "23E953E29924FA28EBF1AFD6B5809C8C9377976AF4E68F8B2FFF5B752DE09855",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene",
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-036.txt",
+                       "error":  null,
+                       "elapsedMs":  33131,
+                       "characters":  1925
+                   },
+                   {
+                       "id":  "library-037",
+                       "sourceName":  "INSTANT GLOW.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6b1e196d-e572-49b7-9aed-97110414e1cf\\INSTANT GLOW.jpg",
+                       "file":  "library-037.jpg",
+                       "sha256":  "7E088DB9F0D1CF4800A4F7A02186728A47C5B50A8EDC281BE994930B2AAE5B29",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-037.txt",
+                       "error":  null,
+                       "elapsedMs":  18929,
+                       "characters":  1066
+                   },
+                   {
+                       "id":  "library-038",
+                       "sourceName":  "Budget Earbuds That Feel Premium ðŸ”¥.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6c19a6e6-347a-4dd7-adb4-f596737e39b1\\Budget Earbuds That Feel Premium ðŸ”¥.jpg",
+                       "file":  "library-038.jpg",
+                       "sha256":  "F2933A99F2F3081714FF62D52B0BEFCBD38BFE25356C5357AA6E03BAB46A4446",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "fashion-editorial",
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-038.txt",
+                       "error":  null,
+                       "elapsedMs":  28921,
+                       "characters":  1699
+                   },
+                   {
+                       "sourceName":  "Copy Viral Gemini Ai Image Prompt Free (prompt4u_site).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6ca1ecdd-6595-456a-9b67-ae5644ecc93f\\Copy Viral Gemini Ai Image Prompt Free (prompt4u_site).jpg",
+                       "sha256":  "7ED7EB276C4C78BC56571070260D523815B1F5AB88CACE8F78575976FC7A48B8",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-17.jpg"
+                   },
+                   {
+                       "id":  "library-039",
+                       "sourceName":  "49117452183481705.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6ce6d3d2-1755-43c7-9f33-deaf9fcc0568\\49117452183481705.jpg",
+                       "file":  "library-039.jpg",
+                       "sha256":  "673FEFCC82CF35C62E2384503382D853871C1D21F8E7141F45C737C99EC32B08",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-039.txt",
+                       "error":  null,
+                       "elapsedMs":  24764,
+                       "characters":  1395
+                   },
+                   {
+                       "id":  "library-040",
+                       "sourceName":  "213639576068388081.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6d2618e3-64a6-4249-9ecb-7b1d2a1a146f\\213639576068388081.jpg",
+                       "file":  "library-040.jpg",
+                       "sha256":  "1A1134E729B9E4E512B69A05BE1C3D11C284B625D85C77254C6608B4B217CF75",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-040.txt",
+                       "error":  null,
+                       "elapsedMs":  22662,
+                       "characters":  1321
+                   },
+                   {
+                       "id":  "library-041",
+                       "sourceName":  "Focused Mindset Aesthetic.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6e1f6a18-5416-4f2a-a3ba-c9bf4a0bbbe5\\Focused Mindset Aesthetic.jpg",
+                       "file":  "library-041.jpg",
+                       "sha256":  "292E792CC6C4D6C0F37B10A184C5D5562B9099AFBE188FE8D7D7AD35D824F324",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-041.txt",
+                       "error":  null,
+                       "elapsedMs":  30117,
+                       "characters":  1718
+                   },
+                   {
+                       "id":  "library-042",
+                       "sourceName":  "Realistic AI Portrait with Natural Light.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\6e6dffd7-717c-49fd-9e45-c8a6791b709c\\Realistic AI Portrait with Natural Light.jpg",
+                       "file":  "library-042.jpg",
+                       "sha256":  "EC880B869A32D83A55A21A4AB196963130AEC463325C9B71181A5FD4C37C3ADD",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-042.txt",
+                       "error":  null,
+                       "elapsedMs":  25824,
+                       "characters":  1424
+                   },
+                   {
+                       "id":  "library-043",
+                       "sourceName":  "57280226505614603.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\70585ef4-5748-43b3-be1e-7a41ba35eae0\\57280226505614603.jpg",
+                       "file":  "library-043.jpg",
+                       "sha256":  "3C0CF3298857272C5EA4E94F6C00181984F68084244D37C5C7AA82BF0F5390FB",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-043.txt",
+                       "error":  null,
+                       "elapsedMs":  30790,
+                       "characters":  1765
+                   },
+                   {
+                       "sourceName":  "84794405482668347.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\73f87f07-1d2f-4a25-abf0-87f22cc6c494\\84794405482668347.jpg",
+                       "sha256":  "379675374CCC6A465F1E64D9AE180992D73EB8B3B1DB24E2556822035E764260",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-16.jpg"
+                   },
+                   {
+                       "sourceName":  "kitketlover.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\757a721a-ce99-4711-9334-3247ff27c1e2\\kitketlover.jpg",
+                       "sha256":  "4ECC8918910F5339D1EBE6F78FF295483BB780BF238D892A7F03CD7724E3D196",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-01.jpg"
+                   },
+                   {
+                       "id":  "library-044",
+                       "sourceName":  "50 Best Model Poses from Top Models (+5 FREEBIES).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\766eb701-cce4-4089-a989-acabcf14f3b7\\50 Best Model Poses from Top Models (+5 FREEBIES).jpg",
+                       "file":  "library-044.jpg",
+                       "sha256":  "40F2A4427B09AAD5B963930775FC9CCDDF9EBED107A3CC150AFAD3EBDFF9DFBC",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-044.txt",
+                       "error":  null,
+                       "elapsedMs":  35999,
+                       "characters":  2070
+                   },
+                   {
+                       "sourceName":  "Copy Viral Gemini Ai Image Prompt Free (prompt4u_site).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\77822982-7ebe-49e6-beca-8837b8dbda46\\Copy Viral Gemini Ai Image Prompt Free (prompt4u_site).jpg",
+                       "sha256":  "7ED7EB276C4C78BC56571070260D523815B1F5AB88CACE8F78575976FC7A48B8",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-17.jpg"
+                   },
+                   {
+                       "sourceName":  "28429041394804270.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\778d0544-1d50-4924-b7fc-89fff204fddd\\28429041394804270.jpg",
+                       "sha256":  "30A73CA90DA2BEA96EE68B64AEE3A912A967B1B3A24AC5A861924E39C9537511",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-18.jpg"
+                   },
+                   {
+                       "id":  "library-045",
+                       "sourceName":  "Viral trend ðŸ˜± AI figurine   Isso agora estÃ¡ emâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\7accb28f-6d86-4832-abf9-e1520bcfaea8\\Viral trend ðŸ˜± AI figurine   Isso agora estÃ¡ emâ€¦.jpg",
+                       "file":  "library-045.jpg",
+                       "sha256":  "7931A78452754337845E92FA9B7C32BEEC1CF67E7A52555170C72342480655D0",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-045.txt",
+                       "error":  null,
+                       "elapsedMs":  25267,
+                       "characters":  1482
+                   },
+                   {
+                       "sourceName":  "New Branding Design Creation Ideas Collection_.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\7b328596-a993-4a66-adb9-ebc982fe5d3e\\New Branding Design Creation Ideas Collection_.jpg",
+                       "sha256":  "9E219E4F4DB98A1CBD0BAFCBBCB65538E9C77D50316B7B483487F76E61DCE3CD",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-02.jpg"
+                   },
+                   {
+                       "id":  "library-046",
+                       "sourceName":  "Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð²Ð¸Ð·ÑƒÐ°Ð» Ð´Ð»Ñ Ð±Ñ€ÐµÐ½Ð´Ð° Ð² Nano Banana PRO ðŸŒ _ ÐÐµÐ¹Ñ€Ð¾Ñ„Ð¾Ñ‚Ð¾ÑÐµÑÑÐ¸Ð¸ Ð¿Ð¾Ñ€Ñ‚Ñ€ÐµÑ‚Ð¾Ð² Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑƒÑ€Ð¾Ð²Ð½Ñ!.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\7b331bb0-14e7-415c-bd7c-a3fe2b9a9651\\Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð²Ð¸Ð·ÑƒÐ°Ð» Ð´Ð»Ñ Ð±Ñ€ÐµÐ½Ð´Ð° Ð² Nano Banana PRO ðŸŒ _ ÐÐµÐ¹Ñ€Ð¾Ñ„Ð¾Ñ‚Ð¾ÑÐµÑÑÐ¸Ð¸ Ð¿Ð¾Ñ€Ñ‚Ñ€ÐµÑ‚Ð¾Ð² Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑƒÑ€Ð¾Ð²Ð½Ñ!.jpg",
+                       "file":  "library-046.jpg",
+                       "sha256":  "89336F40B86AEDFD0A3F06CA6A1E8FCDC9F1B2705CA74E905328FEAAB319EA58",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-046.txt",
+                       "error":  null,
+                       "elapsedMs":  28375,
+                       "characters":  1606
+                   },
+                   {
+                       "id":  "library-047",
+                       "sourceName":  "17944098512640933.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\7dd43570-cf43-43c1-95cc-31032641f91e\\17944098512640933.jpg",
+                       "file":  "library-047.jpg",
+                       "sha256":  "FECBF5D88A0F92BD200727F9FEBFC8044F35944EF03B852A6447410D13E3890A",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene",
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-047.txt",
+                       "error":  null,
+                       "elapsedMs":  28427,
+                       "characters":  1624
+                   },
+                   {
+                       "id":  "library-048",
+                       "sourceName":  "Ð¡Ð¾Ð·Ð´Ð°Ð¹ AI-ÐºÐ°Ð´Ñ€ Ð² ÑÑ‚Ð¸Ð»Ðµ Calvin Klein â€” Ñ‡Ð¸ÑÑ‚Ð°Ñ Ñ„Ð¾Ñ€Ð¼Ð°, Ð±ÐµÐ·ÑƒÐ¿Ñ€ÐµÑ‡Ð½Ñ‹Ð¹ ÑÐ²ÐµÑ‚, Ð·Ð° Ð¼Ð¸Ð½ÑƒÑ‚Ñ‹.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\81b8df02-abff-40b9-9d2e-eee320123c28\\Ð¡Ð¾Ð·Ð´Ð°Ð¹ AI-ÐºÐ°Ð´Ñ€ Ð² ÑÑ‚Ð¸Ð»Ðµ Calvin Klein â€” Ñ‡Ð¸ÑÑ‚Ð°Ñ Ñ„Ð¾Ñ€Ð¼Ð°, Ð±ÐµÐ·ÑƒÐ¿Ñ€ÐµÑ‡Ð½Ñ‹Ð¹ ÑÐ²ÐµÑ‚, Ð·Ð° Ð¼Ð¸Ð½ÑƒÑ‚Ñ‹.jpg",
+                       "file":  "library-048.jpg",
+                       "sha256":  "FE3F8B5F5986AAEE430B7066053401F7FBE22C1A22C4FCC14E68FE09E3D78CC8",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-048.txt",
+                       "error":  null,
+                       "elapsedMs":  22627,
+                       "characters":  1294
+                   },
+                   {
+                       "id":  "library-049",
+                       "sourceName":  "NRGY by Revo Launches with J Balvin as Creative Director.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\88027436-8e7d-4fd8-9c79-70df659231b8\\NRGY by Revo Launches with J Balvin as Creative Director.jpg",
+                       "file":  "library-049.jpg",
+                       "sha256":  "688DD03B4385CD288C96CBE9A06DBD128B1342317E69409F9879239FD8C7D805",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-049.txt",
+                       "error":  null,
+                       "elapsedMs":  27337,
+                       "characters":  1590
+                   },
+                   {
+                       "id":  "library-050",
+                       "sourceName":  "TimothÃ©e Chalamet and Armie Hammer on friendship, the Oscars and that peach scene.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\8c546b4c-4ba4-43dc-b502-d6a3ef831b99\\TimothÃ©e Chalamet and Armie Hammer on friendship, the Oscars and that peach scene.jpg",
+                       "file":  "library-050.jpg",
+                       "sha256":  "DD869231CA4789BCF8850803AEA9F2076E173A5643E63171A3D161EBA6A26B33",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-050.txt",
+                       "error":  null,
+                       "elapsedMs":  24375,
+                       "characters":  1434
+                   },
+                   {
+                       "id":  "library-051",
+                       "sourceName":  "17381148558595164.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\8ccb8eb6-1b59-4c6f-b3bd-9e3112175892\\17381148558595164.jpg",
+                       "file":  "library-051.jpg",
+                       "sha256":  "D892BCB1E21D829B84E8DF810F3BC3884E6FA6512DA7E6B1EBDD9723BAB785C0",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-051.txt",
+                       "error":  null,
+                       "elapsedMs":  23334,
+                       "characters":  1351
+                   },
+                   {
+                       "sourceName":  "#artlife #aiart #aigenerated #aicreation #aiartâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\8eaddd66-9190-4fa9-a3b7-9f3bb658e4b5\\#artlife #aiart #aigenerated #aicreation #aiartâ€¦.jpg",
+                       "sha256":  "F9157D87BE21DA9E5AD6CD31746A48EA5B5D4684C2D95EBCB9CE8B9D5A29E16D",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-19.jpg"
+                   },
+                   {
+                       "sourceName":  "Modeling Aesthetic ðŸ¤.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\95db922a-0b40-4664-a09b-a478710b76e6\\Modeling Aesthetic ðŸ¤.jpg",
+                       "sha256":  "E59A48F624C5335CD168B15C1CEA667AF2302313E237D456615C307012470A6C",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-03.jpg"
+                   },
+                   {
+                       "sourceName":  "Emily Ratsjkowski.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\960e9311-21dd-49be-859f-1b23f1c79e08\\Emily Ratsjkowski.jpg",
+                       "sha256":  "9D75A6D9BD8A57D5874A114D397DCB5768679CC92E0BD88E2F6A9724203C26EE",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-15.jpg"
+                   },
+                   {
+                       "id":  "library-052",
+                       "sourceName":  "4222193396023670.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\977a43bc-299a-4924-ac60-51f59289806e\\4222193396023670.jpg",
+                       "file":  "library-052.jpg",
+                       "sha256":  "D55F34EA8614DEF9F54FA796935BAE54273FC034DE5104F706E6DD7391153986",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-052.txt",
+                       "error":  null,
+                       "elapsedMs":  40995,
+                       "characters":  2515
+                   },
+                   {
+                       "sourceName":  "605523112446733071.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9955fdc8-b112-4512-9c16-bad5044b2f71\\605523112446733071.jpg",
+                       "sha256":  "C54AF8595C8E8A613A198CB5B8D7F85A73AB5A128C42788F3D99A89549E5A37F",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-06.jpg"
+                   },
+                   {
+                       "sourceName":  "midjourney.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9a576673-2c6c-4533-970b-8814e2e2d716\\midjourney.jpg",
+                       "sha256":  "D110ED44826AC684B4C423793A88331FC8D806E94BCCE5B3CEA5107E170F51F9",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-05.jpg"
+                   },
+                   {
+                       "sourceName":  "1055599909614299.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9b59c606-e5e4-4589-b514-3398298cee82\\1055599909614299.jpg",
+                       "sha256":  "3375EA9119EC2B739BAD4FE39893A3C3D94A386ECFB56B263691C96F2C4B9AE4",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-10.jpg"
+                   },
+                   {
+                       "sourceName":  "15621929952944828.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9c338676-a48c-4556-9d41-c937442e01d7\\15621929952944828.jpg",
+                       "sha256":  "7C910FDAD503A34852B728794187F692DCA9905B30AB93EE60D7BC01C442A6F4",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-20.jpg"
+                   },
+                   {
+                       "id":  "library-053",
+                       "sourceName":  "Prasant.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9c38c249-9910-4b7e-872d-e39e5a1757d1\\Prasant.jpg",
+                       "file":  "library-053.jpg",
+                       "sha256":  "0E229E326DD2502A07DE9C85FA8E8751ED35CBF6EBD789A826D3C300E70FAE0E",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-053.txt",
+                       "error":  null,
+                       "elapsedMs":  20503,
+                       "characters":  1113
+                   },
+                   {
+                       "id":  "library-054",
+                       "sourceName":  "306455949666904576.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9e4c23de-98db-4c28-b12a-da0ae31fcda1\\306455949666904576.jpg",
+                       "file":  "library-054.jpg",
+                       "sha256":  "BB936499B266DBEA5B83F63437CB2E6B345621D475C845360D6DF25BB5806469",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-054.txt",
+                       "error":  null,
+                       "elapsedMs":  25240,
+                       "characters":  1449
+                   },
+                   {
+                       "id":  "library-055",
+                       "sourceName":  "Ai Ñ„Ð¾Ñ‚Ð¾ ÐÐ•Ð™Ð ÐžÐ¡Ð•Ð¢Ð˜ ÐŸÐ ÐžÐœÐ¢Ð« y2k.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\9e7422cf-c638-4277-ac26-2f954174d65f\\Ai Ñ„Ð¾Ñ‚Ð¾ ÐÐ•Ð™Ð ÐžÐ¡Ð•Ð¢Ð˜ ÐŸÐ ÐžÐœÐ¢Ð« y2k.jpg",
+                       "file":  "library-055.jpg",
+                       "sha256":  "CFE5089BAEDA329B838CCD9B142D56DEF5D006004745062942A77066F2D29AC8",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-055.txt",
+                       "error":  null,
+                       "elapsedMs":  23311,
+                       "characters":  1351
+                   },
+                   {
+                       "sourceName":  "Margot Robbie Vogue Cover, Photographed by Inez and Vinoodh.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a21066db-6492-4eae-9718-185881c81c58\\Margot Robbie Vogue Cover, Photographed by Inez and Vinoodh.jpg",
+                       "sha256":  "3E4FBA2A9FF8DE6627916BB20E5A26EA8799EC53350F0908AB5F527F166832A2",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-04.jpg"
+                   },
+                   {
+                       "id":  "library-056",
+                       "sourceName":  "Surreal Fashion Portraits That Defy Reality! âœ¨.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a39e074c-9611-4250-b218-f25895d3eaf9\\Surreal Fashion Portraits That Defy Reality! âœ¨.jpg",
+                       "file":  "library-056.jpg",
+                       "sha256":  "9911063254489C1EA1E0E585AC503B56CBB47A22EB1FC60F57D2DCF0CD724AAA",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-056.txt",
+                       "error":  null,
+                       "elapsedMs":  26811,
+                       "characters":  1532
+                   },
+                   {
+                       "id":  "library-057",
+                       "sourceName":  "Gemini_Generated_Image_6cfpau6cfpau6cfp.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a48b9431-fada-4c3e-9f0f-e4188b09606c\\Gemini_Generated_Image_6cfpau6cfpau6cfp.jpg",
+                       "file":  "library-057.jpg",
+                       "sha256":  "45BAE7D451E06D158CBAF8B02FD050E35E587884B78F56EFE960A17DDD2A1F6F",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-057.txt",
+                       "error":  null,
+                       "elapsedMs":  36792,
+                       "characters":  2315
+                   },
+                   {
+                       "id":  "library-058",
+                       "sourceName":  "Click to Explore AI-Generated Portraits That Wow!.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a5562f0f-2863-4053-8f5d-7fd3f9171c97\\Click to Explore AI-Generated Portraits That Wow!.jpg",
+                       "file":  "library-058.jpg",
+                       "sha256":  "1338DE9182B03789BD63F2F244CFC6BFAB1D18E87C22EE8B976A19DF79832AA1",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-058.txt",
+                       "error":  null,
+                       "elapsedMs":  28643,
+                       "characters":  1735
+                   },
+                   {
+                       "sourceName":  "19421842140631628.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a706692b-d79d-4f5b-85ad-253de401fe2f\\19421842140631628.jpg",
+                       "sha256":  "8887F1404AD5A6446056D235B1E2D5DD33FC3E5984FE41ABED2E5E9C83C8C799",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-08.jpg"
+                   },
+                   {
+                       "sourceName":  "84794405482668347.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a77acdab-c1fa-4229-892e-9701b52f751f\\84794405482668347.jpg",
+                       "sha256":  "379675374CCC6A465F1E64D9AE180992D73EB8B3B1DB24E2556822035E764260",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-16.jpg"
+                   },
+                   {
+                       "id":  "library-059",
+                       "sourceName":  "Portrait created with AI.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a815b69a-ddb6-4d15-8157-51ab67d308ec\\Portrait created with AI.jpg",
+                       "file":  "library-059.jpg",
+                       "sha256":  "76B9B83D76C7CF0646979E18569086B6FF4C8949049873FA0CE7D2C644B6B8F1",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-059.txt",
+                       "error":  null,
+                       "elapsedMs":  25735,
+                       "characters":  1449
+                   },
+                   {
+                       "id":  "library-060",
+                       "sourceName":  "Luxury AI Skincare Commercial _ NIVEA Inspired Concept Ad.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\a82fa200-6b40-4152-bd17-26d98da16d39\\Luxury AI Skincare Commercial _ NIVEA Inspired Concept Ad.jpg",
+                       "file":  "library-060.jpg",
+                       "sha256":  "BC4CD48A9128A69B811AE00EA7DAB67133E6B9DA3B57CECB7B9900B056631CF2",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-060.txt",
+                       "error":  null,
+                       "elapsedMs":  34209,
+                       "characters":  2057
+                   },
+                   {
+                       "id":  "library-061",
+                       "sourceName":  "140806235190584.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b29c5ade-6d40-430c-ab82-f184b4d4075f\\140806235190584.jpg",
+                       "file":  "library-061.jpg",
+                       "sha256":  "9FA6ACA59B3D8C39EEAAB034BEA2ABBBC5F1EAD48D2841A22F586381D822AF85",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-061.txt",
+                       "error":  null,
+                       "elapsedMs":  26876,
+                       "characters":  1623
+                   },
+                   {
+                       "id":  "library-062",
+                       "sourceName":  "18366310977430666.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b3ecb1c4-11ed-46ca-8024-ccbe56b95196\\18366310977430666.jpg",
+                       "file":  "library-062.jpg",
+                       "sha256":  "2165B12FFA4C2F3389C0F2E24BBF45F8AD23FE8F833A33B3DFD7CFB8AA910E5A",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-062.txt",
+                       "error":  null,
+                       "elapsedMs":  31471,
+                       "characters":  1824
+                   },
+                   {
+                       "id":  "library-063",
+                       "sourceName":  "1022035709186978647.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b53af191-2d07-45af-b2b8-0f4fd5e765ab\\1022035709186978647.jpg",
+                       "file":  "library-063.jpg",
+                       "sha256":  "8C9F783EAA75ABBB90F3F6838B5A55BEE804E5347450CE00DE4BD3DFA3AA121D",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-063.txt",
+                       "error":  null,
+                       "elapsedMs":  27334,
+                       "characters":  1521
+                   },
+                   {
+                       "sourceName":  "Cool Streetwear Outfit for Boys ðŸ–¤.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b691434e-3510-4a43-a623-6f1cc9656471\\Cool Streetwear Outfit for Boys ðŸ–¤.jpg",
+                       "sha256":  "359F057C14D27BE7947CAE9668E016A68FEF1ADA7B7874F3D2B28C415A8F9667",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-13.jpg"
+                   },
+                   {
+                       "id":  "library-064",
+                       "sourceName":  "18366310977430666.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b7366839-b960-47b8-8b46-bf05ebcd9f60\\18366310977430666.jpg",
+                       "file":  "library-064.jpg",
+                       "sha256":  "2165B12FFA4C2F3389C0F2E24BBF45F8AD23FE8F833A33B3DFD7CFB8AA910E5A",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-064.txt",
+                       "error":  null,
+                       "elapsedMs":  32562,
+                       "characters":  1824
+                   },
+                   {
+                       "id":  "library-065",
+                       "sourceName":  "Gemini_Generated_Image_tb8hw8tb8hw8tb8h.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b7f058c4-cbfc-441a-b0bf-07f20b245991\\Gemini_Generated_Image_tb8hw8tb8hw8tb8h.jpg",
+                       "file":  "library-065.jpg",
+                       "sha256":  "42A1EA2A9A1A23F56803249D47A4E5CF9965AD4057E31DE3C965514C001A8EEB",
+                       "status":  "analyzed",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-065.txt",
+                       "error":  null,
+                       "elapsedMs":  34445,
+                       "characters":  1679
+                   },
+                   {
+                       "id":  "library-066",
+                       "sourceName":  "midjourney (2).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\b861f6d4-b19b-4c93-879b-a8cbdb63d4ed\\midjourney (2).jpg",
+                       "file":  "library-066.jpg",
+                       "sha256":  "49C1AF7CC18C54F2421D3340DDAD2B32DEC5193A5082EC210CD3EE85DBB54430",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-066.txt",
+                       "error":  null,
+                       "elapsedMs":  30041,
+                       "characters":  1635
+                   },
+                   {
+                       "id":  "library-067",
+                       "sourceName":  "Save this \u0026 follow for more! ðŸ“Œ.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\bbb3d782-e776-4b5b-9215-07b45b819db4\\Save this \u0026 follow for more! ðŸ“Œ.jpg",
+                       "file":  "library-067.jpg",
+                       "sha256":  "601A30951BF1E159F0B9FB93C9621DAFE96A33E97C53DB92B2575388C7C4A371",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "architecture-interior"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-067.txt",
+                       "error":  null,
+                       "elapsedMs":  27988,
+                       "characters":  1440
+                   },
+                   {
+                       "id":  "library-068",
+                       "sourceName":  "AI Portrait Prompts That Actually Look Photorealistic (Copy \u0026 Paste).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\bdef9267-359e-469a-9c91-64057667effb\\AI Portrait Prompts That Actually Look Photorealistic (Copy \u0026 Paste).jpg",
+                       "file":  "library-068.jpg",
+                       "sha256":  "9025F98F6BDFFEF2EE1E417A015876BD6072257C505B495CAE3B06EEFD9DCDDD",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-068.txt",
+                       "error":  null,
+                       "elapsedMs":  31780,
+                       "characters":  1648
+                   },
+                   {
+                       "id":  "library-069",
+                       "sourceName":  "Ultra Realistic Blue Hour Ocean Portrait Prompt _ Cinematic Fashion Photography AI Prompt 8K.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\bec825d8-3fb1-4ab1-84f1-10f1142ed84d\\Ultra Realistic Blue Hour Ocean Portrait Prompt _ Cinematic Fashion Photography AI Prompt 8K.jpg",
+                       "file":  "library-069.jpg",
+                       "sha256":  "A8E1B4A75046F27ADCD6BA82BA8D34D957876EC89CBDC993CD51F35D67FED12E",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "cinematic-scene",
+                                    "nature-landscape"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-069.txt",
+                       "error":  null,
+                       "elapsedMs":  34761,
+                       "characters":  1742
+                   },
+                   {
+                       "id":  "library-070",
+                       "sourceName":  "68961438051225637.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\bf491289-71f6-434b-89b0-7b5e9c7bdb37\\68961438051225637.jpg",
+                       "file":  "library-070.jpg",
+                       "sha256":  "F4A1CDF5CB659F863C908D6036ABF5DFBF694EB8A1AA825C19874F1F136F681B",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "portrait-character",
+                                    "cinematic-scene"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-070.txt",
+                       "error":  null,
+                       "elapsedMs":  24667,
+                       "characters":  1388
+                   },
+                   {
+                       "id":  "library-071",
+                       "sourceName":  "49117452183481705.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\bfc2aea2-78b1-4a66-8927-72262e0ea865\\49117452183481705.jpg",
+                       "file":  "library-071.jpg",
+                       "sha256":  "673FEFCC82CF35C62E2384503382D853871C1D21F8E7141F45C737C99EC32B08",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+                                    "typography-poster"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-071.txt",
+                       "error":  null,
+                       "elapsedMs":  26362,
+                       "characters":  1395
+                   },
+                   {
+                       "id":  "library-072",
+                       "sourceName":  "the glow is callingâ€”grab our superdose serum!ðŸ”¥â€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\bfc9f1cf-83e1-4da3-ad95-2cb96b79d7f5\\the glow is callingâ€”grab our superdose serum!ðŸ”¥â€¦.jpg",
+                       "file":  "library-072.jpg",
+                       "sha256":  "19ECD75630CFBB691080239D5FBAAE64E40EA721CE71F058F117F21F5594F132",
+                       "status":  "analyzed",
+                       "category":  "product-commercial",
+                       "tags":  [
+                                    "fashion-editorial",
+                                    "portrait-character"
+                                ],
+                       "promptFile":  "generated-prompts/library/library-072.txt",
+                       "error":  null,
+                       "elapsedMs":  28400,
+                       "characters":  1564
+                   },
+                   {
+                       "id":  "library-073",
+                       "sourceName":  "306455949666904576.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\c07ab5c6-5279-4185-992f-6dea8aeebef6\\306455949666904576.jpg",
+                       "file":  "library-073.jpg",
+                       "sha256":  "BB936499B266DBEA5B83F63437CB2E6B345621D475C845360D6DF25BB5806469",
+                       "status":  "analyzed",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  "generated-prompts/library/library-073.txt",
+                       "error":  null,
+                       "elapsedMs":  27520,
+                       "characters":  1449
+                   },
+                   {
+                       "id":  "library-074",
+                       "sourceName":  "Faceless UGC Creator _ Aesthetic Product Videos \u0026 UGC Ideas.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\c1a3a8de-4ed3-4251-b912-1f8f450c13ef\\Faceless UGC Creator _ Aesthetic Product Videos \u0026 UGC Ideas.jpg",
+                       "file":  "library-074.jpg",
+                       "sha256":  "D5C6294A8B60D60886705DBF926F7CDDE4D632D5C4CDC96E410701069A23C068",
+                       "status":  "categorized",
+                       "category":  "product-commercial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-075",
+                       "sourceName":  "White Chic Minimalist Fashion Photo Collage.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\c60cfe12-3f3b-44f8-90ec-1946beb91623\\White Chic Minimalist Fashion Photo Collage.jpg",
+                       "file":  "library-075.jpg",
+                       "sha256":  "311B87CB09949A44AA5841923B8529519675F1021FB3F9D114BCDF884A0E8481",
+                       "status":  "categorized",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-076",
+                       "sourceName":  "124130533475916066.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\c82ebb52-ec71-444a-a544-b3dd07c22e54\\124130533475916066.jpg",
+                       "file":  "library-076.jpg",
+                       "sha256":  "02402BBB0A35E63D587A17DBFEBF805A99D5886D83B3489140A3595AA31CF42D",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-077",
+                       "sourceName":  "Anti-Aging \u0026 Firming Power_ medicube NAD EGF Serum âœ¨.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\c87f4818-05e1-4d40-8cda-24d1d1488604\\Anti-Aging \u0026 Firming Power_ medicube NAD EGF Serum âœ¨.jpg",
+                       "file":  "library-077.jpg",
+                       "sha256":  "9607CAB99588A6A150BC791250403950FBF3BCED15D87428FC9752B4E0253C9E",
+                       "status":  "categorized",
+                       "category":  "product-commercial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "sourceName":  "28429041394804270.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\cdc72a19-8489-40fe-b31d-f72f442444bb\\28429041394804270.jpg",
+                       "sha256":  "30A73CA90DA2BEA96EE68B64AEE3A912A967B1B3A24AC5A861924E39C9537511",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-18.jpg"
+                   },
+                   {
+                       "id":  "library-078",
+                       "sourceName":  "images.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\cffe017c-99e1-430a-8b18-834630afd3d9\\images.jpg",
+                       "file":  "library-078.jpg",
+                       "sha256":  "4C5D99710DD429FFA9E6FD3AD07BFCA40057C56434463BB5B0DC4800B53003BB",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-079",
+                       "sourceName":  "4292562141566007.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d1b0cc16-957b-4d6a-9d59-3bda68f0cde2\\4292562141566007.jpg",
+                       "file":  "library-079.jpg",
+                       "sha256":  "100ADFC6640283C90F3C5EBB18A00016D2E551EB14EA96D4B2C7C1BD441BE174",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-080",
+                       "sourceName":  "Create a premium editorial music event poster using my uploaded photo as the base.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d31ca46b-c23b-4ba9-8bcc-00c5fd0519b8\\Create a premium editorial music event poster using my uploaded photo as the base.jpg",
+                       "file":  "library-080.jpg",
+                       "sha256":  "5A06E48909284210F00DACE291FE0CAF392AE6BD67EDA4885DC4183597485BF1",
+                       "status":  "categorized",
+                       "category":  "typography-poster",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-081",
+                       "sourceName":  "midjourney (5).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d5074ecc-9cf9-4e16-a709-8e495d217571\\midjourney (5).jpg",
+                       "file":  "library-081.jpg",
+                       "sha256":  "37D1468D3858823B2D730457D78EDFD69E450B128879B5A7F9B794D503D24D9D",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-082",
+                       "sourceName":  "female model.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d849beba-8f93-4a43-bc0d-550fa50d0a89\\female model.jpg",
+                       "file":  "library-082.jpg",
+                       "sha256":  "6B9E8AB8AB4A138DFF97DCC146A316758DB1143916F1FA58FB0704473081ABCE",
+                       "status":  "categorized",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-083",
+                       "sourceName":  "ðŸ“¸.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d8c0dc22-4413-4ca5-a429-92321d66cb04\\ðŸ“¸.jpg",
+                       "file":  "library-083.jpg",
+                       "sha256":  "1F4AA6096964008E509F40170CCD9E55EB3750693E56A4EB2B8B2CD9407BFE7F",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-084",
+                       "sourceName":  "How to Become a UGC Creator ðŸ’•.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d956dc6d-4faf-462c-bf47-6f101b7e59dd\\How to Become a UGC Creator ðŸ’•.jpg",
+                       "file":  "library-084.jpg",
+                       "sha256":  "1ADB7627BDF3FFBA6085A9F36E8F2E6D2FB4B6D6A4F271F05B87BE7F6AFCCC46",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-085",
+                       "sourceName":  "Create Skincare Ads Without a Brand Deal.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\d9a046d8-0126-42cb-b5d0-fe8a33ee4be6\\Create Skincare Ads Without a Brand Deal.jpg",
+                       "file":  "library-085.jpg",
+                       "sha256":  "35CE575B9BE0285F7B0496BE1FEB366A9F05D62D2DAF8671913E33C7146FCC52",
+                       "status":  "categorized",
+                       "category":  "product-commercial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-086",
+                       "sourceName":  "New Wallpaper.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\da191526-ca20-45bd-a821-6c9dafb41c9d\\New Wallpaper.jpg",
+                       "file":  "library-086.jpg",
+                       "sha256":  "1CE8FE55B6418E90EA6FF04A21E742A0BB72B1E8F5124C0E1902F0470E7C43E5",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-087",
+                       "sourceName":  "7459155630525498.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\da8af8c4-c572-4fc6-9e5b-a09d5ae2754c\\7459155630525498.jpg",
+                       "file":  "library-087.jpg",
+                       "sha256":  "AB3E81D07240A40FA545F02BE555C4EF93BF56B5F62321F5C9C840D60E0330B7",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-088",
+                       "sourceName":  "âœ¨ 5 UGC Video Ideas Brands Pay Beginners For.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\dabfb570-fef0-4166-9df2-1710170361e8\\âœ¨ 5 UGC Video Ideas Brands Pay Beginners For.jpg",
+                       "file":  "library-088.jpg",
+                       "sha256":  "0D0634B2058947D305F3704953B9A0A2C3B8C379824B6A0851EE27DE3369D4D6",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-089",
+                       "sourceName":  "Midjourney_  Detailed 3D cartoon man in home studio setting_.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\db3f5734-1049-4b54-9e66-5a9ef1564d42\\Midjourney_  Detailed 3D cartoon man in home studio setting_.jpg",
+                       "file":  "library-089.jpg",
+                       "sha256":  "48AE4A6A602F1651D8C193EF3FF1D2FFAFC8042B32DCD7C62DA675352CACE3A8",
+                       "status":  "categorized",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-090",
+                       "sourceName":  "midjourney (4).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\dc3fdbbf-c57d-496a-bbdc-95d987bb65fa\\midjourney (4).jpg",
+                       "file":  "library-090.jpg",
+                       "sha256":  "A0D170F14C07C58BC765AF3AD1DA1690BFFB9ED2FFBF8A0C8AD993BBB66F72DF",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-091",
+                       "sourceName":  "midjourney (3).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\df2b87ee-ec0c-4d0c-8ddb-014ff9701062\\midjourney (3).jpg",
+                       "file":  "library-091.jpg",
+                       "sha256":  "56FDD6735167304D31B0B265161934C6E292A7BB299C521C50066F412ECBB038",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-092",
+                       "sourceName":  "Smiling Male Photographer.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\e0549e8a-bc7a-466d-a489-13b8022b91b3\\Smiling Male Photographer.jpg",
+                       "file":  "library-092.jpg",
+                       "sha256":  "C038722076061E6755CCF93B628974F49EC68F52B6A1FAFB47689DE7EB82B5DE",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "sourceName":  "872431759093241923.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\e5e35642-c585-481a-bd11-3459de08cde1\\872431759093241923.jpg",
+                       "sha256":  "FB9AE8AA09E1928ED10C4A507737C545A5BCBA7FA85A56E778B4811E3C816F3B",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-14.jpg"
+                   },
+                   {
+                       "sourceName":  "15621929952944828.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\e68e4494-f753-48e1-b55f-ed87cbef012c\\15621929952944828.jpg",
+                       "sha256":  "7C910FDAD503A34852B728794187F692DCA9905B30AB93EE60D7BC01C442A6F4",
+                       "status":  "excluded-existing-template",
+                       "existingTemplate":  "template-20.jpg"
+                   },
+                   {
+                       "id":  "library-093",
+                       "sourceName":  "Surreal Fashion Portraits That Defy Reality! âœ¨.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\e7bd9e16-9179-4946-afce-7cc2c9ba9dae\\Surreal Fashion Portraits That Defy Reality! âœ¨.jpg",
+                       "file":  "library-093.jpg",
+                       "sha256":  "9911063254489C1EA1E0E585AC503B56CBB47A22EB1FC60F57D2DCF0CD724AAA",
+                       "status":  "categorized",
+                       "category":  "fashion-editorial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-094",
+                       "sourceName":  "Foto UGC de Skin Care ðŸ«§   #fotosugcâ€¦.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\ea4a578e-5026-4082-b3c7-3456e8cf56b5\\Foto UGC de Skin Care ðŸ«§   #fotosugcâ€¦.jpg",
+                       "file":  "library-094.jpg",
+                       "sha256":  "6ED37D9F6589E94075E0628817326E8D2164DDF974DA71F7C221E63BC6F23982",
+                       "status":  "categorized",
+                       "category":  "product-commercial",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-095",
+                       "sourceName":  "Lili.png",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\eb501982-084b-4cf0-a42e-0ef980952cf0\\Lili.png",
+                       "file":  "library-095.png",
+                       "sha256":  "9646045D33E81F334E65BF87C7ED3730F74012B97F2816BCA8237F8DC2946332",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-096",
+                       "sourceName":  "Prasant.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\f33af609-9c03-4483-8705-300b1c07c762\\Prasant.jpg",
+                       "file":  "library-096.jpg",
+                       "sha256":  "0E229E326DD2502A07DE9C85FA8E8751ED35CBF6EBD789A826D3C300E70FAE0E",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-097",
+                       "sourceName":  "images (6).jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\f442c33b-6d82-4056-b970-3db5856ebd56\\images (6).jpg",
+                       "file":  "library-097.jpg",
+                       "sha256":  "7C3D66337C3BB6A727789FD1908DDBFB3FA3EA9A5DECE9D353C89CBF5A0A2FC2",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-098",
+                       "sourceName":  "WILDROOT Wellness _ Branding, Packaging, Visual Identity.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\f5442899-e1c2-460a-b889-84a230432d4f\\WILDROOT Wellness _ Branding, Packaging, Visual Identity.jpg",
+                       "file":  "library-098.jpg",
+                       "sha256":  "7B8195D0FAE6A16F6538A838A9CBA5ADE4D2854DA9A43938D93188EE4E267B71",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-099",
+                       "sourceName":  "57280226505614603.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\f66dc485-b901-4299-9fec-03e8fc1e3667\\57280226505614603.jpg",
+                       "file":  "library-099.jpg",
+                       "sha256":  "3C0CF3298857272C5EA4E94F6C00181984F68084244D37C5C7AA82BF0F5390FB",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-100",
+                       "sourceName":  "Luxury Nature Editorial.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\f8f8b26d-7244-45c1-b169-d9edc5dd0fd6\\Luxury Nature Editorial.jpg",
+                       "file":  "library-100.jpg",
+                       "sha256":  "70F96B7BEE5C58B8F97258391CA8FBB643C286FB48EA30BDB46F11A0932FA99A",
+                       "status":  "categorized",
+                       "category":  "nature-landscape",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-101",
+                       "sourceName":  "ðŸ“¸.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\fa8065be-3df5-451a-82f8-346124481dd5\\ðŸ“¸.jpg",
+                       "file":  "library-101.jpg",
+                       "sha256":  "1F4AA6096964008E509F40170CCD9E55EB3750693E56A4EB2B8B2CD9407BFE7F",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-102",
+                       "sourceName":  "3448137209903716.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\fbb1d68b-679d-4555-b0f7-4be415c04737\\3448137209903716.jpg",
+                       "file":  "library-102.jpg",
+                       "sha256":  "7F3C519702ED725CDDF5446B8D056835A9949311B76B88157638230B7BA6EB7D",
+                       "status":  "categorized",
+                       "category":  "general-photography",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   },
+                   {
+                       "id":  "library-103",
+                       "sourceName":  "Midjourney_  Detailed 3D cartoon man in home studio setting_.jpg",
+                       "sourcePath":  "C:\\Users\\Prasa\\AppData\\Roaming\\Code\\agentSessionData\\e10bd39f-ed4b-4847-9221-380e44e198ab\\attachments\\fea774c6-2112-47af-bae2-a264d02eb678\\Midjourney_  Detailed 3D cartoon man in home studio setting_.jpg",
+                       "file":  "library-103.jpg",
+                       "sha256":  "48AE4A6A602F1651D8C193EF3FF1D2FFAFC8042B32DCD7C62DA675352CACE3A8",
+                       "status":  "categorized",
+                       "category":  "portrait-character",
+                       "tags":  [
+
+                                ],
+                       "promptFile":  null,
+                       "error":  null
+                   }
+               ]
+}
