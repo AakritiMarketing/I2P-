@@ -1,0 +1,62 @@
+{
+  "5": {
+    "inputs": {
+      "clip_name": "qwen3.5_4b_bf16.safetensors",
+      "type": "stable_diffusion",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "6": {
+    "inputs": {
+      "prompt": "Act as a world-class professional photographer, cinematographer, camera operator, visual anthropologist, production designer, art director, and elite image-generation prompt engineer. Perform a forensic, pixel-conscious reconstruction of the uploaded image. The uploaded image is the only authority: never let generic labels, preset options, assumptions, or a requested style override what is visibly present. Study the entire frame repeatedly and write an extremely long, dense, production-ready prompt with no brevity target and no summary. Record the complete story and visual intent; subject hierarchy; every visible person separately; face shape and visible features; skin tone; age range; hair; body proportions; clothing construction, fabric, weave, seams, fit, folds, colors and patterns; accessories; footwear; pose; gesture; expression; gaze; hands; exact position, scale, overlap and depth order. Inventory every object, prop, surface, material, architectural feature, landscape element, sign, readable text, reflection, shadow and small background detail. Describe foreground, middle ground and far background independently, including spatial relationships and what is partially occluded. Think like a camera professional: viewpoint height, orientation, shot size, framing, crop, perspective, lens and focal-length impression, distortion, focus plane, depth of field, bokeh, motion blur, exposure, white balance, dynamic range, grain, color science, light direction, source size, softness, falloff, contrast, rim light, practical lights, shadows, reflections, atmosphere, weather and time of day. Describe palette, tonal hierarchy, textures, style, genre, composition geometry, leading lines, symmetry and negative space. Only state visible facts; write 'not discernible' when needed. Do not invent people, objects, logos, text, anatomy or background. There is NO word limit, token target, or brevity requirement: spend the available output generating the longest accurate visual blueprint possible. Return ONLY valid JSON with no markdown fences or commentary using exactly this schema: {\"scene\":{\"mood\":\"\",\"lighting\":\"\",\"time_of_day\":\"\",\"visual_style\":\"\",\"camera_angle\":\"\",\"camera_height\":\"\",\"shot_type\":\"\",\"lens_impression\":\"\",\"composition\":\"\",\"aspect_ratio\":\"\",\"depth_of_field\":\"\",\"focus_plane\":\"\",\"motion_blur\":\"\",\"exposure\":\"\",\"white_balance\":\"\",\"color_palette\":\"\",\"contrast\":\"\",\"film_texture\":\"\",\"textures\":\"\",\"environment\":\"\",\"weather\":\"\"},\"characters\":[{\"name\":\"\",\"gender\":\"\",\"age\":\"\",\"appearance\":\"\",\"face\":\"\",\"hair\":\"\",\"skin_and_features\":\"\",\"clothing\":\"\",\"fabric_and_materials\":\"\",\"accessories\":\"\",\"footwear\":\"\",\"pose\":\"\",\"hands\":\"\",\"expression\":\"\",\"gaze\":\"\",\"position\":\"\",\"depth_order\":\"\",\"scale_in_frame\":\"\"}],\"objects\":[\"one precise description per visible object or prop\"],\"background\":\"a very long precise inventory of foreground, middle ground, far background and spatial relationships\", \"full_prompt\":\"An exceptionally long self-contained image-generation prompt that recreates the complete uploaded image from text alone. The image description has priority over every UI option. Include every observed subject, object, background element, material, color, texture, camera property, lighting property, shadow, reflection, atmosphere, composition relationship and uncertainty. Do not summarize.\",\"negative_constraints\":\"specific things that must not be added, removed, altered, duplicated, merged, blurred, or hallucinated\"}.",
+      "max_length": 12000,
+      "sampling_mode": "on",
+      "sampling_mode.temperature": 0.2,
+      "sampling_mode.top_k": 64,
+      "sampling_mode.top_p": 0.95,
+      "sampling_mode.min_p": 0.05,
+      "sampling_mode.repetition_penalty": 1.05,
+      "sampling_mode.seed": 0,
+      "sampling_mode.presence_penalty": 0,
+      "thinking": false,
+      "use_default_template": true,
+      "clip": [
+        "5",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "TextGenerate",
+    "_meta": {
+      "title": "Generate Text"
+    }
+  },
+  "7": {
+    "inputs": {
+      "source": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "8": {
+    "inputs": {
+      "image": "Gemini_Generated_Image_bnkde7bnkde7bnkd (1).png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  }
+}

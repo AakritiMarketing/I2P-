@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I2P by U-DESIGN — Image to Prompt Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#16221c; --muted:#718078; --line:#dce5df; --paper:#f5f8f4; --card:#fff; --green:#b9ed67; --dark:#1b2b22; --soft:#edf5ec; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Manrope, sans-serif; }
+    button, input, select, textarea { font:inherit; }
+    button { cursor:pointer; border:0; }
+    .topbar { height:74px; display:flex; align-items:center; justify-content:space-between; padding:0 5.5vw; border-bottom:1px solid var(--line); background:rgba(245,248,244,.92); }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.04em; font-size:20px; user-select:none; }
+    .brand small { display:block; color:var(--muted); font-size:9px; letter-spacing:.1em; margin-top:2px; }
+    .mark { width:29px; height:29px; border-radius:9px; background:var(--dark); display:grid; place-items:center; position:relative; }
+    .mark:after { content:""; width:11px; height:11px; border:2px solid var(--green); border-radius:50%; }
+    .brand-lock { position:fixed; inset:0; z-index:10; display:none; place-items:center; background:rgba(18,34,25,.5); backdrop-filter:blur(5px); }
+    .brand-lock.open { display:grid; }
+    .boot-card { width:min(390px,88vw); background:#fff; border:1px solid var(--line); border-radius:18px; padding:27px; box-shadow:0 20px 60px rgba(10,25,16,.2); text-align:center; }
+    .boot-card h2 { margin:0 0 8px; letter-spacing:-.05em; }
+    .boot-card p { color:var(--muted); font-size:12px; line-height:1.6; margin:0 0 19px; }
+    .boot-progress { height:7px; border-radius:7px; background:#e8eee9; overflow:hidden; }
+    .boot-progress span { display:block; height:100%; width:0; background:var(--green); transition:width 1s linear; }
+    .boot-time { margin-top:12px; font-family:"DM Mono",monospace; color:#6c846f; font-size:11px; }
+    .boot-close { margin-top:18px; background:transparent; color:var(--muted); font-size:11px; }
+    .top-actions { display:flex; align-items:center; gap:26px; color:var(--muted); font-size:13px; font-weight:600; }
+    .top-actions .plan { color:var(--ink); padding:8px 13px; border:1px solid var(--line); border-radius:20px; background:#fff; }
+    main { width:min(1280px, 89vw); margin:0 auto; padding:47px 0 70px; }
+    .heading { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:33px; }
+    h1 { font-size:clamp(33px,4vw,55px); line-height:.98; letter-spacing:-.07em; margin:0 0 14px; max-width:600px; }
+    h1 span { color:#94b95d; }
+    .lede { color:var(--muted); font-size:15px; max-width:540px; line-height:1.7; margin:0; }
+    .workspace { display:grid; grid-template-columns: minmax(300px, .9fr) minmax(420px, 1.25fr); gap:20px; align-items:start; }
+    .panel { background:var(--card); border:1px solid var(--line); border-radius:21px; box-shadow:0 7px 25px rgba(30,50,37,.035); }
+    .panel-head { display:flex; align-items:center; justify-content:space-between; padding:21px 23px 15px; }
+    .eyebrow { color:var(--muted); font-family:"DM Mono", monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .panel-title { font-size:17px; font-weight:800; letter-spacing:-.04em; margin:4px 0 0; }
+    .step { color:#91a098; font-family:"DM Mono", monospace; font-size:11px; }
+    .upload-box { margin:0 14px 14px; height:355px; border:1.5px dashed #b9c9bc; border-radius:15px; background:linear-gradient(135deg,#f5faf0,#f1f6f2); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+    .upload-box.has-image { background-size:cover; background-position:center; border:0; }
+    .upload-box.has-image:before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,28,19,.06),rgba(13,28,19,.56)); }
+    .upload-content { position:relative; z-index:1; }
+    .upload-icon { width:50px; height:50px; border:1px solid #c8d6ca; background:#fff; border-radius:50%; display:grid; place-items:center; margin:0 auto 15px; color:#739279; font-size:22px; }
+    .upload-box.has-image .upload-icon { display:none; }
+    .upload-title { font-weight:800; font-size:15px; margin-bottom:6px; }
+    .upload-hint { color:var(--muted); font-size:12px; }
+    .upload-box.has-image .upload-title, .upload-box.has-image .upload-hint { color:#fff; }
+    .browse { color:var(--ink); text-decoration:underline; text-underline-offset:3px; font-weight:700; }
+    .upload-box.has-image .browse { color:var(--green); }
+    .scan-overlay { display:none; position:absolute; inset:0; z-index:3; align-items:center; justify-content:center; flex-direction:column; gap:12px; color:#fff; background:rgba(10,28,19,.68); }
+    .scanning .scan-overlay { display:flex; }
+    .scan-grid { position:absolute; inset:0; opacity:.22; background-image:linear-gradient(rgba(185,237,103,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(185,237,103,.5) 1px,transparent 1px); background-size:28px 28px; }
+    .scan-line { position:absolute; left:0; right:0; height:2px; background:var(--green); box-shadow:0 0 16px 4px rgba(185,237,103,.7); animation:scan 1.7s ease-in-out infinite; }
+    .scan-icon { position:relative; width:48px; height:48px; border:2px solid rgba(185,237,103,.8); border-radius:50%; animation:pulse 1.2s ease-in-out infinite; }
+    .scan-icon:after { content:""; position:absolute; width:8px; height:8px; border-radius:50%; background:var(--green); top:50%; left:50%; transform:translate(-50%,-50%); box-shadow:0 0 14px 3px var(--green); }
+    .scan-label { position:relative; font-family:"DM Mono",monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+    .analyze-image { display:none; width:calc(100% - 28px); margin:0 14px 14px; padding:12px; border-radius:9px; background:var(--dark); color:#fff; font-size:12px; font-weight:800; }
+    .analyze-image.visible { display:block; }
+    .analyze-image.stop { background:#a95353; }
+    .mode-row { display:flex; gap:8px; margin:0 14px 14px; }
+    .mode-button { flex:1; padding:10px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--muted); font-size:11px; font-weight:800; }
+    .mode-button.active { background:var(--dark); color:#fff; border-color:var(--dark); }
+    .diagnostics { display:none; margin:0 22px 22px; padding:12px; border:1px solid var(--line); border-radius:9px; background:#f8fbf8; }
+    .diagnostics.open { display:block; }
+    .diagnostics pre { max-height:220px; overflow:auto; white-space:pre-wrap; word-break:break-word; color:#52645a; font:10px/1.5 "DM Mono",monospace; margin:8px 0 0; }
+    .diagnostics-summary { color:var(--muted); font:10px/1.5 "DM Mono",monospace; }
+    @keyframes scan { 0%,100% { top:8%; } 50% { top:90%; } }
+    @keyframes pulse { 0%,100% { transform:scale(.9); opacity:.7; } 50% { transform:scale(1.08); opacity:1; } }
+    #fileInput { display:none; }
+    .file-strip { display:flex; align-items:center; gap:10px; margin:0 22px 22px; min-height:28px; color:var(--muted); font-family:"DM Mono",monospace; font-size:10px; }
+    .file-dot { width:7px; height:7px; border-radius:50%; background:#8fd35b; }
+    .remove { margin-left:auto; color:#a07373; background:transparent; font-size:11px; display:none; }
+    .options { border-top:1px solid var(--line); padding:20px 23px 23px; opacity:.48; transition:opacity .2s; }
+    .options.analyzed { opacity:1; }
+    .analysis-note { color:var(--muted); font-family:"DM Mono",monospace; font-size:10px; margin:-7px 0 15px; }
+    .options h3 { margin:0 0 15px; font-size:14px; letter-spacing:-.03em; }
+    .field-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:11px; }
+    label { display:block; color:var(--muted); font-size:11px; font-weight:700; margin-bottom:6px; }
+    select, input[type=text] { width:100%; border:1px solid var(--line); color:var(--ink); background:#fbfdfb; border-radius:8px; padding:10px 11px; outline:none; font-size:12px; }
+    select:focus, input:focus, textarea:focus { border-color:#8bbd74; box-shadow:0 0 0 3px rgba(139,189,116,.14); }
+    .generate { display:flex; gap:8px; align-items:center; justify-content:center; width:100%; padding:13px; background:var(--dark); color:#fff; border-radius:10px; font-weight:800; font-size:13px; margin-top:16px; transition:transform .2s, background .2s; }
+    .generate[hidden] { display:none; }
+    .generate:hover { background:#2f4938; transform:translateY(-1px); }
+    .spark { color:var(--green); font-size:16px; }
+    .output { padding-bottom:20px; }
+    .output-head { padding-bottom:18px; }
+    .status { color:#5f8e5e; background:#edf8e7; border-radius:20px; font-size:10px; font-family:"DM Mono", monospace; padding:6px 9px; }
+    .prompt-wrap { margin:0 23px; position:relative; }
+    textarea { display:block; width:100%; min-height:283px; resize:vertical; background:#f8fbf8; border:1px solid var(--line); border-radius:12px; padding:17px; color:#314339; font-size:13px; line-height:1.72; outline:none; }
+    .word-count { position:absolute; right:13px; bottom:10px; color:#9baaa0; font-family:"DM Mono",monospace; font-size:10px; }
+    .prompt-tools { display:flex; justify-content:space-between; align-items:center; margin:12px 0 23px; }
+    .tool-link { color:var(--muted); background:transparent; font-size:11px; font-weight:700; }
+    .tool-link:hover { color:var(--ink); }
+    .copy { display:flex; align-items:center; gap:7px; background:var(--green); color:var(--dark); border-radius:7px; padding:9px 13px; font-size:11px; font-weight:800; }
+    .characters { border-top:1px solid var(--line); padding:20px 23px 0; }
+    .section-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    .section-row h3 { margin:0; font-size:14px; letter-spacing:-.03em; }
+    .add { color:#5b7b5f; background:var(--soft); border-radius:6px; padding:7px 9px; font-size:11px; font-weight:800; }
+    .character-list { display:flex; flex-direction:column; gap:8px; }
+    .character { display:grid; grid-template-columns:35px 1fr auto; gap:10px; align-items:center; padding:10px; border:1px solid var(--line); border-radius:10px; }
+    .avatar { width:35px; height:35px; border-radius:9px; display:grid; place-items:center; color:#fff; font-weight:800; font-size:12px; }
+    .avatar.one { background:#bb8a75; }.avatar.two { background:#728c9d; }.avatar.three { background:#a28c62; }.avatar.four { background:#7e9d7f; }
+    .character-name { font-size:12px; font-weight:800; }.character-detail { color:var(--muted); font-size:10px; margin-top:3px; }
+    .character-actions { display:flex; align-items:center; gap:8px; }
+    .edit { color:#799181; font-size:11px; background:transparent; }.toggle { width:30px; height:17px; background:#c5d3c8; border-radius:12px; position:relative; }.toggle:after { content:""; position:absolute; width:13px; height:13px; background:#fff; border-radius:50%; left:2px; top:2px; transition:left .2s; }.toggle.on { background:#91bd5d; }.toggle.on:after { left:15px; }
+    .footer-note { display:flex; gap:18px; margin-top:18px; color:#88978e; font-size:11px; align-items:center; }.footer-note span { display:flex; align-items:center; gap:5px; }
+    @media (max-width:850px) { .heading { display:block; }.workspace { grid-template-columns:1fr; }.heading .lede { margin-bottom:24px; }.upload-box { height:300px; } }
+    @media (max-width:520px) { .topbar { padding:0 5vw; }.top-actions { gap:10px; }.top-actions span:not(.plan) { display:none; } main { width:92vw; padding-top:32px; }.field-row { grid-template-columns:1fr; }.panel-head,.options,.characters { padding-left:17px; padding-right:17px; }.prompt-wrap { margin:0 17px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" id="brandTrigger" title="I2P by U-DESIGN"><div class="mark"></div><div>I2P <small>by U-DESIGN</small></div></div>
+    <div class="top-actions"><span>Workspace</span><span>Prompt history</span><span class="plan">Free plan · 4 credits</span></div>
+  </header>
+  <div class="brand-lock" id="bootModal" aria-live="polite">
+    <div class="boot-card">
+      <h2 id="bootTitle">Starting your studio</h2>
+      <p id="bootMessage">Your PC is waking ComfyUI and the I2P analysis server. This usually takes about one minute.</p>
+      <div class="boot-progress"><span id="bootProgress"></span></div>
+      <div class="boot-time" id="bootTime">Requesting PC startup…</div>
+      <button class="boot-close" id="bootClose" type="button">Close</button>
+    </div>
+  </div>
+  <main>
+    <div class="heading">
+      <div><h1>See it. <span>Describe it.</span><br>Make it yours.</h1><p class="lede">Turn any image into a precise, editable prompt. Keep the people you love, change what you like, and create without starting over.</p></div>
+    </div>
+    <section class="workspace">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">01 / Source image</div><div class="panel-title">Upload your reference</div></div><div class="step">PNG · JPG · WEBP</div></div>
+        <label class="upload-box" id="dropZone" for="fileInput">
+          <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
+          <div class="upload-content"><div class="upload-icon">↑</div><div class="upload-title">Drop an image here</div><div class="upload-hint">or <span class="browse">browse your files</span><br>Up to 10MB</div></div>
+          <div class="scan-overlay"><div class="scan-grid"></div><div class="scan-line"></div><div class="scan-icon"></div><div class="scan-label">Scanning image…</div></div>
+        </label>
+        <div class="mode-row"><button class="mode-button active" id="fastMode" type="button">Fast recreate</button><button class="mode-button" id="analysisMode" type="button">Analyze image</button></div>
+        <button class="analyze-image" id="analyzeImage" type="button">✦ Analyze this image</button>
+        <div class="file-strip"><span class="file-dot"></span><span id="fileName">No image selected yet</span><button class="remove" id="removeFile" type="button">Remove</button></div>
+        <div class="options">
+          <h3>Set the scene</h3><div class="analysis-note" id="sceneState">Upload an image to analyze its visual details.</div>
+          <div class="field-row"><div><label for="mood">Mood & lighting</label><select id="mood"><option value="" selected>Waiting for image analysis…</option><option>Natural, soft daylight</option><option>Golden hour glow</option><option>Moody cinematic light</option><option>Bright studio light</option><option>Neon night lighting</option></select></div><div><label for="time">Time of day</label><select id="time"><option value="" selected>Waiting for image analysis…</option><option>Late afternoon</option><option>Early morning</option><option>Midday</option><option>Blue hour</option><option>Night</option></select></div></div>
+          <div class="field-row"><div><label for="style">Visual style</label><select id="style"><option value="" selected>Waiting for image analysis…</option><option>Photorealistic</option><option>Editorial fashion</option><option>Analog film</option><option>Documentary</option><option>Fine art portrait</option></select></div><div><label for="ratio">Aspect ratio</label><select id="ratio"><option value="" selected>Waiting for image analysis…</option><option>Keep original ratio</option><option>Portrait · 4:5</option><option>Landscape · 16:9</option><option>Square · 1:1</option></select></div></div>
+          <button class="generate" id="generate" type="button" hidden><span class="spark">✦</span> Generate detailed prompt</button>
+        </div>
+      </div>
+      <div class="panel output">
+        <div class="panel-head output-head"><div><div class="eyebrow">02 / Your prompt</div><div class="panel-title">Make precise adjustments</div></div><span class="status" id="status">READY TO GENERATE</span></div>
+        <div class="prompt-wrap"><textarea id="prompt" spellcheck="false">Upload an image and generate a prompt to see a detailed, editable description here. Every subject will be separated so you can keep, remove, or customize them.</textarea><span class="word-count" id="wordCount">23 words</span></div>
+        <div class="prompt-tools"><button class="tool-link" id="reset" type="button">↺ Reset prompt</button><button class="copy" id="copy" type="button">Copy prompt <span>↗</span></button></div>
+        <div class="diagnostics" id="diagnostics"><div class="diagnostics-summary" id="diagnosticsSummary">No analysis response yet.</div><pre id="rawData"></pre></div>
+        <div class="characters">
+          <div class="section-row"><h3>Characters in this image <span id="characterCount" style="color:#9aaa9e;font-weight:500">(0)</span></h3><button class="add" id="addCharacter" type="button">＋ Add character</button></div>
+          <div class="character-list" id="characterList"><div class="file-strip" id="characterState">Upload an image to detect people in it.</div>
+            <!-- Detected characters are rendered here after image analysis. -->
+            <!--
+            <div class="character"><div class="avatar one">01</div><div><div class="character-name">Woman 01</div><div class="character-detail">Long dark hair · cream blouse · left</div></div><div class="character-actions"><button class="edit" type="button">Edit</button><button class="toggle on" type="button" aria-label="Include Woman 01"></button></div></div>
+            <div class="character"><div class="avatar two">02</div><div><div class="character-name">Woman 02</div><div class="character-detail">Short hair · denim jacket · center</div></div><div class="character-actions"><button class="edit" type="button">Edit</button><button class="toggle on" type="button" aria-label="Include Woman 02"></button></div></div>
+            <div class="character"><div class="avatar three">03</div><div><div class="character-name">Woman 03</div><div class="character-detail">Wavy hair · green dress · right</div></div><div class="character-actions"><button class="edit" type="button">Edit</button><button class="toggle on" type="button" aria-label="Include Woman 03"></button></div></div>
+            <div class="character"><div class="avatar four">04</div><div><div class="character-name">Man 01</div><div class="character-detail">Curly hair · black shirt · background</div></div><div class="character-actions"><button class="edit" type="button">Edit</button><button class="toggle on" type="button" aria-label="Include Man 01"></button></div></div>
+          --></div>
+          <div class="footer-note"><span>⌁ Individual controls</span><span>◉ Face & outfit editable</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const fileInput = $('#fileInput'), dropZone = $('#dropZone'), fileName = $('#fileName'), removeFile = $('#removeFile'), analyzeButton = $('#analyzeImage');
+    const promptBox = $('#prompt'), status = $('#status'), wordCount = $('#wordCount'), sceneOptions = $('.options'), sceneState = $('#sceneState');
+    const defaultPrompt = promptBox.value;
+    const sceneFields = [$('#mood'), $('#time'), $('#style'), $('#ratio')];
+    let selectedFile = null;
+    let analysisController = null;
+    let latestAnalysis = null;
+    let mode = 'fast';
+    let brandClicks = 0;
+    let brandClickTimer;
+    const controllerUrl = 'https://desktop-i30b6o6.tail47878d.ts.net';
+    const apiUrl = controllerUrl;
+    sceneFields.forEach(field => field.disabled = true);
+    function renderDiagnostics(analysis) {
+      const diagnostics = analysis.diagnostics || {};
+      $('#diagnosticsSummary').textContent = `Analysis time: ${((diagnostics.elapsedMs || 0) / 1000).toFixed(1)}s · Prompt: ${diagnostics.promptWords || 0} words · Characters: ${(analysis.characters || []).length} · Objects: ${(analysis.objects || []).length}`;
+      $('#rawData').textContent = diagnostics.rawText || JSON.stringify(analysis, null, 2);
+      $('#diagnostics').classList.add('open');
+    }
+    function buildFastPrompt() {
+      const detail = 'Recreate the uploaded reference image as faithfully as possible. Preserve the exact subject identity, face, hair, skin, body proportions, clothing, pose, expression, camera viewpoint, framing, lens perspective, lighting direction, shadows, colors, materials, textures, background, object placement, depth, atmosphere, and composition. Use the new uploaded image as the identity and appearance reference. Change only the face or wardrobe edits explicitly requested by the user. Do not add, remove, duplicate, merge, stylize, crop, relight, or rearrange anything. No extra people, objects, text, watermark, deformed anatomy, or invented background details.';
+      promptBox.value = `${detail}\n\nUSER EDITS\nDescribe only the changes you want: `;
+      status.textContent = 'FAST RECREATE TEMPLATE';
+      status.style.background = '#edf8e7';
+      updateCount();
+    }
+    $('#fastMode').addEventListener('click', () => {
+      mode = 'fast'; $('#fastMode').classList.add('active'); $('#analysisMode').classList.remove('active'); analyzeButton.classList.remove('visible'); sceneFields.forEach(field => field.disabled = true); sceneOptions.classList.remove('analyzed'); if (selectedFile) buildFastPrompt();
+    });
+    $('#analysisMode').addEventListener('click', () => {
+      mode = 'analysis'; $('#analysisMode').classList.add('active'); $('#fastMode').classList.remove('active'); if (selectedFile) { analyzeButton.classList.add('visible'); analyzeButton.textContent = '✦ Analyze this image'; status.textContent = 'IMAGE READY TO ANALYZE'; }
+    });
+    function updateCount() { const words = promptBox.value.trim() ? promptBox.value.trim().split(/\s+/).length : 0; wordCount.textContent = words + (words === 1 ? ' word' : ' words'); }
+    function showBootModal() {
+      $('#bootModal').classList.add('open');
+      fetch(`${controllerUrl}/start`, { method: 'POST' }).then(response => {
+        if (!response.ok) throw new Error('Controller unavailable');
+        let elapsed = 0;
+        const timer = setInterval(() => {
+          elapsed += 1;
+          $('#bootProgress').style.width = `${Math.min(100, elapsed / 60 * 100)}%`;
+          $('#bootTime').textContent = elapsed < 60 ? `Initializing local vision studio · ${60 - elapsed}s` : 'Studio ready — you can upload an image.';
+          if (elapsed >= 60) {
+            clearInterval(timer);
+            $('#bootTitle').textContent = 'Studio ready';
+            $('#bootMessage').textContent = 'ComfyUI and the local analysis server should now be ready.';
+          }
+        }, 1000);
+      }).catch(() => {
+        $('#bootTitle').textContent = 'PC controller unavailable';
+        $('#bootMessage').textContent = 'Start the I2P controller on your PC, then try the 10-click shortcut again.';
+        $('#bootTime').textContent = 'Could not reach the PC controller.';
+      });
+    }
+    $('#brandTrigger').addEventListener('click', () => {
+      brandClicks += 1;
+      clearTimeout(brandClickTimer);
+      brandClickTimer = setTimeout(() => { brandClicks = 0; }, 3500);
+      if (brandClicks >= 10) { brandClicks = 0; showBootModal(); }
+    });
+    $('#bootClose').addEventListener('click', () => $('#bootModal').classList.remove('open'));
+    function editCharacter(row) {
+      const currentName = row.querySelector('.character-name').textContent;
+      const currentDetail = row.querySelector('.character-detail').textContent;
+      const value = window.prompt('Enter: name | clothing | position', `${currentName} | ${currentDetail}`);
+      if (!value) return;
+      const parts = value.split('|').map(part => part.trim());
+      if (parts[0]) row.querySelector('.character-name').textContent = parts[0];
+      if (parts.slice(1).join(' · ')) row.querySelector('.character-detail').textContent = parts.slice(1).join(' · ');
+    }
+    function renderCharacters(characters) {
+      const count = characters.length;
+      const list = $('#characterList');
+      list.innerHTML = count ? '' : '<div class="file-strip" id="characterState">No people detected. You can add one manually if needed.</div>';
+      for (let index = 1; index <= count; index += 1) {
+        const detected = characters[index - 1];
+        const row = document.createElement('div');
+        row.className = 'character';
+        row.innerHTML = `<div class="avatar ${['one','two','three','four'][(index - 1) % 4]}">${String(index).padStart(2, '0')}</div><div><div class="character-name">${detected.name || `Person ${String(index).padStart(2, '0')}`}</div><div class="character-detail">${detected.description || 'Detected subject · edit clothing or position'}</div></div><div class="character-actions"><button class="edit" type="button">Edit</button><button class="toggle on" type="button" aria-label="Include Person ${index}"></button></div>`;
+        list.appendChild(row);
+        row.querySelector('.toggle').addEventListener('click', event => event.currentTarget.classList.toggle('on'));
+        row.querySelector('.edit').addEventListener('click', () => editCharacter(row));
+      }
+      $('#characterCount').textContent = `(${count})`;
+    }
+    async function analyzeImage(file) {
+      analysisController = new AbortController();
+      dropZone.classList.add('scanning');
+      analyzeButton.textContent = 'Stop analysis';
+      analyzeButton.classList.add('visible', 'stop');
+      status.textContent = 'ANALYZING IMAGE…';
+      status.style.background = '#fff6d9';
+      const data = new FormData();
+      data.append('image', file);
+      const response = await fetch(`${apiUrl}/api/analyze-image`, { method: 'POST', body: data, signal: analysisController.signal });
+      if (!response.ok) throw new Error('Vision analysis request failed');
+      const analysis = await response.json();
+      latestAnalysis = analysis;
+      renderDiagnostics(analysis);
+      renderCharacters(analysis.characters || []);
+      $('#mood').value = analysis.scene.mood;
+      $('#time').value = analysis.scene.time;
+      $('#style').value = analysis.scene.style;
+      $('#ratio').value = analysis.scene.ratio;
+      sceneFields.forEach(field => field.disabled = false);
+      sceneOptions.classList.add('analyzed');
+      sceneState.textContent = `Local vision analysis complete · ${analysis.scene.width} × ${analysis.scene.height}px`;
+      $('#generate').hidden = false;
+      status.textContent = `${analysis.characters.length} SUBJECT${analysis.characters.length === 1 ? '' : 'S'} · SCENE ANALYZED`;
+      status.style.background = '#edf8e7';
+      analysisController = null;
+      dropZone.classList.remove('scanning');
+      analyzeButton.classList.remove('stop');
+      analyzeButton.textContent = '✓ Image analyzed · Analyze again';
+    }
+    function setImage(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      selectedFile = file;
+      latestAnalysis = null;
+      if (analysisController) analysisController.abort();
+      const reader = new FileReader();
+      reader.onload = (event) => { dropZone.style.backgroundImage = `url(${event.target.result})`; dropZone.classList.add('has-image'); fileName.textContent = file.name; removeFile.style.display = 'block'; analyzeButton.classList.toggle('visible', mode === 'analysis'); analyzeButton.classList.remove('stop'); analyzeButton.textContent = '✦ Analyze this image'; renderCharacters([]); sceneFields.forEach(field => field.disabled = true); sceneOptions.classList.remove('analyzed'); sceneState.textContent = mode === 'fast' ? 'Fast recreate mode: no analysis required.' : 'Review your image, then start vision analysis.'; $('#generate').hidden = mode === 'fast'; status.textContent = mode === 'fast' ? 'IMAGE READY · FAST MODE' : 'IMAGE READY TO ANALYZE'; status.style.background = '#fff6d9'; if (mode === 'fast') buildFastPrompt(); };
+      reader.readAsDataURL(file);
+    }
+    analyzeButton.addEventListener('click', () => {
+      if (analysisController) {
+        analysisController.abort();
+        analysisController = null;
+        dropZone.classList.remove('scanning');
+        analyzeButton.classList.remove('stop');
+        analyzeButton.textContent = '✦ Analyze this image';
+        status.textContent = 'ANALYSIS STOPPED';
+        status.style.background = '#fff0e8';
+        sceneState.textContent = 'Analysis stopped. Review the image and try again when ready.';
+        return;
+      }
+      if (selectedFile) analyzeImage(selectedFile).catch(error => {
+        if (error.name === 'AbortError') return;
+        dropZone.classList.remove('scanning');
+        analyzeButton.classList.remove('stop');
+        analyzeButton.textContent = '✦ Analyze this image';
+        renderCharacters([]);
+        sceneFields.forEach(field => field.disabled = true);
+        sceneOptions.classList.remove('analyzed');
+        sceneState.textContent = 'Analysis failed. Check that the vision server is running.';
+        $('#generate').hidden = true;
+        status.textContent = 'ANALYSIS FAILED';
+        status.style.background = '#fff0e8';
+      });
+    });
+    fileInput.addEventListener('change', () => setImage(fileInput.files[0]));
+    ['dragenter','dragover'].forEach(type => dropZone.addEventListener(type, event => { event.preventDefault(); dropZone.style.borderColor = '#78ae67'; }));
+    dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = ''; });
+    dropZone.addEventListener('drop', event => { event.preventDefault(); setImage(event.dataTransfer.files[0]); dropZone.style.borderColor = ''; });
+    removeFile.addEventListener('click', (event) => { event.preventDefault(); if (analysisController) analysisController.abort(); analysisController = null; selectedFile = null; fileInput.value = ''; dropZone.style.backgroundImage = ''; dropZone.classList.remove('has-image', 'scanning'); fileName.textContent = 'No image selected yet'; removeFile.style.display = 'none'; analyzeButton.classList.remove('visible', 'stop'); analyzeButton.textContent = '✦ Analyze this image'; renderCharacters([]); sceneFields.forEach(field => field.disabled = true); sceneOptions.classList.remove('analyzed'); sceneState.textContent = 'Upload an image to analyze its visual details.'; $('#generate').hidden = true; status.textContent = 'READY TO GENERATE'; status.style.background = '#edf8e7'; });
+    $('#generate').addEventListener('click', () => {
+      const mood = $('#mood').value.toLowerCase(), time = $('#time').value.toLowerCase(), style = $('#style').value.toLowerCase(), ratio = $('#ratio').value.toLowerCase();
+      const active = [...document.querySelectorAll('.character .toggle.on')].map(toggle => toggle.closest('.character').querySelector('.character-name').textContent);
+      const people = active.length ? active.map((person, index) => `${index + 1}. ${person}: preserve their facial identity, pose, body proportions, and position in the composition; keep their current clothing and styling unless changed by the user`).join('\n') : 'No characters included — preserve the environment and objects only.';
+      const analyzed = latestAnalysis || {};
+      const details = analyzed.details || {};
+      const measured = [
+        analyzed.fullPrompt || 'The vision model did not return a full prompt. Reconstruct the uploaded image faithfully from the structured analysis below.',
+        analyzed.background && `BACKGROUND: ${analyzed.background}`,
+        analyzed.objects?.length && `OBJECTS: ${analyzed.objects.join(', ')}`,
+        details.environment && `ENVIRONMENT: ${details.environment}`,
+        details.lighting && `LIGHTING: ${details.lighting}`,
+        details.cameraAngle && `CAMERA ANGLE: ${details.cameraAngle}`,
+        details.cameraHeight && `CAMERA HEIGHT: ${details.cameraHeight}`,
+        details.shotType && `SHOT TYPE: ${details.shotType}`,
+        details.lensImpression && `LENS: ${details.lensImpression}`,
+        details.composition && `COMPOSITION: ${details.composition}`,
+        details.depthOfField && `DEPTH OF FIELD: ${details.depthOfField}`,
+        details.focusPlane && `FOCUS PLANE: ${details.focusPlane}`,
+        details.exposure && `EXPOSURE: ${details.exposure}`,
+        details.whiteBalance && `WHITE BALANCE: ${details.whiteBalance}`,
+        details.colorPalette && `COLOR PALETTE: ${details.colorPalette}`,
+        details.textures && `TEXTURES: ${details.textures}`,
+        details.weather && `WEATHER / ATMOSPHERE: ${details.weather}`
+      ].filter(Boolean).join('\n');
+      promptBox.value = `${measured}\n\nCHARACTER EDITING LAYER\n${people}\n\nOPTIONAL USER OVERRIDES\nThe image analysis above remains the source of truth. Only apply these controls when the user intentionally changes them; otherwise preserve the analyzed image values exactly. User-selected mood: ${mood}. User-selected time: ${time}. User-selected style: ${style}. User-selected aspect ratio: ${ratio}.\n\nFIDELITY AND NEGATIVE CONSTRAINTS\n${analyzed.negativeConstraints || 'Do not hallucinate details that are not visible. Do not change the camera perspective, subject count, identity, object placement, lighting direction, background structure, or spatial relationships unless explicitly edited by the user.'}`;
+      status.textContent = 'GENERATED JUST NOW'; status.style.background = '#edf8e7'; updateCount();
+    });
+    $('#copy').addEventListener('click', async () => { await navigator.clipboard.writeText(promptBox.value); const button = $('#copy'); button.innerHTML = 'Copied ✓'; setTimeout(() => button.innerHTML = 'Copy prompt <span>↗</span>', 1500); });
+    $('#reset').addEventListener('click', () => { promptBox.value = defaultPrompt; status.textContent = 'READY TO GENERATE'; updateCount(); });
+    promptBox.addEventListener('input', updateCount);
+    document.querySelectorAll('.toggle').forEach(toggle => toggle.addEventListener('click', () => toggle.classList.toggle('on')));
+    $('#addCharacter').addEventListener('click', () => {
+      const list = $('#characterList'), number = list.querySelectorAll('.character').length + 1, row = document.createElement('div');
+      const state = $('#characterState');
+      if (state) state.remove();
+      row.className = 'character'; row.innerHTML = `<div class="avatar four">${String(number).padStart(2, '0')}</div><div><div class="character-name">New character</div><div class="character-detail">Describe appearance · position</div></div><div class="character-actions"><button class="edit" type="button">Edit</button><button class="toggle on" type="button" aria-label="Include new character"></button></div>`;
+      list.appendChild(row); $('#characterCount').textContent = `(${number})`; row.querySelector('.toggle').addEventListener('click', event => event.currentTarget.classList.toggle('on'));
+      row.querySelector('.edit').addEventListener('click', () => editCharacter(row));
+    });
+    document.querySelectorAll('.edit').forEach(button => button.addEventListener('click', () => editCharacter(button.closest('.character'))));
+    updateCount();
+  </script>
+</body>
+</html>
