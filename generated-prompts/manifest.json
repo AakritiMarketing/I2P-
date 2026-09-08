@@ -1,0 +1,167 @@
+{
+  "workflow": "Qwen3.5 exact user prompt",
+  "temperature": 0.5,
+  "maxLength": 600,
+  "results": [
+    {
+      "template": 1,
+      "image": "template-01.jpg",
+      "status": "passed",
+      "elapsedMs": 27045,
+      "output": "template-01.txt",
+      "characters": 1679
+    },
+    {
+      "template": 2,
+      "image": "template-02.jpg",
+      "status": "passed",
+      "elapsedMs": 29128,
+      "output": "template-02.txt",
+      "characters": 1558
+    },
+    {
+      "template": 3,
+      "image": "template-03.jpg",
+      "status": "passed",
+      "elapsedMs": 45649,
+      "output": "template-03.txt",
+      "characters": 2726
+    },
+    {
+      "template": 4,
+      "image": "template-04.jpg",
+      "status": "passed",
+      "elapsedMs": 35679,
+      "output": "template-04.txt",
+      "characters": 2113
+    },
+    {
+      "template": 5,
+      "image": "template-05.jpg",
+      "status": "passed",
+      "elapsedMs": 25680,
+      "output": "template-05.txt",
+      "characters": 1356
+    },
+    {
+      "template": 6,
+      "image": "template-06.jpg",
+      "status": "passed",
+      "elapsedMs": 29540,
+      "output": "template-06.txt",
+      "characters": 1470
+    },
+    {
+      "template": 7,
+      "image": "template-07.jpg",
+      "status": "passed",
+      "elapsedMs": 37216,
+      "output": "template-07.txt",
+      "characters": 1973
+    },
+    {
+      "template": 8,
+      "image": "template-08.jpg",
+      "status": "passed",
+      "elapsedMs": 39402,
+      "output": "template-08.txt",
+      "characters": 2036
+    },
+    {
+      "template": 9,
+      "image": "template-09.jpg",
+      "status": "passed",
+      "elapsedMs": 34296,
+      "output": "template-09.txt",
+      "characters": 1747
+    },
+    {
+      "template": 10,
+      "image": "template-10.jpg",
+      "status": "passed",
+      "elapsedMs": 36863,
+      "output": "template-10.txt",
+      "characters": 1923
+    },
+    {
+      "template": 11,
+      "image": "template-11.jpg",
+      "status": "passed",
+      "elapsedMs": 22718,
+      "output": "template-11.txt",
+      "characters": 1110
+    },
+    {
+      "template": 12,
+      "image": "template-12.jpg",
+      "status": "passed",
+      "elapsedMs": 29975,
+      "output": "template-12.txt",
+      "characters": 1423
+    },
+    {
+      "template": 13,
+      "image": "template-13.jpg",
+      "status": "passed",
+      "elapsedMs": 36530,
+      "output": "template-13.txt",
+      "characters": 1875
+    },
+    {
+      "template": 14,
+      "image": "template-14.jpg",
+      "status": "passed",
+      "elapsedMs": 43240,
+      "output": "template-14.txt",
+      "characters": 2204
+    },
+    {
+      "template": 15,
+      "image": "template-15.jpg",
+      "status": "passed",
+      "elapsedMs": 41247,
+      "output": "template-15.txt",
+      "characters": 2172
+    },
+    {
+      "template": 16,
+      "image": "template-16.jpg",
+      "status": "passed",
+      "elapsedMs": 30006,
+      "output": "template-16.txt",
+      "characters": 1748
+    },
+    {
+      "template": 17,
+      "image": "template-17.jpg",
+      "status": "passed",
+      "elapsedMs": 22264,
+      "output": "template-17.txt",
+      "characters": 1239
+    },
+    {
+      "template": 18,
+      "image": "template-18.jpg",
+      "status": "passed",
+      "elapsedMs": 25825,
+      "output": "template-18.txt",
+      "characters": 1424
+    },
+    {
+      "template": 19,
+      "image": "template-19.jpg",
+      "status": "passed",
+      "elapsedMs": 33271,
+      "output": "template-19.txt",
+      "characters": 1687
+    },
+    {
+      "template": 20,
+      "image": "template-20.jpg",
+      "status": "passed",
+      "elapsedMs": 34701,
+      "output": "template-20.txt",
+      "characters": 1780
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "run": "local-template-direct-generation-prompt-audit",
+  "date": "2026-09-08",
+  "scope": "All 20 built-in templates",
+  "personReference": "User-supplied multi-angle identity sheet was used conceptually as the person-reference test input.",
+  "externalImageGeneration": {
+    "status": "not-run",
+    "reason": "No Gemini API key or authenticated Gemini image-generation endpoint is configured in this local project. This audit validates prompt construction only and does not claim generated-image accuracy."
+  },
+  "checks": [
+    "Built-in mood and lighting is present",
+    "Built-in time of day is present",
+    "Built-in visual style is present",
+    "Built-in aspect ratio is present",
+    "Accuracy checker is present",
+    "Uploaded image is restricted to character identity and body",
+    "User-written changes are included",
+    "Output begins with a direct image-generation instruction rather than ACT/CONTEXT metadata",
+    "Template scene remains primary and uploaded image is identity-only"
+  ],
+  "results": [
+    {"template": 1, "words": 342, "pass": true},
+    {"template": 2, "words": 361, "pass": true},
+    {"template": 3, "words": 370, "pass": true},
+    {"template": 4, "words": 341, "pass": true},
+    {"template": 5, "words": 364, "pass": true},
+    {"template": 6, "words": 342, "pass": true},
+    {"template": 7, "words": 374, "pass": true},
+    {"template": 8, "words": 338, "pass": true},
+    {"template": 9, "words": 343, "pass": true},
+    {"template": 10, "words": 342, "pass": true},
+    {"template": 11, "words": 345, "pass": true},
+    {"template": 12, "words": 340, "pass": true},
+    {"template": 13, "words": 339, "pass": true},
+    {"template": 14, "words": 363, "pass": true},
+    {"template": 15, "words": 381, "pass": true},
+    {"template": 16, "words": 341, "pass": true},
+    {"template": 17, "words": 341, "pass": true},
+    {"template": 18, "words": 342, "pass": true},
+    {"template": 19, "words": 699, "pass": true},
+    {"template": 20, "words": 339, "pass": true}
+  ],
+  "summary": {
+    "passed": 20,
+    "total": 20,
+    "passRate": 100,
+    "meaning": "All direct-prompt and priority checks passed; visual reproduction accuracy still requires an actual image-generation run."
+  }
+}

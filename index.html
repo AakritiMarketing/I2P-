@@ -8,16 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --ink:#16221c; --muted:#718078; --line:#dce5df; --paper:#f5f8f4; --card:#fff; --green:#b9ed67; --dark:#1b2b22; --soft:#edf5ec; }
+    :root { --ink:#f7f1ff; --muted:#b9a9c9; --line:#342246; --paper:#09060f; --card:#151020; --green:#c084fc; --dark:#211033; --soft:#241538; --purple:#a855f7; --pink:#f0abfc; }
     * { box-sizing:border-box; }
-    body { margin:0; color:var(--ink); background:var(--paper); font-family:Manrope, sans-serif; }
+    body { margin:0; color:var(--ink); background:radial-gradient(circle at 12% 0%,#24113d 0,transparent 32%),radial-gradient(circle at 90% 20%,#180d2c 0,transparent 30%),var(--paper); font-family:Manrope, sans-serif; }
     button, input, select, textarea { font:inherit; }
     button { cursor:pointer; border:0; }
-    .topbar { height:74px; display:flex; align-items:center; justify-content:space-between; padding:0 5.5vw; border-bottom:1px solid var(--line); background:rgba(245,248,244,.92); }
+    .topbar { height:74px; display:flex; align-items:center; justify-content:space-between; padding:0 5.5vw; border-bottom:1px solid var(--line); background:rgba(9,6,15,.88); backdrop-filter:blur(14px); }
     .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.04em; font-size:20px; user-select:none; }
     .brand small { display:block; color:var(--muted); font-size:9px; letter-spacing:.1em; margin-top:2px; }
-    .mark { width:29px; height:29px; border-radius:9px; background:var(--dark); display:grid; place-items:center; position:relative; }
-    .mark:after { content:""; width:11px; height:11px; border:2px solid var(--green); border-radius:50%; }
+    .mark { width:29px; height:29px; border-radius:9px; background:linear-gradient(135deg,var(--purple),var(--pink)); display:grid; place-items:center; position:relative; box-shadow:0 0 18px rgba(168,85,247,.45); }
+    .mark:after { content:""; width:11px; height:11px; border:2px solid #12091c; border-radius:50%; }
     .brand-lock { position:fixed; inset:0; z-index:10; display:none; place-items:center; background:rgba(18,34,25,.5); backdrop-filter:blur(5px); }
     .brand-lock.open { display:grid; }
     .boot-card { width:min(390px,88vw); background:#fff; border:1px solid var(--line); border-radius:18px; padding:27px; box-shadow:0 20px 60px rgba(10,25,16,.2); text-align:center; }
@@ -35,7 +35,7 @@
     h1 span { color:#94b95d; }
     .lede { color:var(--muted); font-size:15px; max-width:540px; line-height:1.7; margin:0; }
     .workspace { display:grid; grid-template-columns: minmax(300px, .9fr) minmax(420px, 1.25fr); gap:20px; align-items:start; }
-    .panel { background:var(--card); border:1px solid var(--line); border-radius:21px; box-shadow:0 7px 25px rgba(30,50,37,.035); }
+    .panel { background:rgba(21,16,32,.92); border:1px solid var(--line); border-radius:21px; box-shadow:0 12px 35px rgba(0,0,0,.28),0 0 24px rgba(168,85,247,.06); }
     .panel-head { display:flex; align-items:center; justify-content:space-between; padding:21px 23px 15px; }
     .eyebrow { color:var(--muted); font-family:"DM Mono", monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
     .panel-title { font-size:17px; font-weight:800; letter-spacing:-.04em; margin:4px 0 0; }
@@ -108,11 +108,76 @@
     .character-actions { display:flex; align-items:center; gap:8px; }
     .edit { color:#799181; font-size:11px; background:transparent; }.toggle { width:30px; height:17px; background:#c5d3c8; border-radius:12px; position:relative; }.toggle:after { content:""; position:absolute; width:13px; height:13px; background:#fff; border-radius:50%; left:2px; top:2px; transition:left .2s; }.toggle.on { background:#91bd5d; }.toggle.on:after { left:15px; }
     .footer-note { display:flex; gap:18px; margin-top:18px; color:#88978e; font-size:11px; align-items:center; }.footer-note span { display:flex; align-items:center; gap:5px; }
+    .template-section { margin:0 0 28px; }
+    .template-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:14px; }
+    .template-head h2 { margin:0; font-size:24px; letter-spacing:-.06em; }
+    .template-head p { margin:5px 0 0; color:var(--muted); font-size:12px; line-height:1.5; }
+    .template-count { color:var(--muted); font:10px "DM Mono",monospace; white-space:nowrap; }
+    .template-grid { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; }
+    .library-heading { margin-top:38px; }
+    .library-card { position:relative; overflow:hidden; padding:0; text-align:left; border:1px solid var(--line); border-radius:13px; background:#fff; }
+    .library-card .template-thumb { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; }
+    .library-card .template-info { display:block; padding:10px 11px 11px; }
+    .library-card .template-title { display:block; font-size:11px; font-weight:800; }
+    .library-card .template-meta { display:block; margin-top:4px; color:var(--muted); font:10px "DM Mono",monospace; }
+    .library-status-dot { position:absolute; right:8px; bottom:47px; width:9px; height:9px; border-radius:50%; background:#b7c0b9; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.2); }
+    .library-status-dot.done { background:#39b96b; }
+    .library-filters { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+    .library-filter { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#151020; color:var(--muted); font-size:10px; font-weight:800; }
+    .library-filter.active, .library-filter:hover { border-color:var(--pink); background:linear-gradient(135deg,#54217b,#2a1244); color:#fff; }
+    .library-category { grid-column:1/-1; margin:18px 0 0; color:var(--pink); font-size:15px; letter-spacing:-.03em; }
+    .template-card { min-width:0; padding:0; overflow:hidden; text-align:left; border:1px solid var(--line); border-radius:14px; background:#fff; transition:transform .18s,border-color .18s,box-shadow .18s; }
+    .template-card:hover, .template-card.selected { transform:translateY(-2px); border-color:#9fc87a; box-shadow:0 8px 22px rgba(30,50,37,.1); }
+    .template-card.selected { outline:2px solid #b9ed67; }
+    .template-thumb { width:100%; height:125px; display:block; object-fit:cover; background:#e8eee9; }
+    .template-info { padding:10px 11px 12px; }
+    .template-title { display:block; overflow:hidden; color:var(--ink); font-size:12px; font-weight:800; text-overflow:ellipsis; white-space:nowrap; }
+    .template-meta { display:block; margin-top:4px; color:var(--muted); font:9px "DM Mono",monospace; text-transform:uppercase; }
+    .template-selected { display:none; margin:0 0 16px; padding:10px 13px; border:1px solid #cfe6b7; border-radius:10px; background:#f2fae9; color:#557044; font:10px/1.5 "DM Mono",monospace; }
+    .template-selected.open { display:block; }
+    .template-selected strong { display:block; color:var(--ink); font:800 13px Manrope,sans-serif; margin-bottom:4px; }
+    .template-selected .template-upload { margin-top:10px; padding:8px 10px; border-radius:7px; background:var(--dark); color:#fff; font:800 10px Manrope,sans-serif; }
+    .template-selected textarea { min-height:78px; margin-top:10px; background:#fff; font-size:11px; }
+    .template-generate { width:100%; margin-top:10px; padding:11px; border-radius:8px; background:var(--green); color:var(--dark); font-size:11px; font-weight:800; }
+    .character-editor { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+    .character-editor label { margin:0; }
+    .character-editor input { padding:8px 9px; font-size:11px; }
+    .character-editor .apply-character { grid-column:1/-1; padding:8px; border:1px solid #b8d49b; border-radius:7px; background:#fff; color:#557044; font-size:10px; font-weight:800; }
     @media (max-width:850px) { .heading { display:block; }.workspace { grid-template-columns:1fr; }.heading .lede { margin-bottom:24px; }.upload-box { height:300px; } }
+    @media (max-width:700px) { .template-grid { grid-template-columns:repeat(2, minmax(0,1fr)); } }
     @media (max-width:520px) { .topbar { padding:0 5vw; }.top-actions { gap:10px; }.top-actions span:not(.plan) { display:none; } main { width:92vw; padding-top:32px; }.field-row { grid-template-columns:1fr; }.panel-head,.options,.characters { padding-left:17px; padding-right:17px; }.prompt-wrap { margin:0 17px; } }
+    .intro-screen { position:fixed; inset:0; z-index:50; display:grid; place-items:center; background:#050605; color:#fff; transition:opacity .5s, visibility .5s; }
+    .intro-screen.done { display:none; opacity:0; visibility:hidden; pointer-events:none; }
+    .intro-logo { display:flex; align-items:center; gap:13px; font-size:28px; font-weight:800; letter-spacing:-.06em; animation:introIn .7s ease both; }
+    .intro-logo .mark { width:42px; height:42px; border-radius:12px; background:#fff; }
+    .intro-logo .mark:after { border-color:#16221c; width:16px; height:16px; }
+    .welcome-screen { display:grid; place-items:center; min-height:calc(100vh - 74px); padding:50px 0; text-align:center; }
+    .welcome-screen.hidden, .template-section.hidden, .workspace.hidden, .heading.hidden { display:none; }
+    .welcome-inner { max-width:760px; }
+    .welcome-inner h1 { max-width:none; margin-bottom:15px; }
+    .welcome-inner p { margin:0 auto 28px; color:var(--muted); line-height:1.7; max-width:580px; }
+    .choice-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; text-align:left; }
+    .choice-card { padding:22px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,#1d132b,#120c1c); color:var(--ink); transition:transform .18s,border-color .18s,box-shadow .18s; }
+    .choice-card:hover { transform:translateY(-5px) rotate(-.5deg); border-color:var(--pink); box-shadow:0 14px 30px rgba(168,85,247,.25); }
+    .choice-card strong { display:block; font-size:16px; margin-bottom:7px; }
+    .choice-card span { display:block; color:var(--muted); font-size:11px; line-height:1.6; }
+    .welcome-kicker { color:#75945a; font:10px "DM Mono",monospace; letter-spacing:.15em; text-transform:uppercase; margin-bottom:14px; }
+    @keyframes introIn { from { opacity:0; transform:translateY(8px) scale(.96); } to { opacity:1; transform:none; } }
+    @media (max-width:520px) { .choice-row { grid-template-columns:1fr; } }
+    .boot-card, .top-actions .plan, .upload-icon, .mode-button, .diagnostics, .template-card, .library-card { background:#151020; color:var(--ink); }
+    .template-thumb { background:#0e0917; }
+    .template-card:hover, .library-card:hover { border-color:var(--pink); box-shadow:0 12px 26px rgba(168,85,247,.2); transform:translateY(-3px); }
+    .template-title, .panel-title, .options h3, .section-row h3 { color:var(--ink); }
+    select, input[type=text], textarea { color:var(--ink); background:#0f0a18; border-color:var(--line); }
+    .generate, .template-generate, .copy { background:linear-gradient(135deg,var(--purple),var(--pink)); color:#180b25; box-shadow:0 8px 22px rgba(168,85,247,.25); }
+    .file-dot, .library-status-dot.done { background:#c084fc; box-shadow:0 0 10px rgba(192,132,252,.75); }
+    .welcome-kicker, h1 span { color:var(--pink); }
   </style>
 </head>
 <body>
+  <div class="intro-screen" id="introScreen" aria-label="I2P loading">
+    <div class="intro-logo"><div class="mark"></div><span>I2P <small>by U-DESIGN</small></span></div>
+  </div>
   <header class="topbar">
     <div class="brand" id="brandTrigger" title="I2P by U-DESIGN"><div class="mark"></div><div>I2P <small>by U-DESIGN</small></div></div>
     <div class="top-actions"><span>Workspace</span><span>Prompt history</span><span class="plan">Free plan · 4 credits</span></div>
@@ -127,24 +192,49 @@
     </div>
   </div>
   <main>
-    <div class="heading">
+    <section class="welcome-screen" id="welcomeScreen">
+      <div class="welcome-inner">
+        <div class="welcome-kicker">I2P · IMAGE TO PROMPT GENERATOR</div>
+        <h1>Welcome to <span>Image to Prompt Generator.</span></h1>
+        <p>Choose a ready-made visual template or create your own prompt from an uploaded image. Start with the image and keep creative control over every change.</p>
+        <div class="choice-row">
+          <button class="choice-card" id="chooseTemplates" type="button" onclick="openTemplateMode()"><strong>Select from image templates →</strong><span>Choose one of 20 prepared scenes, upload your picture for the character identity, edit the options, and generate a detailed prompt.</span></button>
+          <button class="choice-card" id="createOwn" type="button" onclick="openOwnMode()"><strong>Create your own →</strong><span>Upload an image and use the vision-analysis workflow to build an editable prompt from your own reference.</span></button>
+        </div>
+      </div>
+    </section>
+    <div class="heading hidden" id="workspaceHeading">
       <div><h1>See it. <span>Describe it.</span><br>Make it yours.</h1><p class="lede">Turn any image into a precise, editable prompt. Keep the people you love, change what you like, and create without starting over.</p></div>
     </div>
-    <section class="workspace">
+    <section class="template-section hidden" id="templateSection" aria-labelledby="templateHeading">
+      <div class="template-head">
+        <div><h2 id="templateHeading">Phase 1 · Choose a built-in scene</h2><p>Pick a finished visual formula, then upload a face or reference image to make it yours. No analysis required.</p></div>
+        <span class="template-count">20 READY-TO-USE TEMPLATES</span>
+      </div>
+      <div class="template-grid" id="templateGrid"></div>
+      <div class="template-head library-heading">
+        <div><h2>Image library</h2><p>New images are grouped automatically. A green dot means the Qwen prompt is ready.</p></div>
+        <span class="template-count" id="libraryCount">LOADING LIBRARY</span>
+      </div>
+      <div class="library-filters" id="libraryFilters"></div>
+      <div class="template-grid" id="libraryGrid"></div>
+    </section>
+    <section class="workspace hidden" id="workspace">
       <div class="panel">
+        <div class="template-selected" id="selectedTemplate"></div>
         <div class="panel-head"><div><div class="eyebrow">01 / Source image</div><div class="panel-title">Upload your reference</div></div><div class="step">PNG · JPG · WEBP</div></div>
         <label class="upload-box" id="dropZone" for="fileInput">
           <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
           <div class="upload-content"><div class="upload-icon">↑</div><div class="upload-title">Drop an image here</div><div class="upload-hint">or <span class="browse">browse your files</span><br>Up to 10MB</div></div>
           <div class="scan-overlay"><div class="scan-grid"></div><div class="scan-line"></div><div class="scan-icon"></div><div class="scan-label">Scanning image…</div></div>
         </label>
-        <div class="mode-row"><button class="mode-button active" id="fastMode" type="button">Fast recreate</button><button class="mode-button" id="analysisMode" type="button">Analyze image</button></div>
+        <div class="mode-row" id="modeRow"><button class="mode-button active" id="fastMode" type="button">Fast recreate</button><button class="mode-button" id="analysisMode" type="button">Analyze image</button></div>
         <button class="analyze-image" id="analyzeImage" type="button">✦ Analyze this image</button>
         <div class="file-strip"><span class="file-dot"></span><span id="fileName">No image selected yet</span><button class="remove" id="removeFile" type="button">Remove</button></div>
         <div class="options">
           <h3>Set the scene</h3><div class="analysis-note" id="sceneState">Upload an image to analyze its visual details.</div>
-          <div class="field-row"><div><label for="mood">Mood & lighting</label><select id="mood"><option value="" selected>Waiting for image analysis…</option><option>Natural, soft daylight</option><option>Golden hour glow</option><option>Moody cinematic light</option><option>Bright studio light</option><option>Neon night lighting</option></select></div><div><label for="time">Time of day</label><select id="time"><option value="" selected>Waiting for image analysis…</option><option>Late afternoon</option><option>Early morning</option><option>Midday</option><option>Blue hour</option><option>Night</option></select></div></div>
-          <div class="field-row"><div><label for="style">Visual style</label><select id="style"><option value="" selected>Waiting for image analysis…</option><option>Photorealistic</option><option>Editorial fashion</option><option>Analog film</option><option>Documentary</option><option>Fine art portrait</option></select></div><div><label for="ratio">Aspect ratio</label><select id="ratio"><option value="" selected>Waiting for image analysis…</option><option>Keep original ratio</option><option>Portrait · 4:5</option><option>Landscape · 16:9</option><option>Square · 1:1</option></select></div></div>
+          <div class="field-row"><div><label for="mood">Mood & lighting</label><select id="mood"><option value="" selected>Waiting for image analysis…</option><option>Natural, soft daylight</option><option>Golden hour glow</option><option>Moody cinematic light</option><option>Bright studio light</option><option>Bright studio softbox</option><option>Bright event flash</option><option>Bright creator light</option><option>Neon night lighting</option><option>Graphic high-contrast light</option><option>Dreamlike diffused light</option><option>Warm window light</option><option>Direct on-camera flash</option></select></div><div><label for="time">Time of day</label><select id="time"><option value="" selected>Waiting for image analysis…</option><option>Late afternoon</option><option>Early morning</option><option>Midday</option><option>Blue hour</option><option>Evening</option><option>Night</option></select></div></div>
+          <div class="field-row"><div><label for="style">Visual style</label><select id="style"><option value="" selected>Waiting for image analysis…</option><option>Photorealistic</option><option>Editorial fashion</option><option>Analog film</option><option>Documentary</option><option>Fine art portrait</option><option>Cinematic</option></select></div><div><label for="ratio">Aspect ratio</label><select id="ratio"><option value="" selected>Waiting for image analysis…</option><option>Keep original ratio</option><option>Portrait · 3:4</option><option>Portrait · 4:5</option><option>Landscape · 16:9</option><option>Square · 1:1</option></select></div></div>
           <button class="generate" id="generate" type="button" hidden><span class="spark">✦</span> Generate detailed prompt</button>
         </div>
       </div>
@@ -180,6 +270,32 @@
     let mode = 'fast';
     let brandClicks = 0;
     let brandClickTimer;
+    let introTimer;
+    const templateBase = `Create a faithful image-generation prompt for the selected template. Use the selected template as the primary visual reference and recreate its composition, subject placement, environment, pose, camera, lighting, materials, colors, depth, and aspect ratio. Use the uploaded person image only as an identity reference for the human subject: preserve that person's facial structure, skin detail, hair, body proportions, and recognisability, but do not import the uploaded image's background, lighting, pose, clothing, or camera. Describe the visual result directly and concretely.`;
+    const templateEnd = `\n\nRECREATION PRIORITY\n1. Apply the user's written changes and selected controls.\n2. Preserve the uploaded person's face and body identity only.\n3. Preserve all unedited template details exactly.\n\nNEGATIVE CONSTRAINTS\nDo not create a generic portrait. Do not replace the template scene with the uploaded image's scene. Do not remove the companion object, background architecture, props, cup, window, shadows, color palette, camera framing, or subject relationship. Do not add people, extra limbs, duplicate objects, random clothing, invented text, watermark, collage panels, illustration styling, or unrelated background details. Keep the specified crop, aspect ratio, subject count, left-right placement, and scale.`;
+    const templates = [
+      ['Editorial portrait', 'Fashion', 'template-01.jpg', 'A polished editorial portrait with a single expressive subject, controlled studio key light, soft edge fill, sculpted cheek shadows, clean neutral backdrop, refined beauty retouching, luxury magazine spacing, and an intimate medium close-up camera distance.'],
+      ['Red editorial collage', 'Graphic', 'template-02.jpg', 'A vertical experimental editorial collage: a monochrome upward-looking portrait with reflective glasses is layered over a red geometric circle, black-and-white urban architecture, palm silhouettes, roads, distressed halftone grain, thin white construction lines, cropped photographic panels, and carefully reserved cream margins. Preserve the poster grid, red-black-cream palette, collage depth, print imperfections, and high-contrast graphic hierarchy.'],
+      ['Controlled studio model', 'Fashion', 'template-03.jpg', 'A square behind-the-scenes studio fashion frame with one full-body model centered on a seamless grey cyclorama, black fitted outfit and heels, softbox and strip lights visibly placed at the sides, light stands and cables forming part of the studio context, soft floor shadow, neutral exposure, and handwritten white “Modeling” lettering across the upper image. Keep the studio equipment and documentary production context visible.'],
+      ['Luxury cover study', 'Editorial', 'template-04.jpg', 'A high-fashion magazine cover portrait with immaculate styling, deliberate head-and-shoulders framing, luminous skin, precise catchlights, a restrained background, soft directional beauty light, premium color separation, and clear empty space around the head for typography.'],
+      ['Neon cinematic headshot', 'Cinematic', 'template-05.jpg', 'A tight vertical cinematic male head-and-shoulders portrait with a dark coat and raised collar, face turned slightly toward camera, sharp eyes and beard texture, intense red key light from one side, deep blue fill from the other, warm circular bokeh in the background, controlled black negative space, shallow depth of field, and premium moody color separation.'],
+      ['Golden-hour portrait', 'Portrait', 'template-06.jpg', 'A natural portrait made outdoors during warm golden hour, low sun grazing the face and shoulders, long soft shadows, subtle lens flare, realistic skin and hair movement, an organic background, and a calm cinematic documentary mood.'],
+      ['Jiraya character poster', 'Illustration', 'template-07.jpg', 'A vertical stylised character poster with a white-haired anime-inspired figure standing full-body in front of a pale blue background and a large hot-pink circle, futuristic white jacket with red trim, black shirt, loose grey cargo trousers, red-and-white sneakers, sunglasses, long spiked hair, and a white sports car behind the legs. Preserve the large pink title lettering, clean illustrated outlines, cool cyan vehicle highlights, and symmetrical commercial-poster balance.'],
+      ['Minimal studio fashion', 'Fashion', 'template-08.jpg', 'A minimal studio fashion image with a clean seamless background, precise full-body posing, monochrome wardrobe, subtle floor shadow, large softbox illumination, accurate garment tailoring, and gallery-like negative space around the model.'],
+      ['Night neon portrait', 'Cinematic', 'template-09.jpg', 'A night portrait lit by contrasting neon signage, colored reflections on skin and clothing, deep controlled blacks, wet or reflective environmental surfaces, shallow depth of field, a slightly low camera angle, and an intense modern music-video atmosphere.'],
+      ['Product hero composition', 'Commercial', 'template-10.jpg', 'A premium commercial hero image with the central product or subject isolated as the sharpest point, carefully arranged supporting objects, tactile surfaces, soft directional studio light, controlled specular highlights, clean brand-safe negative space, and advertising-level polish.'],
+      ['Mind-bending split portrait', 'Conceptual', 'template-11.jpg', 'A conceptual portrait that merges a realistic human subject with a symbolic transformation, seamless transitions between skin, architecture, and abstract forms, coherent light across every layer, fine micro-texture, restrained surrealism, and a strong centered visual metaphor.'],
+      ['Design education poster', 'Graphic', 'template-12.jpg', 'A structured educational design poster with a clear visual hierarchy, modular panels, legible placeholder typography zones, contrasting color palette, crisp alignment, visual examples arranged with deliberate spacing, and a polished contemporary editorial layout.'],
+      ['Urban boy portrait', 'Street', 'template-13.jpg', 'A confident young streetwear subject photographed in an urban setting, relaxed stance, layered casual clothing, realistic textile folds, environmental perspective lines, overcast soft light, muted color grading, and authentic candid editorial energy.'],
+      ['Model life fashion collage', 'Editorial', 'template-14.jpg', 'A tall multi-panel fashion-week collage combining runway models, photographers firing flashes, backstage drinks and credentials, a pink-lit show stage, a seated audience, venue chandeliers, and street-style press moments. Keep the irregular magazine collage layout, black-white-pink palette with selective color accents, hard flash bloom, varied panel crops, central “MODEL LIFE” title block, and energetic documentary fashion-week atmosphere.'],
+      ['Vogue monochrome cover', 'Editorial', 'template-15.jpg', 'A vertical black-and-white luxury magazine cover with one woman in a dark tailored suit, white shirt and narrow tie, seated or leaning in a sculptural close portrait. Use a low slightly tilted camera angle, directional side light, charcoal gradient background, bright facial highlights, deep editorial shadows, large white serif VOGUE masthead, and carefully spaced cover lines around but never across the eyes and facial features. Preserve the cover hierarchy and premium typography zones.'],
+      ['Low-angle fashion frame', 'Editorial', 'template-16.jpg', 'A fashion image from a clearly defined low camera angle, subject rising confidently through the frame, accurate perspective stretch, architectural environment, directional daylight, sharp wardrobe styling, and an editorial sense of scale and attitude.'],
+      ['Surreal floating scene', 'Surreal', 'template-17.jpg', 'A fantastical scene with the subject suspended or surrounded by impossible objects, believable contact shadows where objects meet, consistent atmospheric perspective, luminous color accents, fine environmental detail, and a cinematic dream-world narrative.'],
+      ['Viral portrait formula', 'Social', 'template-18.jpg', 'A polished social-media portrait optimized for immediate visual impact, strong subject separation, flattering directional light, memorable color contrast, clean background story, carefully styled clothing, sharp eyes, and a premium creator-campaign finish rather than a generic selfie.'],
+      ['Warm character companion portrait', 'Character', 'template-19.jpg', 'CORE IMAGE TYPE: intimate vertical 3:4 photorealistic cinematic close-up, high-definition film still. SUBJECT 1 — HUMAN: place the uploaded person as the human subject on the left third of the frame, shown from the top of the hair to the upper torso. Preserve the uploaded person’s exact facial identity, facial geometry, skin texture, hairline, hairstyle, age cues, body proportions, and recognisability. Change the person’s gender presentation, facial hair, or clothing only if the user explicitly requests it. The person leans inward and presses their cheek naturally against the companion, looking calmly toward the camera with a quiet intimate expression. SUBJECT 2 — COMPANION: an enormous yellow Pikachu-like plush character fills the center and right two-thirds of the frame and envelops the human subject. Its synthetic golden fur is visibly soft, dense, shaggy, and individually fibred rather than smooth plastic. Show two tall pointed ears reaching close to the upper edge, black ear tips, large glossy deep-brown glassy eyes with subtle room reflections, a small black nose, a simple curved mouth, and distinct circular red cheek pads. Keep the companion’s head scale much larger than the human head. INTERACTION AND PROPS: the human is physically nestled against the plush cheek/shoulder; at the lower-left foreground, the human holds a plain white disposable coffee cup with the fingers and natural nails visible. ENVIRONMENT: a warm, softly blurred interior with dark wooden framing and a bright rectangular window behind the subjects on the upper-right. Keep the window in the upper-right and the human, companion, and cup in their exact left-to-right relationships. LIGHTING: warm directional late-afternoon golden-hour sunlight enters from the upper-right window, catches the plush fibres and eye gloss, creates a readable hard-edged ear shadow across part of the human forehead and cheek, and leaves controlled warm shadow on the opposite side of the face. CAMERA: close handheld eye-level portrait, 50mm lens impression, wide aperture around f/1.4–f/1.8, critical focus at the human face/plush-eye intersection, shallow depth of field, softly rendered background bokeh. COLOR AND FINISH: golden yellow fur, natural skin tones, deep brown hair and garment, red cheek pads, warm amber highlights, rich brown shadows, gentle analog film grain, realistic skin pores, soft highlight roll-off, physically coherent contact shadows. Preserve the vertical 3:4 crop, intimate scale, human-left/companion-right arrangement, window position, cup position, ear placement, companion size, warm sunlight, and all visible subject relationships.'],
+      ['Y2K flash portrait', 'Retro', 'template-20.jpg', 'A playful Y2K-inspired portrait with direct on-camera flash, glossy highlights, compact framing, nostalgic styling, bold accessories, saturated color, visible background texture, slight snapshot energy, and intentional retro-digital fashion editorial detail.']
+    ].map(([title, category, image, scene]) => ({ title, category, image, prompt: `${templateBase}\n\nSCENE BLUEPRINT — ${title.toUpperCase()}\n${scene}${templateEnd}` }));
+    let selectedTemplate = null;
     const controllerUrl = 'https://desktop-i30b6o6.tail47878d.ts.net';
     const apiUrl = controllerUrl;
     sceneFields.forEach(field => field.disabled = true);
@@ -190,11 +306,184 @@
       $('#diagnostics').classList.add('open');
     }
     function buildFastPrompt() {
-      const detail = 'Recreate the uploaded reference image as faithfully as possible. Preserve the exact subject identity, face, hair, skin, body proportions, clothing, pose, expression, camera viewpoint, framing, lens perspective, lighting direction, shadows, colors, materials, textures, background, object placement, depth, atmosphere, and composition. Use the new uploaded image as the identity and appearance reference. Change only the face or wardrobe edits explicitly requested by the user. Do not add, remove, duplicate, merge, stylize, crop, relight, or rearrange anything. No extra people, objects, text, watermark, deformed anatomy, or invented background details.';
-      promptBox.value = `${detail}\n\nUSER EDITS\nDescribe only the changes you want: `;
+      promptBox.value = selectedTemplate ? 'Select the built-in scene options, upload your person reference if needed, write any changes, then generate the detailed prompt.' : `${templateBase}\n\nREFERENCE IMAGE PRIORITY\nPreserve the uploaded reference image exactly: identity, pose, wardrobe, camera, lighting, background, objects, textures, colors, and composition. Change only edits explicitly requested by the user.${templateEnd}\n\nUSER EDITS\n`;
       status.textContent = 'FAST RECREATE TEMPLATE';
       status.style.background = '#edf8e7';
       updateCount();
+    }
+    function openTemplateMode() {
+      $('#welcomeScreen').classList.add('hidden');
+      $('#templateSection').classList.remove('hidden');
+      $('#workspaceHeading').classList.remove('hidden');
+      $('#workspace').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function openOwnMode() {
+      $('#welcomeScreen').classList.add('hidden');
+      $('#templateSection').classList.add('hidden');
+      $('#workspaceHeading').classList.remove('hidden');
+      $('#workspace').classList.remove('hidden');
+      $('#modeRow').style.display = 'flex';
+      analyzeButton.classList.remove('visible');
+      $('#analysisMode').click();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    const templateScenes = [
+      ['Moody cinematic light', 'Late afternoon', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Graphic high-contrast light', 'Midday', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Bright studio softbox', 'Midday', 'Editorial fashion', 'Square · 1:1'],
+      ['Bright studio light', 'Midday', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Moody cinematic light', 'Night', 'Fine art portrait', 'Portrait · 4:5'],
+      ['Golden hour glow', 'Late afternoon', 'Photorealistic', 'Portrait · 4:5'],
+      ['Bright studio light', 'Midday', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Bright studio softbox', 'Midday', 'Editorial fashion', 'Square · 1:1'],
+      ['Neon night lighting', 'Night', 'Cinematic', 'Portrait · 4:5'],
+      ['Bright studio light', 'Midday', 'Photorealistic', 'Landscape · 16:9'],
+      ['Moody cinematic light', 'Blue hour', 'Fine art portrait', 'Portrait · 4:5'],
+      ['Bright studio light', 'Midday', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Natural, soft daylight', 'Late afternoon', 'Documentary', 'Portrait · 4:5'],
+      ['Bright event flash', 'Night', 'Documentary', 'Portrait · 4:5'],
+      ['Moody cinematic light', 'Late afternoon', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Natural, soft daylight', 'Midday', 'Editorial fashion', 'Portrait · 4:5'],
+      ['Dreamlike diffused light', 'Blue hour', 'Fine art portrait', 'Portrait · 4:5'],
+      ['Bright creator light', 'Evening', 'Photorealistic', 'Portrait · 4:5'],
+      ['Warm window light', 'Late afternoon', 'Photorealistic', 'Portrait · 3:4'],
+      ['Direct on-camera flash', 'Night', 'Analog film', 'Portrait · 4:5']
+    ];
+    function applyTemplateScene(index) {
+      const [mood, time, style, ratio] = templateScenes[index];
+      [$('#mood'), $('#time'), $('#style'), $('#ratio')].forEach((field, fieldIndex) => {
+        field.value = [mood, time, style, ratio][fieldIndex];
+        field.disabled = false;
+      });
+      sceneOptions.classList.add('analyzed');
+      sceneState.textContent = 'Built-in template scene values loaded. Change any option if needed.';
+      $('#generate').hidden = true;
+    }
+    function generateTemplatePrompt() {
+      if (!selectedTemplate) return;
+      const face = $('#characterFace').value.trim() || 'preserve the uploaded face identity exactly';
+      const body = $('#characterBody').value.trim() || 'preserve the uploaded body proportions and identity exactly';
+      const clothing = $('#characterClothing').value.trim() || 'preserve the template wardrobe exactly';
+      const other = $('#templateOther').value.trim() || 'No additional changes. Preserve every locked template detail.';
+      const scene = `MOOD AND LIGHTING: ${$('#mood').value}\nTIME OF DAY: ${$('#time').value}\nVISUAL STYLE: ${$('#style').value}\nASPECT RATIO: ${$('#ratio').value}`;
+      const rawPrompt = selectedTemplate.rawPrompt || selectedTemplate.prompt;
+      promptBox.value = `${rawPrompt}\n\nTEMPLATE SCENE CONTROLS\n${scene}\n\nCHARACTER REFERENCE\nFACE / IDENTITY: ${face}\nBODY / PROPORTIONS: ${body}\nWARDROBE: ${clothing}\n\nUSER REQUESTED CHANGES\n${other}\n\nFINAL QUALITY CHECK\nEnsure the final image still contains the selected template's exact scene, companion/object relationship, subject count, spatial placement, camera framing, lighting direction, mood, materials, colors, crop, and aspect ratio. Use the uploaded image only to preserve the person's face and body identity. Apply every user-requested change and do not introduce any unrequested scene, style, prop, pose, or background change.`;
+      status.textContent = 'PROMPT GENERATED · ACCURACY CHECKED';
+      status.style.background = '#edf8e7';
+      updateCount();
+      document.querySelector('.output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function applyCharacterEdits() {
+      if (!selectedTemplate) return;
+      const face = $('#characterFace').value.trim() || 'preserve the uploaded face identity exactly';
+      const body = $('#characterBody').value.trim() || 'preserve the uploaded body proportions and identity exactly';
+      const clothing = $('#characterClothing').value.trim() || 'preserve the template wardrobe exactly';
+      const marker = '\n\nCHARACTER EDITOR OVERRIDES\n';
+      const base = promptBox.value.split(marker)[0].replace(/\n\nUSER EDITS[\s\S]*$/, '');
+      promptBox.value = `${base}${marker}FACE / IDENTITY: ${face}\nBODY / PROPORTIONS: ${body}\nWARDROBE: ${clothing}\n\nUSER EDITS\n`;
+      status.textContent = 'CHARACTER EDITS APPLIED';
+      status.style.background = '#edf8e7';
+      updateCount();
+    }
+    function renderTemplates() {
+      const grid = $('#templateGrid');
+      templates.forEach((template, index) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'template-card';
+        card.innerHTML = `<img class="template-thumb" src="templates/${template.image}" alt="${template.title}" loading="lazy"><span class="template-info"><span class="template-title">${String(index + 1).padStart(2, '0')} · ${template.title}</span><span class="template-meta">${template.category}</span></span>`;
+        card.addEventListener('click', async () => {
+          selectedTemplate = template;
+          document.querySelectorAll('.template-card').forEach(item => item.classList.remove('selected'));
+          card.classList.add('selected');
+          const selected = $('#selectedTemplate');
+          selected.innerHTML = `<strong>${template.title} · ${template.category}</strong>Upload your picture for the character face and body identity. The selected scene, background, pose, camera, style, lighting, and composition stay locked until you change them.<div class="character-editor"><label>Face / identity<input id="characterFace" type="text" placeholder="Preserve uploaded face"></label><label>Body / proportions<input id="characterBody" type="text" placeholder="Preserve uploaded body"></label><label>Clothing change<input id="characterClothing" type="text" placeholder="Keep template clothing"></label></div><textarea id="templateOther" placeholder="Write any other change: colours, objects, text, pose, camera, lighting, or background..."></textarea><button class="template-upload" id="templateUpload" type="button">Upload your picture</button><button class="template-generate" id="templateGenerate" type="button">✦ Generate detailed prompt</button>`;
+          selected.classList.add('open');
+          $('#templateUpload').addEventListener('click', () => fileInput.click());
+          $('#fastMode').click();
+          $('#modeRow').style.display = 'none';
+          analyzeButton.classList.remove('visible');
+          applyTemplateScene(index);
+          promptBox.value = 'Loading the original Qwen3.5 prompt from ComfyUI…';
+          status.textContent = 'LOADING ORIGINAL QWEN PROMPT';
+          updateCount();
+          $('#templateGenerate').addEventListener('click', generateTemplatePrompt);
+          $('#workspace').classList.remove('hidden');
+          document.querySelector('.workspace').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          try {
+            const response = await fetch(`generated-prompts/template-${String(index + 1).padStart(2, '0')}.txt`);
+            if (!response.ok) throw new Error(`Prompt file unavailable (${response.status})`);
+            selectedTemplate.rawPrompt = await response.text();
+            promptBox.value = selectedTemplate.rawPrompt;
+            status.textContent = selectedFile ? 'ORIGINAL QWEN PROMPT · SET OPTIONS' : 'ORIGINAL QWEN PROMPT LOADED';
+            updateCount();
+          } catch (error) {
+            promptBox.value = selectedTemplate.prompt;
+            status.textContent = 'BUILT-IN PROMPT FALLBACK';
+            updateCount();
+          }
+        });
+        grid.appendChild(card);
+      });
+      loadImageLibrary();
+    }
+    async function loadImageLibrary() {
+      const grid = $('#libraryGrid');
+      try {
+        const response = await fetch('image-library/manifest.json');
+        if (!response.ok) throw new Error('Library manifest unavailable');
+        const manifest = await response.json();
+        const records = manifest.images.filter(record => record.status !== 'excluded-existing-template');
+        const categories = [...new Set(records.map(record => record.category || 'general-photography'))].sort();
+        $('#libraryCount').textContent = `${records.length} IMAGES · ${categories.length} CATEGORIES`;
+        const filters = $('#libraryFilters');
+        const renderLibrary = (selectedCategory = 'all') => {
+          grid.innerHTML = '';
+          const visible = selectedCategory === 'all' ? records : records.filter(record => (record.category || 'general-photography') === selectedCategory);
+          const grouped = visible.reduce((groups, record) => {
+            const category = record.category || 'general-photography';
+            (groups[category] ||= []).push(record);
+            return groups;
+          }, {});
+          Object.keys(grouped).sort().forEach(category => {
+            const heading = document.createElement('h3');
+            heading.className = 'library-category';
+            heading.textContent = category.replaceAll('-', ' ').replace(/\b\w/g, letter => letter.toUpperCase());
+            grid.appendChild(heading);
+            grouped[category].forEach(record => {
+              const card = document.createElement('div');
+              card.className = 'library-card';
+              const ready = record.status === 'analyzed';
+              card.innerHTML = `<img class="template-thumb" src="image-library/images/${record.file}" alt="${record.sourceName}" loading="lazy"><span class="library-status-dot ${ready ? 'done' : ''}" title="${ready ? 'Prompt ready' : 'Categorized; prompt pending'}"></span><span class="template-info"><span class="template-title">${record.id}</span><span class="template-meta">${category.replaceAll('-', ' ')}</span></span>`;
+              grid.appendChild(card);
+            });
+          });
+        };
+        const allFilter = document.createElement('button');
+        allFilter.className = 'library-filter active';
+        allFilter.type = 'button';
+        allFilter.textContent = 'All images';
+        filters.appendChild(allFilter);
+        [allFilter, ...categories.map(category => {
+          const filter = document.createElement('button');
+          filter.className = 'library-filter';
+          filter.type = 'button';
+          filter.textContent = category.replaceAll('-', ' ').replace(/\b\w/g, letter => letter.toUpperCase());
+          filters.appendChild(filter);
+          return filter;
+        })].forEach((filter, index) => {
+          filter.addEventListener('click', () => {
+            filters.querySelectorAll('.library-filter').forEach(item => item.classList.remove('active'));
+            filter.classList.add('active');
+            renderLibrary(index === 0 ? 'all' : categories[index - 1]);
+          });
+        });
+        renderLibrary();
+      } catch (error) {
+        $('#libraryCount').textContent = 'LIBRARY UNAVAILABLE';
+        grid.innerHTML = '<div class="analysis-note">The image library could not be loaded.</div>';
+      }
     }
     $('#fastMode').addEventListener('click', () => {
       mode = 'fast'; $('#fastMode').classList.add('active'); $('#analysisMode').classList.remove('active'); analyzeButton.classList.remove('visible'); sceneFields.forEach(field => field.disabled = true); sceneOptions.classList.remove('analyzed'); if (selectedFile) buildFastPrompt();
@@ -366,7 +655,11 @@
       row.querySelector('.edit').addEventListener('click', () => editCharacter(row));
     });
     document.querySelectorAll('.edit').forEach(button => button.addEventListener('click', () => editCharacter(button.closest('.character'))));
+    $('#chooseTemplates').addEventListener('click', openTemplateMode);
+    $('#createOwn').addEventListener('click', openOwnMode);
+    renderTemplates();
     updateCount();
+    introTimer = setTimeout(() => $('#introScreen').classList.add('done'), 2400);
   </script>
 </body>
 </html>
