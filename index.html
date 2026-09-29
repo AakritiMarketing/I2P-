@@ -208,11 +208,7 @@
     </section>
     <div class="heading hidden" id="workspaceHeading"></div>
     <section class="template-section hidden" id="templateSection" aria-labelledby="templateHeading">
-      <div class="template-head library-heading">
-        <div><h2>Image library</h2></div>
-        <span class="template-count" id="libraryCount" hidden></span>
-      </div>
-      <div class="library-legend"><span class="legend-dot"></span><span>Green dot = prompt available</span><span>·</span><span>No dot = prompt not available yet</span></div>
+      <span class="template-count" id="libraryCount" hidden></span>
       <div class="library-filters" id="libraryFilters"></div>
       <div class="template-grid" id="libraryGrid"></div>
     </section>
@@ -271,26 +267,26 @@
     const templateBase = `Create a faithful image-generation prompt for the selected template. Use the selected template as the primary visual reference and recreate its composition, subject placement, environment, pose, camera, lighting, materials, colors, depth, and aspect ratio. Use the uploaded person image only as an identity reference for the human subject: preserve that person's facial structure, skin detail, hair, body proportions, and recognisability, but do not import the uploaded image's background, lighting, pose, clothing, or camera. Describe the visual result directly and concretely.`;
     const templateEnd = `\n\nRECREATION PRIORITY\n1. Apply the user's written changes and selected controls.\n2. Preserve the uploaded person's face and body identity only.\n3. Preserve all unedited template details exactly.\n\nNEGATIVE CONSTRAINTS\nDo not create a generic portrait. Do not replace the template scene with the uploaded image's scene. Do not remove the companion object, background architecture, props, cup, window, shadows, color palette, camera framing, or subject relationship. Do not add people, extra limbs, duplicate objects, random clothing, invented text, watermark, collage panels, illustration styling, or unrelated background details. Keep the specified crop, aspect ratio, subject count, left-right placement, and scale.`;
     const templates = [
-      ['Editorial portrait', 'Fashion', 'template-01.jpg', 'A polished editorial portrait with a single expressive subject, controlled studio key light, soft edge fill, sculpted cheek shadows, clean neutral backdrop, refined beauty retouching, luxury magazine spacing, and an intimate medium close-up camera distance.'],
-      ['Red editorial collage', 'Graphic', 'template-02.jpg', 'A vertical experimental editorial collage: a monochrome upward-looking portrait with reflective glasses is layered over a red geometric circle, black-and-white urban architecture, palm silhouettes, roads, distressed halftone grain, thin white construction lines, cropped photographic panels, and carefully reserved cream margins. Preserve the poster grid, red-black-cream palette, collage depth, print imperfections, and high-contrast graphic hierarchy.'],
-      ['Controlled studio model', 'Fashion', 'template-03.jpg', 'A square behind-the-scenes studio fashion frame with one full-body model centered on a seamless grey cyclorama, black fitted outfit and heels, softbox and strip lights visibly placed at the sides, light stands and cables forming part of the studio context, soft floor shadow, neutral exposure, and handwritten white “Modeling” lettering across the upper image. Keep the studio equipment and documentary production context visible.'],
-      ['Luxury cover study', 'Editorial', 'template-04.jpg', 'A high-fashion magazine cover portrait with immaculate styling, deliberate head-and-shoulders framing, luminous skin, precise catchlights, a restrained background, soft directional beauty light, premium color separation, and clear empty space around the head for typography.'],
-      ['Neon cinematic headshot', 'Cinematic', 'template-05.jpg', 'A tight vertical cinematic male head-and-shoulders portrait with a dark coat and raised collar, face turned slightly toward camera, sharp eyes and beard texture, intense red key light from one side, deep blue fill from the other, warm circular bokeh in the background, controlled black negative space, shallow depth of field, and premium moody color separation.'],
-      ['Golden-hour portrait', 'Portrait', 'template-06.jpg', 'A natural portrait made outdoors during warm golden hour, low sun grazing the face and shoulders, long soft shadows, subtle lens flare, realistic skin and hair movement, an organic background, and a calm cinematic documentary mood.'],
-      ['Jiraya character poster', 'Illustration', 'template-07.jpg', 'A vertical stylised character poster with a white-haired anime-inspired figure standing full-body in front of a pale blue background and a large hot-pink circle, futuristic white jacket with red trim, black shirt, loose grey cargo trousers, red-and-white sneakers, sunglasses, long spiked hair, and a white sports car behind the legs. Preserve the large pink title lettering, clean illustrated outlines, cool cyan vehicle highlights, and symmetrical commercial-poster balance.'],
-      ['Minimal studio fashion', 'Fashion', 'template-08.jpg', 'A minimal studio fashion image with a clean seamless background, precise full-body posing, monochrome wardrobe, subtle floor shadow, large softbox illumination, accurate garment tailoring, and gallery-like negative space around the model.'],
-      ['Night neon portrait', 'Cinematic', 'template-09.jpg', 'A night portrait lit by contrasting neon signage, colored reflections on skin and clothing, deep controlled blacks, wet or reflective environmental surfaces, shallow depth of field, a slightly low camera angle, and an intense modern music-video atmosphere.'],
-      ['Product hero composition', 'Commercial', 'template-10.jpg', 'A premium commercial hero image with the central product or subject isolated as the sharpest point, carefully arranged supporting objects, tactile surfaces, soft directional studio light, controlled specular highlights, clean brand-safe negative space, and advertising-level polish.'],
-      ['Mind-bending split portrait', 'Conceptual', 'template-11.jpg', 'A conceptual portrait that merges a realistic human subject with a symbolic transformation, seamless transitions between skin, architecture, and abstract forms, coherent light across every layer, fine micro-texture, restrained surrealism, and a strong centered visual metaphor.'],
-      ['Edit the image', 'Graphic', 'template-12.jpg', 'Edit the selected image while preserving its visual structure. Adjust identity, wardrobe, mood, lighting, camera, objects, text, and composition only through the controls and written changes.'],
-      ['Urban boy portrait', 'Street', 'template-13.jpg', 'A confident young streetwear subject photographed in an urban setting, relaxed stance, layered casual clothing, realistic textile folds, environmental perspective lines, overcast soft light, muted color grading, and authentic candid editorial energy.'],
-      ['Model life fashion collage', 'Editorial', 'template-14.jpg', 'A tall multi-panel fashion-week collage combining runway models, photographers firing flashes, backstage drinks and credentials, a pink-lit show stage, a seated audience, venue chandeliers, and street-style press moments. Keep the irregular magazine collage layout, black-white-pink palette with selective color accents, hard flash bloom, varied panel crops, central “MODEL LIFE” title block, and energetic documentary fashion-week atmosphere.'],
-      ['Vogue monochrome cover', 'Editorial', 'template-15.jpg', 'A vertical black-and-white luxury magazine cover with one woman in a dark tailored suit, white shirt and narrow tie, seated or leaning in a sculptural close portrait. Use a low slightly tilted camera angle, directional side light, charcoal gradient background, bright facial highlights, deep editorial shadows, large white serif VOGUE masthead, and carefully spaced cover lines around but never across the eyes and facial features. Preserve the cover hierarchy and premium typography zones.'],
-      ['Low-angle fashion frame', 'Editorial', 'template-16.jpg', 'A fashion image from a clearly defined low camera angle, subject rising confidently through the frame, accurate perspective stretch, architectural environment, directional daylight, sharp wardrobe styling, and an editorial sense of scale and attitude.'],
-      ['Surreal floating scene', 'Surreal', 'template-17.jpg', 'A fantastical scene with the subject suspended or surrounded by impossible objects, believable contact shadows where objects meet, consistent atmospheric perspective, luminous color accents, fine environmental detail, and a cinematic dream-world narrative.'],
-      ['Viral portrait formula', 'Social', 'template-18.jpg', 'A polished social-media portrait optimized for immediate visual impact, strong subject separation, flattering directional light, memorable color contrast, clean background story, carefully styled clothing, sharp eyes, and a premium creator-campaign finish rather than a generic selfie.'],
-      ['Warm character companion portrait', 'Character', 'template-19.jpg', 'CORE IMAGE TYPE: intimate vertical 3:4 photorealistic cinematic close-up, high-definition film still. SUBJECT 1 — HUMAN: place the uploaded person as the human subject on the left third of the frame, shown from the top of the hair to the upper torso. Preserve the uploaded person’s exact facial identity, facial geometry, skin texture, hairline, hairstyle, age cues, body proportions, and recognisability. Change the person’s gender presentation, facial hair, or clothing only if the user explicitly requests it. The person leans inward and presses their cheek naturally against the companion, looking calmly toward the camera with a quiet intimate expression. SUBJECT 2 — COMPANION: an enormous yellow Pikachu-like plush character fills the center and right two-thirds of the frame and envelops the human subject. Its synthetic golden fur is visibly soft, dense, shaggy, and individually fibred rather than smooth plastic. Show two tall pointed ears reaching close to the upper edge, black ear tips, large glossy deep-brown glassy eyes with subtle room reflections, a small black nose, a simple curved mouth, and distinct circular red cheek pads. Keep the companion’s head scale much larger than the human head. INTERACTION AND PROPS: the human is physically nestled against the plush cheek/shoulder; at the lower-left foreground, the human holds a plain white disposable coffee cup with the fingers and natural nails visible. ENVIRONMENT: a warm, softly blurred interior with dark wooden framing and a bright rectangular window behind the subjects on the upper-right. Keep the window in the upper-right and the human, companion, and cup in their exact left-to-right relationships. LIGHTING: warm directional late-afternoon golden-hour sunlight enters from the upper-right window, catches the plush fibres and eye gloss, creates a readable hard-edged ear shadow across part of the human forehead and cheek, and leaves controlled warm shadow on the opposite side of the face. CAMERA: close handheld eye-level portrait, 50mm lens impression, wide aperture around f/1.4–f/1.8, critical focus at the human face/plush-eye intersection, shallow depth of field, softly rendered background bokeh. COLOR AND FINISH: golden yellow fur, natural skin tones, deep brown hair and garment, red cheek pads, warm amber highlights, rich brown shadows, gentle analog film grain, realistic skin pores, soft highlight roll-off, physically coherent contact shadows. Preserve the vertical 3:4 crop, intimate scale, human-left/companion-right arrangement, window position, cup position, ear placement, companion size, warm sunlight, and all visible subject relationships.'],
-      ['Y2K flash portrait', 'Retro', 'template-20.jpg', 'A playful Y2K-inspired portrait with direct on-camera flash, glossy highlights, compact framing, nostalgic styling, bold accessories, saturated color, visible background texture, slight snapshot energy, and intentional retro-digital fashion editorial detail.']
+      ['Chocolate Bar Buddy', 'fantasy', 'template-01.jpg', 'A polished editorial portrait with a single expressive subject, controlled studio key light, soft edge fill, sculpted cheek shadows, clean neutral backdrop, refined beauty retouching, luxury magazine spacing, and an intimate medium close-up camera distance.'],
+      ['Red Sun Collage', 'editorial', 'template-02.jpg', 'A vertical experimental editorial collage: a monochrome upward-looking portrait with reflective glasses is layered over a red geometric circle, black-and-white urban architecture, palm silhouettes, roads, distressed halftone grain, thin white construction lines, cropped photographic panels, and carefully reserved cream margins. Preserve the poster grid, red-black-cream palette, collage depth, print imperfections, and high-contrast graphic hierarchy.'],
+      ['Studio Modeling Set', 'fashion', 'template-03.jpg', 'A square behind-the-scenes studio fashion frame with one full-body model centered on a seamless grey cyclorama, black fitted outfit and heels, softbox and strip lights visibly placed at the sides, light stands and cables forming part of the studio context, soft floor shadow, neutral exposure, and handwritten white “Modeling” lettering across the upper image. Keep the studio equipment and documentary production context visible.'],
+      ['Cover Girl Classic', 'editorial', 'template-04.jpg', 'A high-fashion magazine cover portrait with immaculate styling, deliberate head-and-shoulders framing, luminous skin, precise catchlights, a restrained background, soft directional beauty light, premium color separation, and clear empty space around the head for typography.'],
+      ['Crimson Night Stranger', 'cinematic', 'template-05.jpg', 'A tight vertical cinematic male head-and-shoulders portrait with a dark coat and raised collar, face turned slightly toward camera, sharp eyes and beard texture, intense red key light from one side, deep blue fill from the other, warm circular bokeh in the background, controlled black negative space, shallow depth of field, and premium moody color separation.'],
+      ['Mind Architect Collage', 'editorial', 'template-06.jpg', 'A natural portrait made outdoors during warm golden hour, low sun grazing the face and shoulders, long soft shadows, subtle lens flare, realistic skin and hair movement, an organic background, and a calm cinematic documentary mood.'],
+      ['White-Haired Street Legend', 'editorial', 'template-07.jpg', 'A vertical stylised character poster with a white-haired anime-inspired figure standing full-body in front of a pale blue background and a large hot-pink circle, futuristic white jacket with red trim, black shirt, loose grey cargo trousers, red-and-white sneakers, sunglasses, long spiked hair, and a white sports car behind the legs. Preserve the large pink title lettering, clean illustrated outlines, cool cyan vehicle highlights, and symmetrical commercial-poster balance.'],
+      ['Name in Lights Pose', 'editorial', 'template-08.jpg', 'A minimal studio fashion image with a clean seamless background, precise full-body posing, monochrome wardrobe, subtle floor shadow, large softbox illumination, accurate garment tailoring, and gallery-like negative space around the model.'],
+      ['Tiger Chase Scooter', 'fantasy', 'template-09.jpg', 'A night portrait lit by contrasting neon signage, colored reflections on skin and clothing, deep controlled blacks, wet or reflective environmental surfaces, shallow depth of field, a slightly low camera angle, and an intense modern music-video atmosphere.'],
+      ['Pigeon Skate Chaos', 'fantasy', 'template-10.jpg', 'A premium commercial hero image with the central product or subject isolated as the sharpest point, carefully arranged supporting objects, tactile surfaces, soft directional studio light, controlled specular highlights, clean brand-safe negative space, and advertising-level polish.'],
+      ['Wallet Nap', 'fantasy', 'template-11.jpg', 'A conceptual portrait that merges a realistic human subject with a symbolic transformation, seamless transitions between skin, architecture, and abstract forms, coherent light across every layer, fine micro-texture, restrained surrealism, and a strong centered visual metaphor.'],
+      ['Cover Edit Mode', 'editorial', 'template-12.jpg', 'Edit the selected image while preserving its visual structure. Adjust identity, wardrobe, mood, lighting, camera, objects, text, and composition only through the controls and written changes.'],
+      ['Wall-Lean Streetwear', 'fashion', 'template-13.jpg', 'A confident young streetwear subject photographed in an urban setting, relaxed stance, layered casual clothing, realistic textile folds, environmental perspective lines, overcast soft light, muted color grading, and authentic candid editorial energy.'],
+      ['Model Life Collage', 'editorial', 'template-14.jpg', 'A tall multi-panel fashion-week collage combining runway models, photographers firing flashes, backstage drinks and credentials, a pink-lit show stage, a seated audience, venue chandeliers, and street-style press moments. Keep the irregular magazine collage layout, black-white-pink palette with selective color accents, hard flash bloom, varied panel crops, central “MODEL LIFE” title block, and energetic documentary fashion-week atmosphere.'],
+      ['Monochrome Power Cover', 'editorial', 'template-15.jpg', 'A vertical black-and-white luxury magazine cover with one woman in a dark tailored suit, white shirt and narrow tie, seated or leaning in a sculptural close portrait. Use a low slightly tilted camera angle, directional side light, charcoal gradient background, bright facial highlights, deep editorial shadows, large white serif VOGUE masthead, and carefully spaced cover lines around but never across the eyes and facial features. Preserve the cover hierarchy and premium typography zones.'],
+      ['Tiny Umbrella Drop', 'fantasy', 'template-16.jpg', 'A fashion image from a clearly defined low camera angle, subject rising confidently through the frame, accurate perspective stretch, architectural environment, directional daylight, sharp wardrobe styling, and an editorial sense of scale and attitude.'],
+      ['Tomato Vine Climber', 'fantasy', 'template-17.jpg', 'A fantastical scene with the subject suspended or surrounded by impossible objects, believable contact shadows where objects meet, consistent atmospheric perspective, luminous color accents, fine environmental detail, and a cinematic dream-world narrative.'],
+      ['Silk & Scarlet Cover', 'editorial', 'template-18.jpg', 'A polished social-media portrait optimized for immediate visual impact, strong subject separation, flattering directional light, memorable color contrast, clean background story, carefully styled clothing, sharp eyes, and a premium creator-campaign finish rather than a generic selfie.'],
+      ['Plush Pal Close-Up', 'fantasy', 'template-19.jpg', 'CORE IMAGE TYPE: intimate vertical 3:4 photorealistic cinematic close-up, high-definition film still. SUBJECT 1 — HUMAN: place the uploaded person as the human subject on the left third of the frame, shown from the top of the hair to the upper torso. Preserve the uploaded person’s exact facial identity, facial geometry, skin texture, hairline, hairstyle, age cues, body proportions, and recognisability. Change the person’s gender presentation, facial hair, or clothing only if the user explicitly requests it. The person leans inward and presses their cheek naturally against the companion, looking calmly toward the camera with a quiet intimate expression. SUBJECT 2 — COMPANION: an enormous yellow Pikachu-like plush character fills the center and right two-thirds of the frame and envelops the human subject. Its synthetic golden fur is visibly soft, dense, shaggy, and individually fibred rather than smooth plastic. Show two tall pointed ears reaching close to the upper edge, black ear tips, large glossy deep-brown glassy eyes with subtle room reflections, a small black nose, a simple curved mouth, and distinct circular red cheek pads. Keep the companion’s head scale much larger than the human head. INTERACTION AND PROPS: the human is physically nestled against the plush cheek/shoulder; at the lower-left foreground, the human holds a plain white disposable coffee cup with the fingers and natural nails visible. ENVIRONMENT: a warm, softly blurred interior with dark wooden framing and a bright rectangular window behind the subjects on the upper-right. Keep the window in the upper-right and the human, companion, and cup in their exact left-to-right relationships. LIGHTING: warm directional late-afternoon golden-hour sunlight enters from the upper-right window, catches the plush fibres and eye gloss, creates a readable hard-edged ear shadow across part of the human forehead and cheek, and leaves controlled warm shadow on the opposite side of the face. CAMERA: close handheld eye-level portrait, 50mm lens impression, wide aperture around f/1.4–f/1.8, critical focus at the human face/plush-eye intersection, shallow depth of field, softly rendered background bokeh. COLOR AND FINISH: golden yellow fur, natural skin tones, deep brown hair and garment, red cheek pads, warm amber highlights, rich brown shadows, gentle analog film grain, realistic skin pores, soft highlight roll-off, physically coherent contact shadows. Preserve the vertical 3:4 crop, intimate scale, human-left/companion-right arrangement, window position, cup position, ear placement, companion size, warm sunlight, and all visible subject relationships.'],
+      ['Top-Down Flash Pose', 'fashion', 'template-20.jpg', 'A playful Y2K-inspired portrait with direct on-camera flash, glossy highlights, compact framing, nostalgic styling, bold accessories, saturated color, visible background texture, slight snapshot energy, and intentional retro-digital fashion editorial detail.']
     ].map(([title, category, image, scene]) => ({ title, category, image, prompt: `${templateBase}\n\nSCENE BLUEPRINT — ${title.toUpperCase()}\n${scene}${templateEnd}` }));
     let selectedTemplate = null;
     const controllerUrl = 'https://desktop-i30b6o6.tail47878d.ts.net';
@@ -401,11 +397,23 @@
       if (source && source.toLowerCase() !== 'jpeg' && source.length > 2) return source.slice(0, 46);
       return `${category.replaceAll('-', ' ')} image`;
     }
+    const LIBRARY_CATALOGUE = {
+      product: 'Product Showcase',
+      portrait: 'Portraits & Headshots',
+      fashion: 'Fashion & Streetwear',
+      editorial: 'Magazine Covers & Posters',
+      cinematic: 'Cinematic & Moody',
+      fantasy: '3D, Fantasy & Surreal'
+    };
+    const categoryLabel = category => LIBRARY_CATALOGUE[category] || category.replaceAll('-', ' ');
     function normalizeLibraryCategory(value) {
       const source = String(value || '').toLowerCase();
-      if (source.includes('product') || source.includes('commercial') || source.includes('food')) return 'product-commercial';
+      if (LIBRARY_CATALOGUE[source]) return source;
+      if (source.includes('product') || source.includes('commercial') || source.includes('food')) return 'product';
       if (source.includes('fantasy') || source.includes('surreal') || source.includes('illustration') || source.includes('conceptual')) return 'fantasy';
-      if (source.includes('fashion') || source.includes('editorial') || source.includes('portrait') || source.includes('street')) return 'fashion';
+      if (source.includes('editorial') || source.includes('graphic') || source.includes('poster')) return 'editorial';
+      if (source.includes('portrait')) return 'portrait';
+      if (source.includes('fashion') || source.includes('street')) return 'fashion';
       return 'cinematic';
     }
     async function openLibraryRecord(record, category) {
@@ -447,7 +455,7 @@
     async function loadImageLibrary() {
       const grid = $('#libraryGrid');
       try {
-        const response = await fetch('image-library/manifest.json');
+        const response = await fetch(`image-library/manifest.json?v=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) throw new Error('Library manifest unavailable');
         const manifest = await response.json();
         const coreRecords = templates.map((template, index) => ({
@@ -462,74 +470,39 @@
         }));
         const records = [...coreRecords, ...manifest.images.filter(record => record.status === 'analyzed' && record.promptFile)]
           .map(record => ({ ...record, category: normalizeLibraryCategory(record.category) }));
-        const categories = [...new Set(records.map(record => record.category || 'general-photography'))].sort();
+        const categories = Object.keys(LIBRARY_CATALOGUE).filter(category => records.some(record => record.category === category));
         $('#libraryCount').textContent = `${records.length} images`;
         const filters = $('#libraryFilters');
-        const renderLibrary = (selectedCategory = 'all', selectedAvailability = 'all') => {
-        grid.innerHTML = '';
-        const visible = records.filter(record => {
-            const categoryMatches = selectedCategory === 'all' || (record.category || 'general-photography') === selectedCategory;
-            const availabilityMatches = selectedAvailability === 'all'
-              || (selectedAvailability === 'available' && record.status === 'analyzed')
-              || (selectedAvailability === 'pending' && record.status !== 'analyzed');
-            return categoryMatches && availabilityMatches;
-          });
-          const grouped = visible.reduce((groups, record) => {
-            const category = record.category || 'general-photography';
-            (groups[category] ||= []).push(record);
-            return groups;
-          }, {});
-          Object.keys(grouped).sort().forEach(category => {
+        const renderLibrary = (selectedCategory = 'all') => {
+          grid.innerHTML = '';
+          categories.filter(category => selectedCategory === 'all' || category === selectedCategory).forEach(category => {
             const heading = document.createElement('h3');
             heading.className = 'library-category';
-            heading.textContent = category.replaceAll('-', ' ').replace(/\b\w/g, letter => letter.toUpperCase());
+            heading.textContent = categoryLabel(category);
             grid.appendChild(heading);
-            grouped[category].forEach(record => {
+            records.filter(record => record.category === category).forEach(record => {
               const card = document.createElement('button');
               card.type = 'button';
-              const ready = record.status === 'analyzed';
-              card.className = `library-card${ready ? '' : ' pending'}`;
+              card.className = 'library-card';
               const imagePath = record.imagePath || `image-library/images/${record.file}`;
-              card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${record.sourceName}" loading="lazy" onerror="this.closest('.library-card')?.remove()"><span class="library-status-dot ${ready ? 'done' : ''}" title="${ready ? 'Prompt ready' : 'Categorized; prompt pending'}"></span><span class="template-info"><span class="template-title">${record.title || libraryTitle(record, category)}</span><span class="template-meta">${category.replaceAll('-', ' ')}</span></span>`;
-              if (ready) card.addEventListener('click', () => openLibraryRecord(record, category));
+              const title = record.title || libraryTitle(record, category);
+              card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${title}" loading="lazy" onerror="this.closest('.library-card')?.remove()"><span class="template-info"><span class="template-title">${title}</span><span class="template-meta">${categoryLabel(category)}</span></span>`;
+              card.addEventListener('click', () => openLibraryRecord(record, category));
               grid.appendChild(card);
             });
           });
         };
-        const availabilityFilters = [
-          ['all', 'All images'],
-          ['available', 'With prompt'],
-          ['pending', 'Without prompt']
-        ].map(([value, label], index) => {
+        const filterButtons = [['all', 'All'], ...categories.map(category => [category, categoryLabel(category)])].map(([value, label], index) => {
           const filter = document.createElement('button');
           filter.className = `library-filter${index === 0 ? ' active' : ''}`;
           filter.type = 'button';
-          filter.dataset.availability = value;
           filter.textContent = label;
-          filters.appendChild(filter);
-          return filter;
-        });
-        const categoryFilters = categories.map(category => {
-          const filter = document.createElement('button');
-          filter.className = 'library-filter';
-          filter.type = 'button';
-          filter.textContent = category.replaceAll('-', ' ').replace(/\b\w/g, letter => letter.toUpperCase());
-          filters.appendChild(filter);
-          return filter;
-        });
-        let selectedCategory = 'all';
-        let selectedAvailability = 'all';
-        [...availabilityFilters, ...categoryFilters].forEach((filter) => {
           filter.addEventListener('click', () => {
-            if (filter.dataset.availability) {
-              selectedAvailability = filter.dataset.availability;
-              availabilityFilters.forEach(item => item.classList.toggle('active', item === filter));
-            } else {
-              selectedCategory = filter.textContent.toLowerCase().replaceAll(' ', '-');
-              categoryFilters.forEach(item => item.classList.toggle('active', item === filter));
-            }
-            renderLibrary(selectedCategory, selectedAvailability);
+            filterButtons.forEach(item => item.classList.toggle('active', item === filter));
+            renderLibrary(value);
           });
+          filters.appendChild(filter);
+          return filter;
         });
         renderLibrary();
       } catch (error) {
