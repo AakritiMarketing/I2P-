@@ -460,7 +460,7 @@
           status: 'analyzed',
           sourceName: template.title
         }));
-        const records = [...coreRecords, ...manifest.images.filter(record => record.status !== 'excluded-existing-template')]
+        const records = [...coreRecords, ...manifest.images.filter(record => record.status === 'analyzed' && record.promptFile)]
           .map(record => ({ ...record, category: normalizeLibraryCategory(record.category) }));
         const categories = [...new Set(records.map(record => record.category || 'general-photography'))].sort();
         $('#libraryCount').textContent = `${records.length} images`;
@@ -490,7 +490,7 @@
               const ready = record.status === 'analyzed';
               card.className = `library-card${ready ? '' : ' pending'}`;
               const imagePath = record.imagePath || `image-library/images/${record.file}`;
-              card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${record.sourceName}" loading="lazy"><span class="library-status-dot ${ready ? 'done' : ''}" title="${ready ? 'Prompt ready' : 'Categorized; prompt pending'}"></span><span class="template-info"><span class="template-title">${record.title || libraryTitle(record, category)}</span><span class="template-meta">${category.replaceAll('-', ' ')}</span></span>`;
+              card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${record.sourceName}" loading="lazy" onerror="this.closest('.library-card')?.remove()"><span class="library-status-dot ${ready ? 'done' : ''}" title="${ready ? 'Prompt ready' : 'Categorized; prompt pending'}"></span><span class="template-info"><span class="template-title">${record.title || libraryTitle(record, category)}</span><span class="template-meta">${category.replaceAll('-', ' ')}</span></span>`;
               if (ready) card.addEventListener('click', () => openLibraryRecord(record, category));
               grid.appendChild(card);
             });
