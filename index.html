@@ -59,6 +59,7 @@
     .scan-label { position:relative; font-family:"DM Mono",monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
     .analyze-image { display:none; width:calc(100% - 28px); margin:0 14px 14px; padding:12px; border-radius:9px; background:var(--dark); color:#fff; font-size:12px; font-weight:800; }
     .analyze-image.visible { display:block; }
+    .analyze-note { margin:-6px 14px 14px; color:var(--muted); font-size:10px; line-height:1.5; }
     .analyze-image.stop { background:#a95353; }
     .mode-row { display:flex; gap:8px; margin:0 14px 14px; }
     .mode-button { flex:1; padding:10px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--muted); font-size:11px; font-weight:800; }
@@ -132,6 +133,15 @@
     .library-card .template-meta { display:block; margin-top:4px; color:var(--muted); font:10px "DM Mono",monospace; }
     .library-status-dot { position:absolute; right:8px; bottom:47px; width:9px; height:9px; border-radius:50%; background:#b7c0b9; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.2); }
     .library-status-dot.done { background:#39b96b; }
+    .library-search { display:flex; align-items:center; gap:12px; margin:8px 0 4px; }
+    .library-search input { flex:1; max-width:520px; padding:12px 16px; border-radius:999px; border:1px solid var(--line); background:#151020; color:var(--ink); font:14px Manrope,system-ui,sans-serif; }
+    .library-search input:focus { outline:none; border-color:var(--pink); }
+    .library-search span { color:var(--muted); font:11px "DM Mono",monospace; }
+    .library-more { grid-column:1/-1; justify-self:center; margin:10px 0 4px; padding:11px 22px; border-radius:999px; border:1px solid var(--pink); background:transparent; color:var(--ink); font-weight:800; font-size:12px; cursor:pointer; }
+    .library-more:hover { background:rgba(240,171,252,.1); }
+    .library-seeall { display:flex; align-items:center; justify-content:center; min-height:120px; border:1px dashed var(--line); border-radius:12px; background:#151020; color:var(--pink); font-weight:800; font-size:13px; cursor:pointer; text-align:center; padding:12px; }
+    .library-seeall:hover { border-color:var(--pink); }
+    .library-empty { grid-column:1/-1; color:var(--muted); padding:30px 0; text-align:center; }
     .library-filters { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
     .library-filter { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#151020; color:var(--muted); font-size:10px; font-weight:800; }
     .library-filter.active, .library-filter:hover { border-color:var(--pink); background:linear-gradient(135deg,#54217b,#2a1244); color:#fff; }
@@ -220,6 +230,7 @@
     <div class="heading hidden" id="workspaceHeading"></div>
     <section class="template-section hidden" id="templateSection" aria-labelledby="templateHeading">
       <span class="template-count" id="libraryCount" hidden></span>
+      <div class="library-search"><input id="librarySearch" type="search" placeholder="Search templates… (e.g. neon, serum, magazine, 3D)" autocomplete="off"><span id="libraryResultCount"></span></div>
       <div class="library-filters" id="libraryFilters"></div>
       <div class="template-grid" id="libraryGrid"></div>
     </section>
@@ -233,7 +244,7 @@
           <div class="scan-overlay"><div class="scan-grid"></div><div class="scan-line"></div><div class="scan-icon"></div><div class="scan-label">Scanning image…</div></div>
         </label>
         <div class="mode-row" id="modeRow"><button class="mode-button active" id="fastMode" type="button">Fast recreate</button><button class="mode-button" id="analysisMode" type="button">Analyze image</button></div>
-        <button class="analyze-image" id="analyzeImage" type="button">✦ Analyze this image</button>
+        <button class="analyze-image" id="analyzeImage" type="button">✦ Analyze this image</button><p class="analyze-note">Uploaded images are analysed by Google Gemini to write the prompt. Don't upload anything private.</p>
         <div class="file-strip"><span class="file-dot"></span><span id="fileName">No image selected yet</span><button class="remove" id="removeFile" type="button">Remove</button></div>
         <div class="options">
           <h3>Set the scene</h3><div class="analysis-note" id="sceneState">Upload an image to analyze its visual details.</div>
@@ -465,7 +476,7 @@
         promptBox.value = selectedTemplate.rawPrompt;
         status.textContent = 'IMAGE PROMPT LOADED';
       } catch (error) {
-        promptBox.value = `${selectedTemplate.prompt}\n\nThis image is categorized as ${category.replaceAll('-', ' ')}. A Qwen prompt is not available for this image yet.`;
+        promptBox.value = `${selectedTemplate.prompt}\n\nThis image is categorized as ${category.replaceAll('-', ' ')}. A detailed prompt is not available for this image yet.`;
         status.textContent = 'PROMPT NOT READY';
       }
       updateCount();
@@ -489,39 +500,99 @@
         }));
         const records = [...coreRecords, ...manifest.images.filter(record => record.status === 'analyzed' && record.promptFile)]
           .map(record => ({ ...record, category: normalizeLibraryCategory(record.category) }));
+        records.sort((x, y) => String(y.addedAt || '').localeCompare(String(x.addedAt || '')));
         const categories = Object.keys(LIBRARY_CATALOGUE).filter(category => records.some(record => record.category === category));
+        const byCategory = Object.fromEntries(categories.map(category => [category, records.filter(record => record.category === category)]));
+        const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        records.forEach(record => { record.searchText = `${record.title || ''} ${categoryLabel(record.category)} ${record.category} ${record.id}`.toLowerCase(); });
         $('#libraryCount').textContent = `${records.length} images`;
         const filters = $('#libraryFilters');
-        const renderLibrary = (selectedCategory = 'all') => {
-          grid.innerHTML = '';
-          categories.filter(category => selectedCategory === 'all' || category === selectedCategory).forEach(category => {
-            const heading = document.createElement('h3');
-            heading.className = 'library-category';
-            heading.textContent = categoryLabel(category);
-            grid.appendChild(heading);
-            records.filter(record => record.category === category).forEach(record => {
-              const card = document.createElement('button');
-              card.type = 'button';
-              card.className = 'library-card';
-              const imagePath = record.imagePath || `image-library/images/${record.file}`;
-              const title = record.title || libraryTitle(record, category);
-              card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${title}" loading="lazy" onerror="this.closest('.library-card')?.remove()"><span class="template-info"><span class="template-title">${title}</span><span class="template-meta">${categoryLabel(category)}</span></span>`;
-              card.addEventListener('click', () => openLibraryRecord(record, category));
-              grid.appendChild(card);
-            });
-          });
+        const PREVIEW = 10, PAGE = 60;
+        const state = { category: 'all', query: '', limit: PAGE };
+        let moreObserver = null;
+        const makeCard = record => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.className = 'library-card';
+          const imagePath = record.imagePath || `image-library/images/${record.file}`;
+          const title = escapeHtml(record.title || libraryTitle(record, record.category));
+          card.innerHTML = `<img class="template-thumb" src="${imagePath}" alt="${title}" loading="lazy" decoding="async" onerror="this.closest('.library-card')?.remove()"><span class="template-info"><span class="template-title">${title}</span><span class="template-meta">${escapeHtml(categoryLabel(record.category))}</span></span>`;
+          card.addEventListener('click', () => openLibraryRecord(record, record.category));
+          return card;
         };
-        const filterButtons = [['all', 'All'], ...categories.map(category => [category, categoryLabel(category)])].map(([value, label], index) => {
+        const heading = text => { const h = document.createElement('h3'); h.className = 'library-category'; h.textContent = text; return h; };
+        const renderLibrary = () => {
+          if (moreObserver) { moreObserver.disconnect(); moreObserver = null; }
+          grid.innerHTML = '';
+          const fragment = document.createDocumentFragment();
+          const words = state.query.toLowerCase().split(/\s+/).filter(Boolean);
+          if (state.category === 'all' && !words.length) {
+            categories.forEach(category => {
+              const list = byCategory[category];
+              fragment.appendChild(heading(`${categoryLabel(category)} · ${list.length}`));
+              list.slice(0, PREVIEW).forEach(record => fragment.appendChild(makeCard(record)));
+              if (list.length > PREVIEW) {
+                const more = document.createElement('button');
+                more.type = 'button'; more.className = 'library-seeall';
+                more.textContent = `See all ${list.length} →`;
+                more.addEventListener('click', () => selectCategory(category));
+                fragment.appendChild(more);
+              }
+            });
+            $('#libraryResultCount').textContent = '';
+          } else {
+            const pool = state.category === 'all' ? records : byCategory[state.category] || [];
+            const matches = words.length ? pool.filter(record => words.every(word => record.searchText.includes(word))) : pool;
+            $('#libraryResultCount').textContent = `${matches.length} result${matches.length === 1 ? '' : 's'}`;
+            if (state.category !== 'all') fragment.appendChild(heading(`${categoryLabel(state.category)} · ${matches.length}`));
+            if (!matches.length) { const empty = document.createElement('div'); empty.className = 'library-empty'; empty.textContent = 'No templates match your search.'; fragment.appendChild(empty); }
+            matches.slice(0, state.limit).forEach(record => fragment.appendChild(makeCard(record)));
+            if (matches.length > state.limit) {
+              const more = document.createElement('button');
+              more.type = 'button'; more.className = 'library-more';
+              more.textContent = `Load more (${matches.length - state.limit} left)`;
+              more.addEventListener('click', () => { state.limit += PAGE; renderMore(matches); });
+              fragment.appendChild(more);
+              if ('IntersectionObserver' in window) {
+                moreObserver = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) more.click(); }, { rootMargin: '600px' });
+                requestAnimationFrame(() => moreObserver && moreObserver.observe(more));
+              }
+            }
+          }
+          grid.appendChild(fragment);
+        };
+        const renderMore = matches => {
+          const button = grid.querySelector('.library-more');
+          if (moreObserver) { moreObserver.disconnect(); moreObserver = null; }
+          const start = state.limit - PAGE;
+          const fragment = document.createDocumentFragment();
+          matches.slice(start, state.limit).forEach(record => fragment.appendChild(makeCard(record)));
+          grid.insertBefore(fragment, button);
+          if (matches.length > state.limit) {
+            button.textContent = `Load more (${matches.length - state.limit} left)`;
+            if ('IntersectionObserver' in window) { moreObserver = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) button.click(); }, { rootMargin: '600px' }); moreObserver.observe(button); }
+          } else button.remove();
+        };
+        const filterButtons = [['all', `All · ${records.length}`], ...categories.map(category => [category, `${categoryLabel(category)} · ${byCategory[category].length}`])].map(([value, label], index) => {
           const filter = document.createElement('button');
           filter.className = `library-filter${index === 0 ? ' active' : ''}`;
           filter.type = 'button';
+          filter.dataset.category = value;
           filter.textContent = label;
-          filter.addEventListener('click', () => {
-            filterButtons.forEach(item => item.classList.toggle('active', item === filter));
-            renderLibrary(value);
-          });
+          filter.addEventListener('click', () => selectCategory(value));
           filters.appendChild(filter);
           return filter;
+        });
+        function selectCategory(value) {
+          state.category = value; state.limit = PAGE;
+          filterButtons.forEach(item => item.classList.toggle('active', item.dataset.category === value));
+          renderLibrary();
+          filters.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        let searchTimer;
+        $('#librarySearch').addEventListener('input', event => {
+          clearTimeout(searchTimer);
+          searchTimer = setTimeout(() => { state.query = event.target.value.trim(); state.limit = PAGE; renderLibrary(); }, 180);
         });
         renderLibrary();
       } catch (error) {
@@ -598,7 +669,7 @@
       const data = new FormData();
       data.append('image', file);
       const response = await fetch(`${apiUrl}/api/analyze-image`, { method: 'POST', body: data, signal: analysisController.signal });
-      if (!response.ok) throw new Error('Vision analysis request failed');
+      if (!response.ok) { let message = 'Vision analysis request failed'; try { message = (await response.json()).error || message; } catch (error) {} throw new Error(message); }
       const analysis = await response.json();
       latestAnalysis = analysis;
       renderDiagnostics(analysis);
@@ -609,7 +680,7 @@
       $('#ratio').value = analysis.scene.ratio;
       sceneFields.forEach(field => field.disabled = false);
       sceneOptions.classList.add('analyzed');
-      sceneState.textContent = `Local vision analysis complete · ${analysis.scene.width} × ${analysis.scene.height}px`;
+      sceneState.textContent = `${analysis.engine === 'gemini' ? 'Gemini' : 'Local'} vision analysis complete${analysis.scene.width ? ` · ${analysis.scene.width} × ${analysis.scene.height}px` : ''}`;
       $('#generate').hidden = false;
       status.textContent = `${analysis.characters.length} SUBJECT${analysis.characters.length === 1 ? '' : 'S'} · SCENE ANALYZED`;
       status.style.background = '#edf8e7';
@@ -647,7 +718,7 @@
         renderCharacters([]);
         sceneFields.forEach(field => field.disabled = true);
         sceneOptions.classList.remove('analyzed');
-        sceneState.textContent = 'Analysis failed. Check that the vision server is running.';
+        sceneState.textContent = error.message && error.message !== 'Failed to fetch' ? `Analysis failed: ${error.message}` : 'Analysis failed. The analysis service is offline right now — please try again later.';
         $('#generate').hidden = true;
         status.textContent = 'ANALYSIS FAILED';
         status.style.background = '#fff0e8';

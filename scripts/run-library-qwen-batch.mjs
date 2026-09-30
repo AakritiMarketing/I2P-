@@ -73,12 +73,33 @@ async function saveManifest() {
   await writeFile(libraryManifestPath, `${JSON.stringify(libraryManifest, null, 2)}\n`, "utf8");
 }
 
-const pending = libraryManifest.images.filter((record) => record.status === "pending-analysis");
+const pending = libraryManifest.images.filter((record) => (
+  record.status !== "excluded-existing-template" &&
+  !record.promptFile &&
+  record.file
+));
 for (const record of pending) {
   const startedAt = Date.now();
   process.stdout.write(`${record.id}: uploading and analyzing...\n`);
   try {
-    const imageName = await uploadImage(path.join(imageDir, record.file));
+    const sourcePath = path.join(imageDir, record.file);
+    try {
+      await readFile(sourcePath);
+    } catch {
+      throw new Error(`source image missing: ${record.file}`);
+    }
+    let imageName;
+    let lastError;
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      try {
+        imageName = await uploadImage(sourcePath);
+        break;
+      } catch (error) {
+        lastError = error;
+        if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, 2000));
+      }
+    }
+    if (!imageName) throw lastError;
     const rawText = await runWorkflow(imageName);
     const promptFile = `${record.id}.txt`;
     await writeFile(path.join(outputDir, promptFile), rawText, "utf8");
