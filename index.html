@@ -94,6 +94,17 @@
     .prompt-tools { display:flex; justify-content:space-between; align-items:center; margin:12px 0 23px; }
     .tool-link { color:var(--muted); background:transparent; font-size:11px; font-weight:700; }
     .tool-link:hover { color:var(--ink); }
+    .prompt-tools { flex-wrap:wrap; }
+    .ai-open { display:flex; align-items:center; gap:7px; padding:9px 13px; border-radius:7px; font-size:11px; font-weight:800; border:1px solid var(--pink); background:transparent; color:var(--ink); cursor:pointer; }
+    .ai-open:hover { background:rgba(236,72,153,.14); }
+    .ai-modal { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(8,4,14,.72); }
+    .ai-modal[hidden], .ai-toast[hidden] { display:none; }
+    .ai-box { width:min(440px,100%); padding:22px; border:1px solid var(--line); border-radius:14px; background:#171022; color:var(--ink); box-shadow:0 20px 60px rgba(0,0,0,.5); }
+    .ai-box h3 { margin:0 0 12px; font-size:18px; }
+    .ai-box ol { margin:0 0 18px; padding-left:20px; color:var(--muted); font-size:13px; line-height:1.7; }
+    .ai-box ol b { color:var(--ink); }
+    .ai-actions { display:flex; justify-content:flex-end; gap:10px; }
+    .ai-toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); z-index:101; padding:12px 16px; border-radius:10px; background:#171022; border:1px solid var(--pink); color:var(--ink); font-size:13px; max-width:92vw; text-align:center; }
     .copy { display:flex; align-items:center; gap:7px; background:var(--green); color:var(--dark); border-radius:7px; padding:9px 13px; font-size:11px; font-weight:800; }
     .characters { border-top:1px solid var(--line); padding:20px 23px 0; }
     .section-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
@@ -234,7 +245,7 @@
       <div class="panel output">
         <div class="panel-head output-head"><div><div class="eyebrow">02 / Your prompt</div><div class="panel-title">Make precise adjustments <span id="selectedPromptName"></span></div></div><span class="status" id="status">READY TO GENERATE</span></div>
         <div class="prompt-wrap"><textarea id="prompt" spellcheck="false">Upload an image and generate a prompt to see a detailed, editable description here. Every subject will be separated so you can keep, remove, or customize them.</textarea><span class="word-count" id="wordCount">23 words</span></div>
-        <div class="prompt-tools"><button class="tool-link" id="reset" type="button">↺ Reset prompt</button><button class="copy" id="copy" type="button">Copy prompt <span>↗</span></button></div>
+        <div class="prompt-tools"><button class="tool-link" id="reset" type="button">↺ Reset prompt</button><button class="copy" id="copy" type="button">Copy prompt <span>↗</span></button><button class="ai-open" type="button" data-ai="chatgpt">Open in ChatGPT</button><button class="ai-open" type="button" data-ai="gemini">Open in Gemini</button></div>
         <div class="diagnostics" id="diagnostics"><div class="diagnostics-summary" id="diagnosticsSummary">No analysis response yet.</div><pre id="rawData"></pre></div>
         <div class="characters">
           <div class="section-row"><h3>Characters in this image <span id="characterCount" style="color:#9aaa9e;font-weight:500">(0)</span></h3><button class="add" id="addCharacter" type="button">＋ Add character</button></div>
@@ -251,6 +262,14 @@
       </div>
     </section>
   </main>
+  <div class="ai-modal" id="aiModal" hidden>
+    <div class="ai-box" role="dialog" aria-modal="true" aria-labelledby="aiTitle">
+      <h3 id="aiTitle">Open in ChatGPT</h3>
+      <ol id="aiSteps"></ol>
+      <div class="ai-actions"><button type="button" class="tool-link" id="aiCancel">Cancel</button><button type="button" class="copy" id="aiGo">Continue ↗</button></div>
+    </div>
+  </div>
+  <div class="ai-toast" id="aiToast" hidden></div>
   <script>
     const $ = (selector) => document.querySelector(selector);
     const fileInput = $('#fileInput'), dropZone = $('#dropZone'), fileName = $('#fileName'), removeFile = $('#removeFile'), analyzeButton = $('#analyzeImage');
@@ -542,7 +561,7 @@
       brandClicks += 1;
       clearTimeout(brandClickTimer);
       brandClickTimer = setTimeout(() => { brandClicks = 0; }, 3500);
-      if (brandClicks >= 10) { brandClicks = 0; showBootModal(); }
+      if (brandClicks >= 10) { brandClicks = 0; if (typeof window.openAdmin === 'function') window.openAdmin(); else showBootModal(); }
     });
     $('#bootClose').addEventListener('click', () => $('#bootModal').classList.remove('open'));
     function editCharacter(row) {
@@ -667,6 +686,47 @@
       promptBox.value = `${measured}\n\nCHARACTER EDITING LAYER\n${people}\n\nOPTIONAL USER OVERRIDES\nThe image analysis above remains the source of truth. Only apply these controls when the user intentionally changes them; otherwise preserve the analyzed image values exactly. User-selected mood: ${mood}. User-selected time: ${time}. User-selected style: ${style}. User-selected aspect ratio: ${ratio}.\n\nFIDELITY AND NEGATIVE CONSTRAINTS\n${analyzed.negativeConstraints || 'Do not hallucinate details that are not visible. Do not change the camera perspective, subject count, identity, object placement, lighting direction, background structure, or spatial relationships unless explicitly edited by the user.'}`;
       status.textContent = 'GENERATED JUST NOW'; status.style.background = '#edf8e7'; updateCount();
     });
+    const AI_TARGETS = {
+      chatgpt: { name: 'ChatGPT', url: prompt => prompt.length <= 6000 ? `https://chatgpt.com/?q=${encodeURIComponent(prompt)}` : 'https://chatgpt.com/', autofill: true },
+      gemini: { name: 'Gemini', url: () => 'https://gemini.google.com/app', autofill: false }
+    };
+    let pendingAi = null;
+    function showAiToast(message) {
+      const toast = $('#aiToast'); toast.textContent = message; toast.hidden = false;
+      clearTimeout(showAiToast.timer); showAiToast.timer = setTimeout(() => { toast.hidden = true; }, 7000);
+    }
+    function copyPromptText(text) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+      return Promise.resolve(fallbackCopy(text));
+    }
+    function fallbackCopy(text) {
+      const area = document.createElement('textarea'); area.value = text; area.style.position = 'fixed'; area.style.opacity = '0';
+      document.body.appendChild(area); area.select(); try { document.execCommand('copy'); } catch (error) {} area.remove();
+    }
+    document.querySelectorAll('.ai-open').forEach(button => button.addEventListener('click', () => {
+      const prompt = promptBox.value.trim();
+      if (!prompt || prompt.startsWith('Upload an image') || prompt.startsWith('Loading')) { showAiToast('Choose an image first so there is a prompt to send.'); return; }
+      pendingAi = AI_TARGETS[button.dataset.ai];
+      const autofill = pendingAi.autofill && prompt.length <= 6000;
+      $('#aiTitle').textContent = `Open in ${pendingAi.name}`;
+      $('#aiSteps').innerHTML = autofill
+        ? `<li>${pendingAi.name} opens in a new tab with your prompt <b>already filled in</b> (a copy is also saved to your clipboard).</li><li>Click the <b>+ / 📎</b> button and <b>attach your photo</b> (or your product photo).</li><li>Press <b>Send</b>. If it sent before you added the photo, just upload the photo in your next message.</li>`
+        : `<li>Your prompt is <b>copied to your clipboard</b> and ${pendingAi.name} opens in a new tab.</li><li>Click in the chat box and press <b>Ctrl+V</b> (<b>⌘+V</b> on Mac, or long-press → Paste on phone).</li><li>Click the <b>+ / 📎</b> button, <b>attach your photo</b>, then press <b>Send</b>.</li>`;
+      $('#aiModal').hidden = false; $('#aiGo').focus();
+    }));
+    $('#aiCancel').addEventListener('click', () => { $('#aiModal').hidden = true; pendingAi = null; });
+    $('#aiModal').addEventListener('click', event => { if (event.target.id === 'aiModal') $('#aiCancel').click(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#aiModal').hidden) $('#aiCancel').click(); });
+    $('#aiGo').addEventListener('click', () => {
+      if (!pendingAi) return;
+      const prompt = promptBox.value.trim();
+      copyPromptText(prompt);
+      const opened = window.open(pendingAi.url(prompt), '_blank');
+      if (opened) opened.opener = null;
+      $('#aiModal').hidden = true;
+      showAiToast(opened === null ? `Prompt copied. Your browser blocked the new tab — allow pop-ups for this site and try again.` : pendingAi.autofill ? `Opened ${pendingAi.name}. Attach your photo, then send.` : `Prompt copied. In ${pendingAi.name}, press Ctrl+V (⌘+V), attach your photo, then send.`);
+      pendingAi = null;
+    });
     $('#copy').addEventListener('click', async () => { await navigator.clipboard.writeText(promptBox.value); const button = $('#copy'); button.innerHTML = 'Copied ✓'; setTimeout(() => button.innerHTML = 'Copy prompt <span>↗</span>', 1500); });
     $('#reset').addEventListener('click', () => { promptBox.value = defaultPrompt; status.textContent = 'READY TO GENERATE'; updateCount(); });
     promptBox.addEventListener('input', updateCount);
@@ -686,5 +746,6 @@
     updateCount();
     introTimer = setTimeout(() => $('#introScreen').classList.add('done'), 2400);
   </script>
+  <script src="admin/admin.js?v=1" defer></script>
 </body>
 </html>
